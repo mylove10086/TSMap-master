@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>21.3粤政图与地图切换</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let tsMap;
+    let yzt;
+
+    function init() {
+        tsMap = new TsMap();//初始化地图
+    }
+
+    var bol = true;
+
+    function chengtfun() {
+        if (bol) {
+            tsMap.setBaseMap("img_w");
+            tsMap.setBaseMap("cia_w");
+            bol = false;
+        } else {
+            //http://210.76.76.169:8081/maps-webapp/geography/yzt?layer=vec_c&tilematrixset=c&Service=WMTS&Version=1.0.0&Format=tiles&TileMatrix=7&TileCol=104&TileRow=23
+            tsMap.map.setYZTLayer({
+                //url: "http://19.15.70.147:18091/maps-webapp/geography/egis",
+                //url: "http://19.15.70.147:18091/maps-webapp/geography/yzt",
+                url: "http://210.76.76.169:8081/maps-webapp/geography/yzt",
+                //layer: "img_vec_c",
+                layer: "vec_c",
+                index: 0//表示加载最底层，一般瓦片为0，注释为1
+            });
+          /*  tsMap.getMap().setEGisLayer({
+                url: "http://19.15.70.147:18091/maps-webapp/geography/egis",
+                layer: "cva_c",
+                index: 1
+            });*/
+            bol = true;
+        }
+    }
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="chengtfun()">与其他地图切换</button>
+
+</body>
+</html>

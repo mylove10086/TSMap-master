@@ -1,0 +1,31 @@
+[-2, 95]
+[43, 160]
+
+ [12.316339, 69.646079]
+[54.376029, 140.209411]
+
+{
+    "radarCloudType": "req",
+    "radarUrl": "https://img.istrongcloud.com/data/modelimagejson/cloud/cma_transparent.json",
+    "cloudUrl": "/data/images/cloud/zjwater_transparent.json",
+    "radarRange": [
+        [
+            12.316339,
+            69.646079
+        ],
+        [
+            54.376029,
+            140.209411
+        ]
+    ],
+    "cloudRange": [
+        [
+            -2,
+            95
+        ],
+        [
+            43,
+            160
+        ]
+    ]
+}

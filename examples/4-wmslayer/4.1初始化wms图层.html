@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4.1初始化wms图层</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let tsMap;
+    let wmsLayer;
+
+    function init() {
+        window.tsMapConfig = {
+            mapEngine: 'OPENLAYERS',
+            baseMap: 'TIANDITU',
+
+            //baseMap: 'blue',
+            //baseMapTokens: new Map([['TIANDITU', 'c28cebc11e7fc6a379420ea844861d5b']]),
+            baseMapTokens: new Map([['TIANDITU', '219cd12e76133fbc43d1fa5954d870de']]),
+            baseMapLayerType: 'img_w',
+            tdtToken: '219cd12e76133fbc43d1fa5954d870de',
+            zoom: 8,
+            //minZoom: 3,
+            //maxZoom: 20.5,
+            center: [113.0000, 23.0000],
+            //extent: [70, 0,150,60],
+            projection: 4326,
+            httpsFlag: true// 是否使用https默认不使用
+        };
+
+        tsMap = new TsMap();//初始化地图
+        tsMap.setBaseMap("img_w");
+        /*wmsLayer = tsMap.addWmsLayer({
+            url: 'http://172.16.28.148:6080/geoserver/mysql/wms',//服务地址
+            layer: 'mysql:equip'//图层命名空间和名称
+        });*/
+    }
+
+    function nmglayer() {
+        //https://icas.obtdata.com/geoserver/neimeng/wms?service=WMS&version=1.1.0&request=GetMap&layers=neimeng%3Aneimenggu_level11&bbox=97.17132568359375%2C37.40570068359375%2C126.068115234375%2C53.33587646484375&width=768&height=423&srs=EPSG%3A4326&styles=&format=application/openlayers
+        //https://icas.obtdata.com/geoserver/neimeng/wms?service=WMS&version=1.1.0&request=GetMap&layers=neimeng%3Atestdata&bbox=99.93777290299803%2C41.01218816348952%2C111.69074951272228%2C41.084745934830515&width=768&height=330&srs=EPSG%3A4326&styles=&format=application/openlayers
+        //https://icas.obtdata.com/geoserver/neimeng/wms?service=WMS&version=1.1.0&request=GetMap&layers=neimeng%3Aneimenggu_shi&bbox=97.172763%2C37.406779%2C126.068359%2C53.337178&width=768&height=423&srs=EPSG%3A4326&styles=&format=application/openlayers
+        /*wmsLayer2 = tsMap.addWmsLayer({
+            //url: "http://localhost:6080/geoserver/wms",//服务地址
+            url: "http://172.16.28.160:6080/geoserver/wms",//服务地址
+            layer: "shapefile:meizhoulayer",//图层命名空间和名称
+        });*/
+        wmsLayer2 = tsMap.addWmsLayer({
+            //url: "http://localhost:6080/geoserver/wms",//服务地址
+            url: "http://localhost:6080/geoserver/shapefile/wms",//服务地址
+            layer: "shapefile:meizhoulayer",//图层命名空间和名称
+        });
+        /*var swmsLayer1 = tsMap.addWmsLayer({
+            url: 'https://icas.obtdata.com/geoserver/neimeng/wms',//服务地址
+            layer: 'neimeng:testdata'//图层命名空间和名称
+        });var swmsLayer1 = tsMap.addWmsLayer({
+            url: 'https://icas.obtdata.com/geoserver/neimeng/wms',//服务地址
+            layer: 'neimeng:neimenggu_shi'//图层命名空间和名称
+        });*/
+    }
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="nmglayer()">nmglayer</button>
+</body>
+</html>

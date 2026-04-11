@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4.3wms图层属性查询</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let map;
+    let wms;
+
+    function init() {
+        tsMap = new TsMap();//初始化地图
+        wms = tsMap.addWmsLayer({
+            url: 'http://172.16.28.148:6080/geoserver/mysql/wms',//服务地址
+            layer: 'mysql:equip'//图层命名空间和名称
+        });
+    }
+
+    function spatialQuery(type) {
+        /**
+         * 用于添加过滤条件
+         * @param object {CQL:'type_id BETWEEN 1000 AND 3000'}
+         * condition 当等于null是清除过滤条件，下面是过滤的例子
+         *  let condition='type_id BETWEEN 1000 AND 3000'
+         *  let condition="address IN ('东莞市大岭山镇大塘朗村湖畔工业园', '东莞市厚街镇桥头村黑山工业区', '东莞市厚街镇新围社区环湖路旁', '东莞市厚街镇双岗管理区官美厦村')"
+         *  let condition="type_id >1000 and address like '东莞市%'"
+         *  let condition="address like '东莞市%'"
+         *  let condition="address = '东莞市大岭山镇大塘朗村湖畔工业园'"
+         */
+
+        let attr = document.getElementById('attr').value;
+        let value = document.getElementById('value').value;
+        let str = attr + '>' + value;
+        wms.attributeQuery({
+            condition: str
+        });
+    }
+
+    function clearFilter() {
+        wms.attributeQuery(null);
+    }
+
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<input id="attr" value="id"><label>></label>
+<input id="value" value="1000">
+
+<button onclick="spatialQuery('Circle')">属性查询</button>
+<button onclick="clearFilter()">清除过滤条件</button>
+</body>
+</html>

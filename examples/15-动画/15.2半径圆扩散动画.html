@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>15.2半径圆扩散动画</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="../../dist/js/tsmap.js"></script>
+</head>
+<script>
+    let tsMap = null;
+
+    let gjson = null;
+
+    function init() {
+        tsMap = new TsMap({zoom: 9});
+        gjson = tsMap.addPointAnimateLayer();
+    }
+
+    let feature;
+
+    function addRadiusCircle() {
+        //指定半径的圆
+        let graphic = {
+            "geometry": {
+                "coordinates": [
+                    113.25966982,
+                    23.13177722
+                ],
+                radius: 50000,//半径，默认是100
+                step: 500//步数
+            }
+        };
+        let graphic1 = {
+            "geometry": {
+                "coordinates": [
+                    113.35966982,
+                    23.13177722
+                ],
+                radius: 5000,//半径，默认是100
+                step: 50//步数
+            }
+        };
+        feature = gjson.addFeature(graphic);
+        gjson.addFeature(graphic1);
+
+
+    }
+
+    function setStylefun() {
+
+        //动画层样式
+        var object = {
+            style: {
+                fill: 'rgba(240,72,255,0.5)',//填充颜色
+                width: 5,//线宽
+                color: 'rgba(69,255,126,0.5)',//线颜色
+                lineDash:[10,10]
+            }
+        };
+        gjson.setStyle(object);
+    }
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="addRadiusCircle()">添加半径圆</button>
+<button onclick="setStylefun()">设置样式</button>
+</body>
+</html>

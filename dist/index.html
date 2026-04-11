@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../lib/openlayers/ol.css">
+
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="../lib/leaflet/leaflet.css">
+    <script src="../lib/leaflet/leaflet-src.js"></script>
+
+</head>
+<script>
+    var map = null;
+
+
+    function init() {
+        map = new OlMap('map', {
+            url: "http://mt2.google.cn/vt/lyrs=y&hl=zh-CN&gl=CN&src=app&x={x}&y={y}&z={z}&s=G",
+            zoom: 12,
+            longitude: 113,
+            latitude: 23,
+            projection: 4326
+        });
+        map.setCoordinateFun(callbackFun);
+    }
+
+    function callbackFun(e) {
+        console.log(e);
+        document.getElementById('scale').innerHTML = "Scale = 1 : " + e.scale + "   lon:" + e.coordinate[0] + " lat:" + e.coordinate[1];
+    }
+
+    function centerFun() {
+        map.setZoomAndCenter({
+            lon: 113,
+            lat: 22,
+            zoom: 15
+        });
+    }
+
+    function OverviewMapFun() {
+        map.setOverviewMap(true);
+    }
+    function reOverviewMapFun() {
+        map.setOverviewMap(false);
+    }
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="centerFun()">设置中心点</button>
+<button onclick="OverviewMapFun()">添加鹰眼</button>
+<button onclick="reOverviewMapFun()">移除鹰眼</button>
+<div id="scale"></div>
+
+<script src="js/tsmap.js"></script></body>
+</html>

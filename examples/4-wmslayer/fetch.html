@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function showfun() {
+        var scq="adcode like '44140310%' and BBOX(the_geom,115.84987099468708,24.185153480619192,116.14845313642606,24.48373562235816)";
+        scq = encodeURIComponent(scq);
+
+        var url = "http://localhost:6080/geoserver/shapefile/wms/ows?service=WFS&version=1.0.0&request=GetFeature&typename=shapefile:meizhoulabel&outputFormat=application/json&srsname=EPSG:4326&CQL_FILTER="+scq;
+        fetch(url, {
+            method: 'POST',
+        }).then(function (response) {
+            return response.json();
+        }).then(function (json) {
+
+            console.log(json);
+        });
+
+    }
+</script>
+<body>
+<button onclick="showfun()">show</button>
+</body>
+</html>

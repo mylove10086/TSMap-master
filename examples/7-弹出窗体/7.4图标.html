@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11.6设置图形样式</title>
+
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+</head>
+<script>
+    let tsMap = null;
+
+    let gjson = null;
+
+    let gjson1 = null;
+    let pop = null;
+    let sein = null;
+
+    function init() {
+        tsMap = new TsMap({
+            target: "emergencyMap",
+            baseMap: 'TIANDITU',
+            baseMapTokens: new Map([['TIANDITU', '0c408b2742b51c99f79f0fe2d9b63aa8']]),
+            baseMapLayerType: 'img_w',
+            zoom: 10.6,
+            minZoom: 7,
+            maxZoom: 18.9,
+            center1: [113.26417, 22.99139],
+            center: [113.323231, 23.419366]
+        })
+        //tsMap = new TsMap();
+        pop = tsMap.getPopupsRight();
+        sein = tsMap.getSelectionIndicator();
+        tsMap.getMap().setCoordinateCallback(coordinateCallback);
+        tsMap.getMap().setMapClickCallback(clickfun);
+
+        gjson = tsMap.addGraphicLayer();
+        gjson1 = tsMap.addGraphicLayer();
+        centerFun();
+    }
+
+    function clickfun(e, f) {
+        if (f.properties) {
+            if (f.properties.tyle === "tyle1") {
+
+                let coordinate = f.coordinate;
+                sein.setPosition(coordinate);
+                pop.setPosition(coordinate, "", e.properties.name);
+
+            } else {
+                sein.setPosition(undefined);
+
+            }
+
+        } else {
+            sein.setPosition(undefined);
+        }
+    }
+
+
+    function coordinateCallback(e) {
+        console.log(e);
+        if (e.properties) {
+            if (e.properties.tyle === "tyle1") {
+                let coordinate = e.coordinate;
+                pop.setPosition(coordinate, "", e.properties.name);
+            } else {
+                pop.setPosition(undefined, "", "");
+
+            }
+
+        } else {
+            pop.setPosition(undefined, "", "");
+
+        }
+
+    }
+
+    let feature;
+
+    function centerFun() {
+        let graphic3 = {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    113.25966982,
+                    23.13177722
+                ]
+            },
+            properties: {
+                name: "name",
+                tyle: "tyle1"
+            }
+        };
+        gjson.addFeature(graphic3);
+        gjson1.addFeature(graphic3);
+
+
+    }
+
+    function setStylefun() {
+        /*{anchor:null,//图片锚点位置
+       url : null,//图片url
+       fill : null,//填充颜色
+       width : null,//线宽
+       radius: null,//圆半径
+       color : null,//线颜色
+       scale :1,//图片缩放比例
+       rotation : 0}//图片旋转角度，顺时针方向*/
+
+
+        var object = {
+            types: 'types',
+            label: 'types',
+            style: {
+                url: '../data/gd.png',//图片url
+                fill: 'rgba(240,72,255,0.0)',//填充颜色
+                width: 5,//线宽
+                anchor: [0.5, 0.9],
+                radius: 50,//圆半径
+                scale: 0.2,
+                color: '#ff11bb'//线颜色
+            },
+            text: {
+                color: '#ffffff',
+                scale: 1
+            }
+        };
+        gjson.setStyle(object);
+
+    }
+
+    function setPopstyle() {
+        //popup.window是弹出窗的底部div
+        pop.window.style.backgroundColor = 'rgba(98,250,97,0.8)';
+        pop.window.style.top = '-10px';
+        //标题行div
+        //pop.title.style.backgroundColor='rgba(250,50,60,0.8)';
+        //关闭按钮a
+        //pop.closer.style.backgroundColor='rgba(250,71,240,0.8)';
+
+        //内容div
+        pop.content.style.backgroundColor = 'rgba(72,250,248,0.8)';
+    }
+</script>
+<body onload="init()">
+<div id="emergencyMap" style="height: 500px"></div>
+<button onclick="setStylefun()">设置样式</button>
+<button onclick="setPopstyle()">设置弹窗样式</button>
+</body>
+</html>

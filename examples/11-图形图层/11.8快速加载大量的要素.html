@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11.2显示线</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="../../lib/jquery-3.5.0.js"></script>
+
+</head>
+<script>
+    let tsMap = null;
+
+    let gjson = null;
+
+    function init() {
+        tsMap = new TsMap();
+        gjson = tsMap.addGraphicLayer();
+        drawTool = tsMap.addDraw();
+
+        drawTool.setDrawEndCallback(funs);
+
+    }
+
+    function funs(e, f) {
+        var obj = gjson.spatialQueryFromPolygon({coordinate: f.coordinate});
+
+    }
+
+    let feature;
+
+    function centerFun() {
+        let graphic1 = {
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        112.83877986,
+                        23.53951545
+                    ],
+                    [
+                        112.79533445,
+                        23.5748072
+                    ],
+                    [
+                        112.75803845,
+                        23.59552559
+                    ],
+                    [
+                        112.74718618,
+                        23.6018045
+                    ],
+                    [
+                        112.72703798,
+                        23.6134563
+                    ]
+                ]
+            }
+        };
+        var graphic = [graphic1];
+        var url = "http://api.tianditu.gov.cn/search?postStr={\"keyWord\":\"中山大学\",\"level\":\"11\",\"mapBound\":\"112.33467134413196,22.747035876354136,114.28906515941698,23.86987127809056\",\"queryType\":\"2\",\"count\":\"20\",\"start\":\"0\"}&type=query&tk=0c408b2742b51c99f79f0fe2d9b63aa8"
+        $.ajax({
+            type: 'GET',
+            url: url,
+            success: function (res) {
+                console.log(res);
+                var gr = [];
+                for (var i = 0; i < res.pois.length; i++) {
+                    let item = res.pois[i]
+                    let ll = item.lonlat.split(" ");
+                    let graphic1 = {
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [
+                                parseFloat(ll[0]),
+                                parseFloat(ll[1])
+                            ]
+                        }
+                    };
+                    gr.push(graphic1)
+                }
+                gjson.addFeatures(gr);
+
+            }
+        });
+        gjson.addFeatures(graphic);
+
+    }
+
+    function drawFun(type) {
+
+        drawTool.drawBox();
+
+    }
+
+    function spatialQuery() {
+        gjson.spatialQueryFromPolygon();
+
+    }
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="centerFun()">添加线数据</button>
+
+<button onclick="drawFun('Box')">矩形</button>
+<button onclick="spatialQuery('Polygon')">取消查询</button>
+
+</body>
+</html>

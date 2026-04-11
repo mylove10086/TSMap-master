@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.3切换在线底图</title>
+
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 1000px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+</head>
+<script>
+    let tsMap;
+    let drawTool;
+
+    function init() {
+        tsMap = new TsMap();
+        drawTool = tsMap.addDraw();
+
+
+    }
+
+    // vec_c 天地图矢量底图
+    // img_w 天地图影像地图
+    // cva_w 天地图矢量注记
+    // cia_w 天地图影像注记
+    function tdt_vec_c() {
+        tsMap.setBaseMap("vec_c");
+    }
+
+    function tdt_img_w() {
+        tsMap.setBaseMap("img_w");
+    }
+
+    function tdt_cia_w() {
+        tsMap.setBaseMap("cia_w");
+    }
+
+    function tdt_cva_w() {
+        tsMap.setBaseMap("cva_w");
+    }
+
+    function tdt_img_wcia_w() {
+        tsMap.setBaseMap("img_w");
+        tsMap.setBaseMap("cia_w");
+    }
+
+    function tdt_vec_ccva_w() {
+        tsMap.setBaseMap("vec_c");
+        tsMap.setBaseMap("cva_w");
+    }
+
+    function baidufun() {
+        var url = "https://api.map.baidu.com/customimage/tile?&x={x}&y={y}&z={z}&udt=20220221&scale=1&ak=LPQAVkzSThbmIRI1YVo8VuzwlTrQG9T1&styles=t%3Aland%7Ce%3Ag%7Cc%3A%230A1831%2Ct%3Abuilding%7Ce%3Ag%7Cc%3A%231D325E%2Ct%3Ahighway%7Ce%3Aall%7Cl%3A-42%7Cs%3A-91%2Ct%3Aarterial%7Ce%3Ag%7Cl%3A-77%7Cs%3A-94%2Ct%3Agreen%7Ce%3Ag%7Cc%3A%231b1b1b%2Ct%3Awater%7Ce%3Ag%7Cc%3A%23181818%2Ct%3Asubway%7Ce%3Ag.s%7Cc%3A%23181818%2Ct%3Arailway%7Ce%3Ag%7Cl%3A-52%2Ct%3Aall%7Ce%3Al.t.s%7Cc%3A%23313131%2Ct%3Aall%7Ce%3Al.t.f%7Cc%3A%238b8787%2Ct%3Amanmade%7Ce%3Ag%7Cc%3A%231b1b1b%2Ct%3Alocal%7Ce%3Ag%7Cc%3A%23ef10adff%7Cl%3A-75%7Cs%3A-91%7Ch%3A%239f2424%2Ct%3Asubway%7Ce%3Ag%7Cl%3A-65%2Ct%3Arailway%7Ce%3Aall%7Cl%3A-40%2Ct%3Aroad%7Ce%3Ag%7Cc%3A%231890ffff%7Cl%3A-69%7Cw%3A1%7Ch%3A%231890ff";
+
+        tsMap.setBaseMap("baidu", {url: url});
+    }
+
+    function removeLabel() {
+        tsMap.setBaseMap();//移除标准，不传参数
+    }
+
+    function bingMapfun() {
+        // 自定义的bingmap
+        var url = "http://localhost:7080/image/{quadkey}.jpeg";
+        url = "http://172.16.27.183:8080/map/tiles/{quadkey}.jpeg";
+        tsMap.setBaseMap("bingmap", {url: url});
+    }
+
+    function addLayer1() {
+        tsMap.setBaseMap("blue");
+    }
+
+    function addLayer2() {
+        tsMap.setBaseMap("community");
+    }
+
+    function addLayer3() {
+        tsMap.setBaseMap("gray");
+    }
+
+    function addLayer4() {
+        tsMap.setBaseMap("topo");
+    }
+
+    function addLayerrul() {
+        var tileUrl1 = 'http://172.16.27.74:8083/map/tiles/{z}/{y}/{x}.png';
+        //tileUrl1 = 'http://172.16.27.75:8082/tiles/seamap2019/{z}/{x}/{y}.png';
+        var extent = [-20039508.342789244, -20037508.342789244, 20037508.342789244, 20037508.342789244]
+
+        var w = -20039508.342789244;
+        var e = 20039508.342789244;
+        var n = 20039508.342789244;
+        var s = -20037508.342789244;
+        var x = -700;
+        var y = 16000;
+        extent = [w + x, s + y, e + x, n + y]
+        console.log(extent);
+        tsMap.setBaseMap("url", {
+            url: tileUrl1,
+            extent: extent
+        });
+        var swmsLayer = tsMap.addWmsLayer({
+            url: "http://172.16.28.160:6080/geoserver/ics/wms",//服务地址
+            layer: "ics:t_crawl_ship1",//图层命名空间和名称
+        });
+    }
+
+    function addLayerru2() {
+        var tileUrl1 = 'http://172.16.27.74:8083/map/tiles/{z}/{y}/{x}.png';
+        tsMap.setBaseMap("url", {url: tileUrl1});
+
+    }
+
+    function cxwfun() {
+        var key = "0e222a1ac48747e9a54bfede2037bf0b";//广航局key
+        var img_w_url = "https://api.shipxy.com/apicall/GetMTile?k=" + key + "&x={x}&y={y}&z={z}";
+        var yx = "https://gwxc.shipxy.com/tile.g?x={x}&y={y}&z={z}"//影像图
+        yx = "https://api.shipxy.com/apicall/GetMTile?k=0e222a1ac48747e9a54bfede2037bf0b&projection_type=wmgcj&x={x}&y={y}&z={z}";
+
+
+        tsMap.setBaseMap("url", {
+            url: yx,
+            westSouthEastNorth: [
+                -20037508.342789244,
+                -20037508.342789244,
+                20037508.342789244,
+                20037508.342789244
+            ],
+            projection: "EPSG:3395"
+        });
+        //tsMap.setBaseMap("url", {url: img_w_url});
+
+    }
+
+    function tdtfun() {
+
+        var yx = 'http://localhost:8080/tdt/{z}/{y}/{x}.jpeg';
+
+        tsMap.setBaseMap("url", {url: yx});
+        //tsMap.setBaseMap("url", {url: img_w_url});
+
+    }
+
+    function egisfun() {
+        /*全国二维矢量地图1-18级	vec_c
+        全国二维矢量注记1-18级	cva_c
+        全国二维地形地图1-18级	ter_vec_c
+        全国二维地形注记1-18级	ter_cva_c
+        全国二维地形地图行政区划1-18级	ter_tbo_c
+        全国二维影像地图1-18级	img_vec_c
+        全国二维影像注记1-18级	img_cva_c
+        全国二维影像地图行政区划1-18级	img_ibo_c
+        全国二维影像(0.27米）1-19级	img_vecKD_c*/
+
+        var url = "https://api.map.baidu.com/customimage/tile?&x={x}&y={y}&z={z}&udt=20220221&scale=1&ak=LPQAVkzSThbmIRI1YVo8VuzwlTrQG9T1&styles=t%3Aland%7Ce%3Ag%7Cc%3A%230A1831%2Ct%3Abuilding%7Ce%3Ag%7Cc%3A%231D325E%2Ct%3Ahighway%7Ce%3Aall%7Cl%3A-42%7Cs%3A-91%2Ct%3Aarterial%7Ce%3Ag%7Cl%3A-77%7Cs%3A-94%2Ct%3Agreen%7Ce%3Ag%7Cc%3A%231b1b1b%2Ct%3Awater%7Ce%3Ag%7Cc%3A%23181818%2Ct%3Asubway%7Ce%3Ag.s%7Cc%3A%23181818%2Ct%3Arailway%7Ce%3Ag%7Cl%3A-52%2Ct%3Aall%7Ce%3Al.t.s%7Cc%3A%23313131%2Ct%3Aall%7Ce%3Al.t.f%7Cc%3A%238b8787%2Ct%3Amanmade%7Ce%3Ag%7Cc%3A%231b1b1b%2Ct%3Alocal%7Ce%3Ag%7Cc%3A%23ef10adff%7Cl%3A-75%7Cs%3A-91%7Ch%3A%239f2424%2Ct%3Asubway%7Ce%3Ag%7Cl%3A-65%2Ct%3Arailway%7Ce%3Aall%7Cl%3A-40%2Ct%3Aroad%7Ce%3Ag%7Cc%3A%231890ffff%7Cl%3A-69%7Cw%3A1%7Ch%3A%231890ff";
+        url = "http://210.76.76.169:8081/maps-webapp/geography/egis?layer=img_vec_c";
+
+        tsMap.setBaseMap("egis", {url: url});//底图
+        url = "http://210.76.76.169:8081/maps-webapp/geography/egis?layer=ter_cva_c";
+        tsMap.setBaseMap("egislabel", {url: url});//注记
+    }
+</script>
+<body onload="init()">
+<div id="map" class="map"></div>
+<button onclick="tdt_img_w()">天地图影像地图</button>
+<button onclick="tdt_cia_w()">天地图影像注记</button>
+<button onclick="tdt_vec_c()">天地图矢量底图</button>
+<button onclick="tdt_cva_w()">天地图矢量注记</button>
+<button onclick="tdt_img_wcia_w()">天地图影像地图和影像注记</button>
+<button onclick="tdt_vec_ccva_w()">天地图矢量底图和矢量注记</button>
+<button onclick="baidufun()">百度地图灰色版</button>
+<button onclick="bingMapfun()">自定义的bingmap</button>
+<br/>
+<button onclick="removeLabel()">移除标注</button>
+<br/>
+
+<button onclick="addLayer1()">典雅蓝黑</button>
+<button onclick="addLayer2()">经典彩色</button>
+<button onclick="addLayer3()">低调灰色</button>
+<button onclick="addLayer4()">addLayer4</button>
+<button onclick="addLayerrul()">本地url地址</button>
+<button onclick="addLayerru2()">本地url2地址</button>
+<button onclick="egisfun()">egis</button>
+<button onclick="cxwfun()">船讯网海图</button>
+<button onclick="tdtfun()">下载的天地图</button>
+
+</body>
+</html>

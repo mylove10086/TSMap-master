@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let map;
+    let socket;
+
+    let drawTool;
+    var timestamp;
+
+    function init() {
+        map = new TsMap();//初始化地图
+        drawTool = map.addDraughtDraw();
+        drawTool.setCallback(backfun);
+        timestamp = Date.parse(new Date());
+
+        socket = new WebSocket('ws://172.16.27.183:8889/websocket/server/group?uid=2&name=mane');
+        socket.onopen = function (e) {
+            console.log(e);
+        }
+        socket.onmessage = function (e) {
+            console.log(e);
+            var data = JSON.parse(e.data);
+
+            if (data)
+                addGraphic(data);
+        }
+    }
+
+    var obj = null;
+
+    function backfun(e) {
+        console.log(e);
+        var obj = {
+            message: e
+        }
+        console.log(JSON.stringify(obj));
+        socket.send(JSON.stringify(obj));
+    }
+
+    /**
+     * 绘制图形空间查询条件
+     * @param type
+     * Circle//圆
+     * Box//矩形
+     * Polygon//多边形
+     * RadiusCircle//指定半径的圆
+     */
+    function drawFun(opt) {
+        var style;
+        var attribute = {}//属性可以随意填
+        var type;
+        switch (opt) {
+            case "Text":
+                attribute = {
+                    name: 'adfadf'
+                };
+                type = "Text";
+                style = {
+                    text: "123654",//文字要设置这个
+                    url: 'img/gd.png',//图片url
+                    fill: 'rgba(240,72,255,0.5)',//填充颜色
+                    width: 5,//线宽
+                    anchor: [0.5, 0.9],
+                    radius: 50,//圆半径
+                    scale: 1.5,
+                    size: 1.0,// 文字的大小
+                    color: '#ffffff'//线颜色
+                };
+                break;
+            case "Point":
+                attribute = {
+                    name: 'adfadf'
+                };
+                type = "Point";
+                style = {
+                    text: "123654",//文字要设置这个
+                    url: 'img/gd.png',//图片url
+                    fill: 'rgba(240,72,255,0.5)',//填充颜色
+                    width: 5,//线宽
+                    anchor: [0.5, 0.9],
+                    radius: 1,//圆半径
+                    scale: 0.1,
+                    size: 1.0,// 文字的大小
+                    color: '#84fa45'//线颜色,或者文字的颜色
+                };
+                break;
+            case "LineString":
+                style = {
+                    fill: 'rgba(36,255,206,0.68)',//填充颜色
+                    width: 5,//线宽
+                    radius: 50,//圆半径
+                    color: '#ff11bb'//线颜色
+                };
+                type = "LineString";
+
+                break;
+            case "Polygon":
+                style = {
+                    fill: 'rgba(125,13,224,0.68)',//填充颜色
+                    width: 5,//线宽
+                    radius: 50,//圆半径
+                    color: '#ff11bb'//线颜色
+                };
+                type = "Polygon";
+                break;
+            case "FineArrow":
+                style = {
+                    fill: 'rgba(104,194,105,0.3)',//填充颜色
+                    width: 5,//线宽
+                    radius: 50,//圆半径
+                    color: '#cd712c'//线颜色
+                };
+                type = "FineArrow";
+                break;
+            case "AttackArrow":
+                style = {
+                    fill: 'rgba(220,110,36,0.3)',//填充颜色
+                    width: 5,//线宽
+                    radius: 50,//圆半径
+                    color: '#cd712c'//线颜色
+                };
+                type = "AttackArrow";
+                break;
+            case "PincerArrow":
+                style = {
+                    fill: 'rgba(104,194,105,0.3)',//填充颜色
+                    width: 5,//线宽
+                    radius: 50,//圆半径
+                    color: '#0c21ad'//线颜色
+                };
+                type = "PincerArrow";
+                break;
+        }
+
+        var object = {
+            style: style,
+            //attribute: attribute,
+            type: type
+        };
+        drawTool.drawGraphic(object);
+    }
+
+    function modifyGraphicfun() {
+        drawTool.modifyGraphic(true);
+    }
+
+    function modifytext() {
+        var d = document.getElementById('input').value;
+        drawTool.modifyText(d);
+    }
+
+    function modifytext1() {
+        var d = document.getElementById('input').value;
+        var object = {
+            gid: obj.attribute.gid,
+            label: d
+        }
+        drawTool.modifyText(object);
+    }
+
+    function addGraphic(data) {
+        var data1 = {
+            "properties": {
+                "name": "adfadf",
+                "gid": "3b746ab0-e032-4f8a-bb48-4f3f544bd735"
+            },
+            "style": {
+                "url": "img/gd.png",
+                "fill": "rgba(240,72,255,0.5)",
+                "width": 5,
+                "anchor": [
+                    0.5,
+                    0.9
+                ],
+                "radius": 50,
+                "scale": 0.1,
+                "color": "#84fa45"
+            },
+            "type": "Point",
+            "coordinates": [
+                112.3634553060547,
+                22.994506835937504
+            ]
+        }
+        drawTool.addFeature(data);
+    }
+
+    function removeFeatureFun() {
+        if (obj) {
+            drawTool.removeFeature(obj.attribute.gid);
+        }
+
+    }
+
+    let bl = false;
+
+    function showfun() {
+        if (bl) {
+            drawTool.setVisible(bl);
+            bl = false;
+        } else {
+            drawTool.setVisible(bl);
+            bl = true;
+        }
+    }
+
+</script>
+<body onload="init()">
+<div id="map" style="height:300px"></div>
+<button onclick="drawFun('Point')">Point</button>
+<button onclick="drawFun('Polygon')">Polygon</button>
+<button onclick="drawFun('LineString')">LineString</button>
+<button onclick="drawFun('FineArrow')">单箭头</button>
+
+<button onclick="drawFun('AttackArrow')">攻击箭头</button>
+<button onclick="drawFun('PincerArrow')">钳击箭头</button>
+<button onclick="drawFun('Text')">Text</button>
+
+
+<button onclick="modifyGraphicfun()">修改图形</button>
+<br/>
+<input id="input" value="123">
+<button onclick="modifytext()">修改文字</button>
+<button onclick="modifytext1()">通id修改文字</button>
+
+<button onclick="addGraphic()">添加绘制的图形</button>
+<button onclick="removeFeatureFun()">通过id删除图形(id为标会结束后返回的gid)</button>
+<button onclick="showfun()">图层显示隐藏</button>
+<br/>
+</body>
+</html>

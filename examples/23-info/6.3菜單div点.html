@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.1初始化地图</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    var tc;
+    var pointBillboarl;
+
+    function inits() {
+        tsMap = new TsMap({
+            target: 'tsMap',
+            baseMapLayerType: "img_w"
+        });
+        tsMap.setMapClickCallback(addinfo)
+
+        pointBillboarl = tsMap.addPointBillboardLayer();
+        pointBillboarl.height = 50000;// 设置地图高度大于多少不显示div
+        pointBillboarl.setClickCallback(backfun);
+        gjson = tsMap.addGraphicLayer();
+
+        let graphic1 = {
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [111.56628417968749, 23.203247070312504],
+                    [110.72583007812499, 23.203247070312504],
+                    [110.82470703124999, 22.631958007812504],
+                    [111.53332519531249, 22.642944335937504],
+                    [111.79699707031249, 22.917602539062504],
+                    [111.56628417968749, 23.203247070312504]
+                ]
+            }
+        };
+        gjson.addFeature(graphic1);
+    }
+
+    function addinfo(e, attributes) {
+        var item = attributes.features[0];
+        if (item) {
+            var name = item.layer;
+            var inner = "<img src='menu.png' style='width: 30px;height: 30px;'>";
+            let graphic1 = {
+                "geometry": {
+                    "coordinates": attributes.coordinate
+                },
+                properties: {
+                    id: "123",
+                    div: inner,// 优先使用自定义的div，
+                    name: name
+                    //content: inner,// 使用默认的样式
+                }
+            };
+            pointBillboarl.removeFeature("123");
+            pointBillboarl.addFeature(graphic1);
+
+
+        }
+
+
+    }
+
+    function backfun(obj) {
+        alert("af" + obj.id);
+    }
+
+    function addPoint() {
+        //填充内容
+        var inner = "<img src='menu.png' style='height: 30px;width: 30px;'>";
+        let graphic1 = {
+            "geometry": {
+                "coordinates": [
+                    113.0,
+                    23.0
+                ]
+            },
+            properties: {
+                id: "123",
+                div: inner,// 优先使用自定义的div，
+            }
+        };
+        pointBillboarl.addFeature(graphic1);
+
+
+    }
+
+
+</script>
+<body onload="inits()">
+<div id="tsMap" style="height: 500px"></div>
+<button onclick="addPoint()">添加点</button>
+</body>
+</html>

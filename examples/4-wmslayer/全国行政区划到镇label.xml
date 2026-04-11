@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StyledLayerDescriptor version="1.0.0" xmlns="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc"
+                       xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                       xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.0.0/StyledLayerDescriptor.xsd">
+    <NamedLayer>
+        <Name>gdsxzalabel</Name>
+        <UserStyle>
+            <Name>label</Name>
+            <Title>Points of interest</Title>
+            <Abstract>Manhattan points of interest</Abstract>
+            <FeatureTypeStyle>
+                <Rule>
+                    <Name>rule2</Name>
+                    <Title>Gray Polygon with Black Outline</Title>
+                    <Abstract>A polygon with a gray fill and a 1 pixel black outline</Abstract>
+                    <MinScaleDenominator>0</MinScaleDenominator>
+                    <MaxScaleDenominator>50000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>grade</ogc:PropertyName>
+                            <ogc:Literal>4</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <TextSymbolizer>
+                        <Label>
+                            <ogc:PropertyName>Name</ogc:PropertyName>
+                        </Label>
+                        <Font>
+                            <CssParameter name="font-family">Microsoft YaHei</CssParameter>
+                            <CssParameter name="font-weight">bold</CssParameter>
+                            <CssParameter name="font-size">24</CssParameter>
+                        </Font>
+                        <LabelPlacement>
+                            <PointPlacement>
+                                <AnchorPoint>
+                                    <AnchorPointX>0.5</AnchorPointX>
+                                    <AnchorPointY>0.5</AnchorPointY>
+                                </AnchorPoint>
+                            </PointPlacement>
+                        </LabelPlacement>
+                        <Halo>
+                            <Radius>
+                                <ogc:Literal>1</ogc:Literal>
+                            </Radius>
+                            <Fill>
+                                <CssParameter name="fill">#000000</CssParameter>
+                                <CssParameter name="fill-opacity">0.75</CssParameter>
+
+                            </Fill>
+
+                        </Halo>
+                        <Fill>
+                            <CssParameter name="fill">#FFFFFF</CssParameter>
+                            <CssParameter name="letter-spacing">2</CssParameter>
+                        </Fill>
+                        <VendorOption name="group">true</VendorOption>
+                        <VendorOption name="autoWrap">100</VendorOption>
+                        <VendorOption name="spaceAround">-1</VendorOption>
+                        <VendorOption name="conflictResolution">false</VendorOption>
+                        <VendorOption name="partials">true</VendorOption>
+                    </TextSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule2</Name>
+                    <Title>Gray Polygon with Black Outline</Title>
+                    <Abstract>A polygon with a gray fill and a 1 pixel black outline</Abstract>
+                    <MinScaleDenominator>100000</MinScaleDenominator>
+                    <MaxScaleDenominator>500000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>grade</ogc:PropertyName>
+                            <ogc:Literal>3</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <TextSymbolizer>
+                        <Label>
+                            <ogc:PropertyName>Name</ogc:PropertyName>
+                        </Label>
+                        <Font>
+                            <CssParameter name="font-family">Microsoft YaHei</CssParameter>
+                            <CssParameter name="font-weight">bold</CssParameter>
+                            <CssParameter name="font-size">24</CssParameter>
+                        </Font>
+                        <LabelPlacement>
+                            <PointPlacement>
+                                <AnchorPoint>
+                                    <AnchorPointX>0.5</AnchorPointX>
+                                    <AnchorPointY>0.5</AnchorPointY>
+                                </AnchorPoint>
+                            </PointPlacement>
+                        </LabelPlacement>
+                        <Halo>
+                            <Radius>
+                                <ogc:Literal>1</ogc:Literal>
+                            </Radius>
+                            <Fill>
+                                <CssParameter name="fill">#000000</CssParameter>
+                                <CssParameter name="fill-opacity">0.75</CssParameter>
+
+                            </Fill>
+
+                        </Halo>
+                        <Fill>
+                            <CssParameter name="fill">#FFFFFF</CssParameter>
+                            <CssParameter name="letter-spacing">2</CssParameter>
+                        </Fill>
+                        <VendorOption name="group">true</VendorOption>
+                        <VendorOption name="autoWrap">100</VendorOption>
+                        <VendorOption name="spaceAround">-1</VendorOption>
+                        <VendorOption name="conflictResolution">false</VendorOption>
+                        <VendorOption name="partials">true</VendorOption>
+                    </TextSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule3</Name>
+                    <Title>Gray Polygon with Black Outline</Title>
+                    <Abstract>A polygon with a gray fill and a 1 pixel black outline</Abstract>
+                    <MinScaleDenominator>500000</MinScaleDenominator>
+                    <MaxScaleDenominator>800000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>grade</ogc:PropertyName>
+                            <ogc:Literal>2</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <TextSymbolizer>
+                        <Label>
+                            <ogc:PropertyName>Name</ogc:PropertyName>
+                        </Label>
+                        <Font>
+                            <CssParameter name="font-family">Microsoft YaHei</CssParameter>
+                            <CssParameter name="font-size">23</CssParameter>
+                            <CssParameter name="font-weight">bold</CssParameter>
+                        </Font>
+                        <LabelPlacement>
+                            <PointPlacement>
+                                <AnchorPoint>
+                                    <AnchorPointX>0.5</AnchorPointX>
+                                    <AnchorPointY>0.5</AnchorPointY>
+                                </AnchorPoint>
+                            </PointPlacement>
+                        </LabelPlacement>
+                        <Halo>
+                            <Radius>
+                                <ogc:Literal>1</ogc:Literal>
+                            </Radius>
+                            <Fill>
+                                <CssParameter name="fill">#000000</CssParameter>
+                                <CssParameter name="fill-opacity">0.75</CssParameter>
+                            </Fill>
+
+                        </Halo>
+                        <Fill>
+                            <CssParameter name="fill">#FFFFFF</CssParameter>
+                        </Fill>
+                        <VendorOption name="group">true</VendorOption>
+                        <VendorOption name="autoWrap">100</VendorOption>
+                        <VendorOption name="spaceAround">-1</VendorOption>
+                        <VendorOption name="conflictResolution">false</VendorOption>
+                        <VendorOption name="partials">true</VendorOption>
+                    </TextSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule3</Name>
+                    <Title>Gray Polygon with Black Outline</Title>
+                    <Abstract>A polygon with a gray fill and a 1 pixel black outline</Abstract>
+                    <MinScaleDenominator>800000</MinScaleDenominator>
+                    <MaxScaleDenominator>2000000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>grade</ogc:PropertyName>
+                            <ogc:Literal>2</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <TextSymbolizer>
+                        <Label>
+                            <ogc:PropertyName>Name</ogc:PropertyName>
+                        </Label>
+                        <Font>
+                            <CssParameter name="font-family">Microsoft YaHei</CssParameter>
+                            <CssParameter name="font-size">22</CssParameter>
+                            <CssParameter name="font-weight">bold</CssParameter>
+                        </Font>
+                        <LabelPlacement>
+                            <PointPlacement>
+                                <AnchorPoint>
+                                    <AnchorPointX>0.5</AnchorPointX>
+                                    <AnchorPointY>0.5</AnchorPointY>
+                                </AnchorPoint>
+                            </PointPlacement>
+                        </LabelPlacement>
+                        <Halo>
+                            <Radius>
+                                <ogc:Literal>1</ogc:Literal>
+                            </Radius>
+                            <Fill>
+                                <CssParameter name="fill">#000000</CssParameter>
+                                <CssParameter name="fill-opacity">0.75</CssParameter>
+                            </Fill>
+
+                        </Halo>
+                        <Fill>
+                            <CssParameter name="fill">#FFFFFF</CssParameter>
+                        </Fill>
+                        <VendorOption name="group">true</VendorOption>
+                        <VendorOption name="autoWrap">100</VendorOption>
+                        <VendorOption name="spaceAround">-1</VendorOption>
+                        <VendorOption name="conflictResolution">false</VendorOption>
+                        <VendorOption name="partials">true</VendorOption>
+                    </TextSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule3</Name>
+                    <Title>Gray Polygon with Black Outline</Title>
+                    <Abstract>A polygon with a gray fill and a 1 pixel black outline</Abstract>
+                    <MinScaleDenominator>2000000</MinScaleDenominator>
+                    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>grade</ogc:PropertyName>
+                            <ogc:Literal>2</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <TextSymbolizer>
+                        <Label>
+                            <ogc:PropertyName>Name</ogc:PropertyName>
+                        </Label>
+                        <Font>
+                            <CssParameter name="font-family">Microsoft YaHei</CssParameter>
+                            <CssParameter name="font-size">22</CssParameter>
+                            <CssParameter name="font-weight">bold</CssParameter>
+                        </Font>
+                        <LabelPlacement>
+                            <PointPlacement>
+                                <AnchorPoint>
+                                    <AnchorPointX>0.5</AnchorPointX>
+                                    <AnchorPointY>0.5</AnchorPointY>
+                                </AnchorPoint>
+                            </PointPlacement>
+                        </LabelPlacement>
+                        <Halo>
+                            <Radius>
+                                <ogc:Literal>1</ogc:Literal>
+                            </Radius>
+                            <Fill>
+                                <CssParameter name="fill">#000000</CssParameter>
+                                <CssParameter name="fill-opacity">0.75</CssParameter>
+                            </Fill>
+
+                        </Halo>
+                        <Fill>
+                            <CssParameter name="fill">#FFFFFF</CssParameter>
+                        </Fill>
+                        <VendorOption name="group">true</VendorOption>
+                        <VendorOption name="autoWrap">100</VendorOption>
+                        <VendorOption name="spaceAround">-1</VendorOption>
+                        <VendorOption name="conflictResolution">false</VendorOption>
+                        <VendorOption name="partials">true</VendorOption>
+                    </TextSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule3</Name>
+                    <Title>Gray Polygon with Black Outline</Title>
+                    <Abstract>A polygon with a gray fill and a 1 pixel black outline</Abstract>
+                    <MinScaleDenominator>3000000</MinScaleDenominator>
+                    <MaxScaleDenominator>8000000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>grade</ogc:PropertyName>
+                            <ogc:Literal>1</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <TextSymbolizer>
+                        <Label>
+                            <ogc:PropertyName>Name</ogc:PropertyName>
+                        </Label>
+                        <Font>
+                            <CssParameter name="font-family">Microsoft YaHei</CssParameter>
+                            <CssParameter name="font-size">21</CssParameter>
+                            <CssParameter name="font-weight">bold</CssParameter>
+                        </Font>
+                        <LabelPlacement>
+                            <PointPlacement>
+                                <AnchorPoint>
+                                    <AnchorPointX>0.5</AnchorPointX>
+                                    <AnchorPointY>0.5</AnchorPointY>
+                                </AnchorPoint>
+                            </PointPlacement>
+                        </LabelPlacement>
+                        <Halo>
+                            <Radius>
+                                <ogc:Literal>1</ogc:Literal>
+                            </Radius>
+                            <Fill>
+                                <CssParameter name="fill">#000000</CssParameter>
+                                <CssParameter name="fill-opacity">0.75</CssParameter>
+                            </Fill>
+
+                        </Halo>
+                        <Fill>
+                            <CssParameter name="fill">#FFFFFF</CssParameter>
+                        </Fill>
+                        <VendorOption name="group">true</VendorOption>
+                        <VendorOption name="autoWrap">100</VendorOption>
+                        <VendorOption name="spaceAround">-1</VendorOption>
+                        <VendorOption name="conflictResolution">false</VendorOption>
+                        <VendorOption name="partials">true</VendorOption>
+                    </TextSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule3</Name>
+                    <Title>Gray Polygon with Black Outline</Title>
+                    <Abstract>A polygon with a gray fill and a 1 pixel black outline</Abstract>
+                    <MinScaleDenominator>8000000</MinScaleDenominator>
+                    <MaxScaleDenominator>10000000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>grade</ogc:PropertyName>
+                            <ogc:Literal>1</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <TextSymbolizer>
+                        <Label>
+                            <ogc:PropertyName>Name</ogc:PropertyName>
+                        </Label>
+                        <Font>
+                            <CssParameter name="font-family">Microsoft YaHei</CssParameter>
+                            <CssParameter name="font-size">20</CssParameter>
+                            <CssParameter name="font-weight">bold</CssParameter>
+                        </Font>
+                        <LabelPlacement>
+                            <PointPlacement>
+                                <AnchorPoint>
+                                    <AnchorPointX>0.5</AnchorPointX>
+                                    <AnchorPointY>0.5</AnchorPointY>
+                                </AnchorPoint>
+                            </PointPlacement>
+                        </LabelPlacement>
+                        <Halo>
+                            <Radius>
+                                <ogc:Literal>1</ogc:Literal>
+                            </Radius>
+                            <Fill>
+                                <CssParameter name="fill">#000000</CssParameter>
+                                <CssParameter name="fill-opacity">0.75</CssParameter>
+                            </Fill>
+
+                        </Halo>
+                        <Fill>
+                            <CssParameter name="fill">#FFFFFF</CssParameter>
+                        </Fill>
+                        <VendorOption name="group">true</VendorOption>
+                        <VendorOption name="autoWrap">100</VendorOption>
+                        <VendorOption name="spaceAround">-1</VendorOption>
+                        <VendorOption name="conflictResolution">false</VendorOption>
+                        <VendorOption name="partials">true</VendorOption>
+                    </TextSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule3</Name>
+                    <Title>Gray Polygon with Black Outline</Title>
+                    <Abstract>A polygon with a gray fill and a 1 pixel black outline</Abstract>
+                    <MinScaleDenominator>10000000</MinScaleDenominator>
+                    <MaxScaleDenominator>20000000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>grade</ogc:PropertyName>
+                            <ogc:Literal>1</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <TextSymbolizer>
+                        <Label>
+                            <ogc:PropertyName>Name</ogc:PropertyName>
+                        </Label>
+                        <Font>
+                            <CssParameter name="font-family">Microsoft YaHei</CssParameter>
+                            <CssParameter name="font-size">19</CssParameter>
+                            <CssParameter name="font-weight">bold</CssParameter>
+                        </Font>
+                        <LabelPlacement>
+                            <PointPlacement>
+                                <AnchorPoint>
+                                    <AnchorPointX>0.5</AnchorPointX>
+                                    <AnchorPointY>0.5</AnchorPointY>
+                                </AnchorPoint>
+                            </PointPlacement>
+                        </LabelPlacement>
+                        <Halo>
+                            <Radius>
+                                <ogc:Literal>1</ogc:Literal>
+                            </Radius>
+                            <Fill>
+                                <CssParameter name="fill">#000000</CssParameter>
+                                <CssParameter name="fill-opacity">0.75</CssParameter>
+                            </Fill>
+
+                        </Halo>
+                        <Fill>
+                            <CssParameter name="fill">#FFFFFF</CssParameter>
+                        </Fill>
+                        <VendorOption name="group">true</VendorOption>
+                        <VendorOption name="autoWrap">100</VendorOption>
+                        <VendorOption name="spaceAround">-1</VendorOption>
+                        <VendorOption name="conflictResolution">false</VendorOption>
+                        <VendorOption name="partials">true</VendorOption>
+                    </TextSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule3</Name>
+                    <Title>Gray Polygon with Black Outline</Title>
+                    <Abstract>A polygon with a gray fill and a 1 pixel black outline</Abstract>
+                    <MinScaleDenominator>20000000</MinScaleDenominator>
+                    <MaxScaleDenominator>40000000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>grade</ogc:PropertyName>
+                            <ogc:Literal>1</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <TextSymbolizer>
+                        <Label>
+                            <ogc:PropertyName>Name</ogc:PropertyName>
+                        </Label>
+                        <Font>
+                            <CssParameter name="font-family">Microsoft YaHei</CssParameter>
+                            <CssParameter name="font-size">18</CssParameter>
+                            <CssParameter name="font-weight">bold</CssParameter>
+                        </Font>
+                        <LabelPlacement>
+                            <PointPlacement>
+                                <AnchorPoint>
+                                    <AnchorPointX>0.5</AnchorPointX>
+                                    <AnchorPointY>0.5</AnchorPointY>
+                                </AnchorPoint>
+                            </PointPlacement>
+                        </LabelPlacement>
+                        <Halo>
+                            <Radius>
+                                <ogc:Literal>1</ogc:Literal>
+                            </Radius>
+                            <Fill>
+                                <CssParameter name="fill">#000000</CssParameter>
+                                <CssParameter name="fill-opacity">0.75</CssParameter>
+                            </Fill>
+
+                        </Halo>
+                        <Fill>
+                            <CssParameter name="fill">#FFFFFF</CssParameter>
+                        </Fill>
+                        <VendorOption name="group">true</VendorOption>
+                        <VendorOption name="autoWrap">100</VendorOption>
+                        <VendorOption name="spaceAround">-1</VendorOption>
+                        <VendorOption name="conflictResolution">false</VendorOption>
+                        <VendorOption name="partials">true</VendorOption>
+                    </TextSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule3</Name>
+                    <Title>Gray Polygon with Black Outline</Title>
+                    <Abstract>A polygon with a gray fill and a 1 pixel black outline</Abstract>
+                    <MinScaleDenominator>40000000</MinScaleDenominator>
+                    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>grade</ogc:PropertyName>
+                            <ogc:Literal>1</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <TextSymbolizer>
+                        <Label>
+                            <ogc:PropertyName>Name</ogc:PropertyName>
+                        </Label>
+                        <Font>
+                            <CssParameter name="font-family">Microsoft YaHei</CssParameter>
+                            <CssParameter name="font-size">17</CssParameter>
+                            <CssParameter name="font-weight">bold</CssParameter>
+                        </Font>
+                        <LabelPlacement>
+                            <PointPlacement>
+                                <AnchorPoint>
+                                    <AnchorPointX>0.5</AnchorPointX>
+                                    <AnchorPointY>0.5</AnchorPointY>
+                                </AnchorPoint>
+                            </PointPlacement>
+                        </LabelPlacement>
+                        <Halo>
+                            <Radius>
+                                <ogc:Literal>1</ogc:Literal>
+                            </Radius>
+                            <Fill>
+                                <CssParameter name="fill">#000000</CssParameter>
+                                <CssParameter name="fill-opacity">0.75</CssParameter>
+                            </Fill>
+
+                        </Halo>
+                        <Fill>
+                            <CssParameter name="fill">#FFFFFF</CssParameter>
+                        </Fill>
+                        <VendorOption name="group">true</VendorOption>
+                        <VendorOption name="autoWrap">100</VendorOption>
+                        <VendorOption name="spaceAround">-1</VendorOption>
+                        <VendorOption name="conflictResolution">false</VendorOption>
+                        <VendorOption name="partials">true</VendorOption>
+                    </TextSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule4</Name>
+                    <Title>Gray Polygon with Black Outline</Title>
+                    <Abstract>A polygon with a gray fill and a 1 pixel black outline</Abstract>
+                    <MinScaleDenominator>50000000</MinScaleDenominator>
+                    <MaxScaleDenominator>5200000000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>grade</ogc:PropertyName>
+                            <ogc:Literal>0</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <TextSymbolizer>
+                        <Label>
+                            <ogc:PropertyName>Name</ogc:PropertyName>
+                        </Label>
+                        <Font>
+                            <CssParameter name="font-family">Microsoft YaHei</CssParameter>
+                            <CssParameter name="font-size">25</CssParameter>
+                            <CssParameter name="font-weight">bold</CssParameter>
+                        </Font>
+                        <LabelPlacement>
+                            <PointPlacement>
+                                <AnchorPoint>
+                                    <AnchorPointX>0.5</AnchorPointX>
+                                    <AnchorPointY>0.5</AnchorPointY>
+                                </AnchorPoint>
+                            </PointPlacement>
+                        </LabelPlacement>
+                        <Halo>
+                            <Radius>
+                                <ogc:Literal>1</ogc:Literal>
+                            </Radius>
+                            <Fill>
+                                <CssParameter name="fill">#000000</CssParameter>
+                                <CssParameter name="fill-opacity">0.75</CssParameter>
+                            </Fill>
+
+                        </Halo>
+                        <Fill>
+                            <CssParameter name="fill">#FFFFFF</CssParameter>
+                        </Fill>
+                        <VendorOption name="group">true</VendorOption>
+                        <VendorOption name="autoWrap">200</VendorOption>
+                        <VendorOption name="spaceAround">-1</VendorOption>
+                        <VendorOption name="conflictResolution">false</VendorOption>
+                        <VendorOption name="partials">true</VendorOption>
+                    </TextSymbolizer>
+                </Rule>
+            </FeatureTypeStyle>
+        </UserStyle>
+    </NamedLayer>
+</StyledLayerDescriptor>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+
+</head>
+<script>
+
+    let map;
+    let drawTool;
+
+    function info() {
+        tsMap = new TsMap();
+        drawTool = tsMap.addDraw();
+        drawTool.setDrawEndCallback(callbackfun);
+        funss();
+
+        var il = tsMap.addImageLayer();
+        var imgay = [
+            {
+                url: 'data150.png',
+                coordinate: [113.193807028, 23.2255705437,  113.215602941, 23.2428351955]
+            }]
+        il.setImageStatic(imgay[0]);
+        var il1 = tsMap.addImageLayer();
+
+        var imgay1 = [
+            {
+                url: 'data330.png',
+                coordinate: [113.18420702799999, 23.215070543699998, 113.226002941, 23.252035195500003]
+            }]
+        //il1.setImageStatic(imgay1[0]);
+
+    }
+
+    function funss() {
+        var gjson = tsMap.addGraphicLayer();
+
+        let graphic = {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    113.216002941,
+                    23.2420351955
+                ]
+            },
+        };
+        gjson.addFeature(graphic);
+        let graphic1 = {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    113.216002941,
+                    23.2250705437
+                ]
+            },
+        };
+        gjson.addFeature(graphic1);
+        let graphic2 = {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    113.194207028,
+                    23.2420351955
+                ]
+            },
+        };
+        gjson.addFeature(graphic2);
+        let graphic3 = {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    113.194207028,
+                    23.2250705437
+                ]
+            },
+        };
+        gjson.addFeature(graphic3);
+    }
+
+    /**
+     * 返回当前绘制的图形
+     * @param e
+     */
+    function callbackfun(e, f) {
+
+        console.log(e)
+        console.log(f)
+
+    }
+
+    //{type:
+    // Point//绘制点
+    // Polygon//绘制多边形
+    // Circle//绘制圆
+    // RadiusCircle//绘制指定半径的圆圆
+    // LineString//绘制线
+    function drawFun(type) {
+        switch (type) {
+            case 'Point':
+                drawTool.drawGraphic("Point");
+                break;
+            case 'LineString':
+                drawTool.drawGraphic("LineString");
+                break;
+            case 'Polygon':
+                drawTool.drawGraphic("Polygon");
+                break;
+            case 'Box':
+                drawTool.drawGraphic("Box");
+                break;
+            case 'Circle':
+                drawTool.drawGraphic("Circle");
+                break;
+            case 'RadiusCircle':
+                drawTool.radius = 10000;//设置半径
+                drawTool.drawGraphic("RadiusCircle");
+                break;
+            case 'Square':
+                drawTool.drawGraphic("Square");
+                break;
+            default:
+                drawTool.drawGraphic(null);
+                break;
+        }
+
+    }
+
+
+</script>
+<body onload="info()">
+<div id="map" style="width: 100%;height: 500px;"></div>
+<label id="label1"></label>
+<button onclick="drawFun('Point')">画点</button>
+<button onclick="drawFun('LineString')">画线</button>
+</body>
+</html>

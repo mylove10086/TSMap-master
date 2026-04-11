@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7.2在指定位置弹出窗体</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let map;
+    let popup;
+
+    function init() {
+        tsMap = new TsMap();
+
+        tsMap.getMap().setMapClickCallback(fun);
+        popup = tsMap.getMap().getPopups();
+        popup.closeCallBack(cfun);
+    }
+
+    function fun(evt, o) {
+        let coordinate = o.coordinate;
+        let innerHTML = '<div>经度：' + coordinate[0] + '</div>' +
+            '<div>纬度：' + coordinate[1] + '</div>';
+        popup.setPosition(coordinate, "asdfaf", innerHTML);//位置、标题和内容
+    }
+
+    function cfun() {
+        alert("关闭")
+    }
+
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+</body>
+</html>

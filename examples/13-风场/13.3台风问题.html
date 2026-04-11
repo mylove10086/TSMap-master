@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>台风</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../lib/moment.js"></script>
+
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="tflj.js"></script>
+
+</head>
+<script>
+    var tsMap = null;
+    var fly;
+    var gjson;
+
+    function init() {
+
+        tsMap = new TsMap({
+            zoom: 3,
+            longitude: 149.1,
+            latitude: 5.8,
+            projection: 4326
+        });
+        gjson = tsMap.addGraphicLayer();
+
+        fly = tsMap.addTyphoonLayer();
+
+    }
+
+
+    function showfun() {
+        let graphic = {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    60.700000000,
+                    -34.6100000000
+                ]
+            },
+            properties: {"name1": "manid", id: "adf"}
+        };
+        let graphic1 = {
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        49.000000000, -31.600000000
+                    ],
+                    [
+                        54.100000000, -33.600000000
+                    ],
+                    [
+                        60.700000000, -34.600000000
+                    ],
+                    [
+                        68.100000000,
+                        -34.800000000
+                    ],
+                    [
+                        75.700000000,
+                        -34.800000000
+                    ],
+                    [
+                        82.000000000,
+                        -34.800000000
+                    ]
+                ]
+            }
+        };
+        // gjson.addFeature(graphic1);
+
+        var dd = {
+            "name": "DIKELEDIMI_2025001",
+            "label": "DIKELEDIMI_2025001",
+            "id": "MI_2025001",
+            "line": []
+        };
+        var line = [];
+        for (var i = 0; i < tflj.line.length; i++) {
+            var item = tflj.line[i];
+
+            var obj = {
+                coordinates: item.coordinates,
+                properties: item.properties
+            };
+            if ( item.properties.forecast.length > 0) {
+                var forecast = [];
+                for (var j = 0; j < item.properties.forecast.length; j++) {
+                    var jtem = item.properties.forecast[j];
+                    var object = {
+                        label: jtem.label,// 显示的文字
+                        name: jtem.name,
+                        line: []
+                    }
+                    for (var n = 0; n < jtem.line.length; n++) {
+                        var ntem = jtem.line[n];
+                        var point = {
+                            coordinates: [parseFloat(ntem.coordinates[0]), parseFloat(ntem.coordinates[1])],
+                            properties: ntem.properties
+                        };
+                        object.line.push(point);
+                    }
+                    forecast.push(object);
+                }
+                obj.properties.forecast = forecast;
+            }
+            line.push(obj);
+        }
+        dd.line = line;
+        console.log(line);
+
+        fly.addFeature(dd);
+
+    }
+
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<div id="scale"></div>
+
+<button onclick="showfun()">添加线</button>
+</body>
+</html>

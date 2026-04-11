@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="weat.js"></script>
+</head>
+<script>
+    function showfun() {
+        var weather = {};
+        for (var i = 0; i<data.length; i++) {
+            var item = data[i];
+
+            var name=item.SUBAREANAME;
+            name=name?name:item.DISTRICT_NAME;
+            if (!weather[item.SUBAREANAME]) {
+                var time = new Date(Date.parse(item.PUBLISHDATE));
+
+                weather[item.SUBAREANAME] = {
+                    name: item.SUBAREANAME,
+                    time: time,
+                    type: item.WARNING_TYPE,
+                    severity: item.SEVERITY_CNNAME,
+                    category: item.CATEGORY_CNNAME,
+                };
+            } else {
+                var time = new Date(Date.parse(item.PUBLISHDATE));
+                if (weather[item.SUBAREANAME].time < time) {
+                    weather[item.SUBAREANAME] = {
+                        name: item.SUBAREANAME,
+                        time: time,
+                        type: item.WARNING_TYPE,
+                        severity: item.SEVERITY_CNNAME,
+                        category: item.CATEGORY_CNNAME,
+                    };
+                }
+            }
+
+        }
+        console.log(weather);
+    }
+    function strfun() {
+        var str = "普宁市";
+        var s = str.substr(0,str.length-1);
+        console.log(s);
+    }
+</script>
+<body>
+<button onclick="showfun()"> show</button>
+<button onclick="strfun()">strfun</button>
+
+</body>
+</html>

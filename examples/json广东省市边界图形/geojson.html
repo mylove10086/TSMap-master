@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let tsMap = null;
+
+    let gjson = null;
+    let gjson1 = null;
+
+    function init() {
+         tsMap = new TsMap();
+
+        gjson = tsMap.addGeoJSONLayer();
+        gjson1 = tsMap.addGeoJSONLayer();
+    }
+
+    function centerFun() {
+        //gjson.setDataSource({url: '../data/citypolygon.json'});
+        gjson.setDataSource({url: 'waibianjie.json'});
+        //gjson.setDataSource({url: 'gdsjian.json'});
+        //gjson1.setDataSource({url: '../data/citypolyline.json'});
+    }
+
+    function removeLayer() {
+        gjson.removeLayer();
+    }
+
+    function styleFun(feature) {
+
+    }
+
+    function setStylefun() {
+
+        var obj = [];
+        obj.push({
+            types: '东莞市',
+            fill: 'rgba(255,253,26,0.5)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: '中山市',
+            fill: 'rgba(112,255,158,0.5)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#20ff63'//线颜色
+        });
+        obj.push({
+            types: '珠海市',
+            fill: 'rgba(149,255,63,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: '茂名市',
+            fill: 'rgba(255,244,31,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: '阳江市',
+            fill: 'rgba(36,255,206,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: '江门市',
+            fill: 'rgba(178,210,255,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: '广州市',
+            fill: 'rgba(255,122,137,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: '清远市',
+            fill: 'rgba(255,135,41,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: '肇庆市',
+            fill: 'rgba(129,255,26,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: '韶关市',
+            fill: 'rgba(255,222,55,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: '惠州市',
+            fill: 'rgba(255,222,55,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            fill: 'rgba(240,72,255,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        var object = {
+            types: 'name',
+            label: 'name',
+            height: 'value',//三维中使用
+            style: obj,
+            text: {
+                color: '#ffffff',
+                scale: 2,
+                overflow: true,//设置允许文本超出标签位置处多边形的宽度或所沿路径的长度。
+                resolution: 0.05//在多少分辨率下才显示标注
+            }
+        };
+
+        gjson.setStyle(object);
+
+
+    }
+    function chafun() {
+        var points = [];
+        points.push([113, 23]);
+        points.push([113.2, 23]);
+        points.push([113.2, 23.2]);
+        points.push([113, 23.2]);
+        gjson.spatialQueryFromPolygon({coordinate: points});
+    }
+    function rechafun() {
+
+        gjson.spatialQueryFromPolygon();
+    }
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="centerFun()">添加geojson</button>
+<button onclick="removeLayer()">移除图层</button>
+<button onclick="setStylefun()">设置样式</button>
+<button onclick="chafun()">查询点图层</button>
+<button onclick="rechafun()">清空查询</button>
+<div id="scale"></div>
+
+</body>
+</html>

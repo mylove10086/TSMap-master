@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7.3修改窗体css样式</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let map;
+    let popup;
+
+    function init() {
+        tsMap = new TsMap();
+
+        tsMap.getMap().setMapClickCallback(fun);
+        popup = tsMap.getMap().getPopups();
+
+    }
+
+    function fun(evt, o) {
+        let coordinate = o.coordinate;
+        let innerHTML = '<div style="font-size: 50px">经度：' + coordinate[0] + '</div>' +
+            '<div>纬度：' + coordinate[1] + '</div>';
+        popup.setPosition(coordinate, "asdfaf", innerHTML);//位置、标题和内容
+    }
+
+    function setStylefun() {
+        //popup.window是弹出窗的底部div
+        popup.window.style.backgroundColor='rgba(98,250,97,0.8)';
+        //标题行div
+        popup.title.style.backgroundColor='rgba(250,50,60,0.8)';
+        //关闭按钮a
+        popup.closer.style.backgroundColor='rgba(250,71,240,0.8)';
+
+        //内容div
+        popup.content.style.backgroundColor='rgba(72,250,248,0.8)';
+        popup.trace.style.borderTopColor='rgba(20,17,205,0.8)';
+
+    }
+
+
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="setStylefun()">设置样式</button>
+
+</body>
+</html>

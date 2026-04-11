@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.2wfs图层空间查询</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let tsMap;
+    let wfs;
+
+    function init() {
+        tsMap = new TsMap();//初始化地图
+
+        wfs = tsMap.addWfsLayer({
+            url: "http://localhost:6080/geoserver/shapefile/ows?service=WFS",//服务地址
+            layer: "meizhoulabel",//图层名称
+            geom:"the_geom",
+            featurePrefix: "shpfile",//图层命名空间
+            featureNS: 'http://www.mysql.net'//图层空间标识符
+        });
+        var style = {
+            "url": "protect.png",
+            "fill": "rgba(240,72,255,0.5)",
+            "width": 5,
+            "anchor": [0.5, -13.5],
+            "radius": 10,
+            "scale": 0.42,
+            "color": "#84fa45"
+        };
+        //wfs.setStyle(style);
+    }
+
+    /**
+     * 绘制图形空间查询条件
+     * @param type
+     * Circle//圆
+     * Box//矩形
+     * Polygon//多边形
+     * RadiusCircle//指定半径的圆
+     */
+    function spatialQuery(type) {
+        switch (type) {
+            case 'Polygon':
+                wfs.spatialQuery("Polygon");
+                break;
+            case 'Box':
+                wfs.spatialQuery("Box");
+                break;
+            case 'Circle':
+                wfs.spatialQuery("Circle");
+                break;
+            case 'RadiusCircle':
+                wfs.radius = 10000;//设置半径
+                wfs.spatialQuery("RadiusCircle");
+                break;
+
+        }
+    }
+
+    function clearFilter() {
+        wfs.spatialQuery();
+    }
+
+    function clearDraw() {
+        wfs.clearDraw();
+    }
+
+    function UpdateR() {
+        wfs.radius = 100000;
+        wfs.updateRadius()
+    }
+
+    function shestyleFun() {
+        //wfs.filters=new ol.format.filter.equalTo('name', '电筒');
+        wfs.filters = new ol.format.filter.like('adcode', '44140*');//设置查询条件
+        //wfs.filters = new ol.format.filter.equalTo('level', 2);//设置查询条件
+        wfs.attributeQuery();//开始查询
+    }
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="spatialQuery('Circle')">圆空间过滤</button>
+<button onclick="clearFilter()">清除过滤条件</button>
+<button onclick="clearDraw()">清除绘制的图形</button>
+<br/>
+<button onclick="shestyleFun()">设置属性</button>
+</body>
+</html>

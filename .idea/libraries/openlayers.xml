@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="openlayers">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/openlayers.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

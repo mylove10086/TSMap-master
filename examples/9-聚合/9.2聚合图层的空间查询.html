@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+
+</head>
+<script>
+    let tsMap = null;
+    let cluster = null;
+
+
+    function init() {
+        tsMap = new TsMap();
+
+        cluster = tsMap.addClusterLayer({
+            url: "http://172.16.28.148:6080/geoserver/mysql/ows?service=WFS",//图层url
+            layer: "principal",//图层名称
+            featurePrefix: "mysql",//图层命名空间
+            featureNS: 'http://www.mysql.net'//图层空间标识符
+        });
+        stylefun()
+    }
+
+    function spatialQuery(type) {
+        switch (type) {
+            case 'Circle':
+                cluster.spatialQuery("Circle");
+                break;
+            case 'Box':
+                cluster.spatialQuery("Box");
+                break;
+            case 'Polygon':
+                cluster.spatialQuery("Polygon");
+                break;
+            case 'RadiusCircle':
+                cluster.radius = 10000;
+                cluster.spatialQuery("RadiusCircle");
+                break;
+        }
+    }
+
+    function clearFilter() {
+        cluster.spatialQuery();
+    }
+
+    function clearDraw() {
+        cluster.clearDraw();
+    }
+    function stylefun() {
+        //一个是单点的样式，一个是聚合的样式
+        var object = {
+            style: [{
+                url: '../data/gd.png',//图片url
+                fill: 'rgba(240,72,255,0.5)',//填充颜色
+                width: 5,//线宽
+                anchor: [0.5, 0.9],
+                radius: 50,//圆半径
+                scale: 0.5,
+                color: '#84fa45'//线颜色
+            }, {
+                url: '../data/gd.png',//图片url
+                fill: 'rgba(61,252,29,0.5)',//填充颜色
+                width: 5,//线宽
+                anchor: [0.5, 0.9],
+                radius: 50,//圆半径
+                scale: 0.5,
+                color: '#f14611'//线颜色
+            }]
+        };
+        cluster.setStyle(object);
+
+    }
+
+</script>
+<body onload="init();">
+<div id="map" style="height: 500px"></div>
+<button onclick="spatialQuery('Circle')">聚合圆空间过滤</button>
+<button onclick="spatialQuery('Box')">聚合矩形空间过滤</button>
+<button onclick="spatialQuery('Polygon')">聚合多边形空间过滤</button>
+<button onclick="spatialQuery('RadiusCircle')">聚合半径圆过滤</button>
+<button onclick="clearFilter()">清除过滤条件</button>
+<button onclick="clearDraw()">清除绘制的图形</button>
+
+</body>
+</html>

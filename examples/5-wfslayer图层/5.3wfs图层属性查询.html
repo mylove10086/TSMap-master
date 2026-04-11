@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.3wfs图层属性查询</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let map;
+    let wfs;
+
+    function init() {
+        tsMap = new TsMap();//初始化地图
+        wfs = tsMap.addWfsLayer({
+            url: "http://172.16.28.160:6080/geoserver/tyyj/ows?service=WFS",//图层url
+            layer: "t_erm_device_geo",//图层名称
+            featurePrefix: "tyyj",//图层命名空间
+            featureNS: 'http://www.mysql.net',//图层空间标识符
+            cql: "status=0 and device_type='traffic_video'",
+
+        });
+    }
+
+    /**
+     * https://openlayers.org/en/latest/apidoc/module-ol_format_filter.html
+     * @param type
+     */
+    function spatialQuery(type) {
+        //wfs.filters=new ol.format.filter.equalTo('name', '电筒');
+        wfs.filters = new ol.format.filter.like('level', '市');//设置查询条件
+        wfs.filters = new ol.format.filter.equalTo('level', '市');//设置查询条件
+        wfs.attributeQuery();//开始查询
+    }
+
+    function clearFilter() {
+        wfs.filters =null;//设置查询条件
+        wfs.attributeQuery();//开始查询
+    }
+
+    function clearDraw() {
+        //http://localhost:6080/geoserver/shpfile/ows?service=WFS&version=1.0.0&request=GetFeature&typename=shpfile:chinamap&outputFormat=application/json&srsname=EPSG:4326&bbox=133.7647994980216,38.218514144420624,152.87405656931566,57.32777121571469,EPSG:4326
+    }
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="spatialQuery('Circle')">属性查询</button>
+<button onclick="clearFilter()">清除过滤条件</button>
+</body>
+</html>

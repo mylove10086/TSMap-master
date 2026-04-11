@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13.1风场</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        html, body, #cesiumContainer {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="../data/current-wind.js"></script>
+    <script src="current-wind1.js"></script>
+    <script src="wind3.js"></script>
+
+</head>
+<script>
+    let view;
+    let map;
+
+    function info() {
+        tsMap = new TsMap({
+            zoom: 12,
+            center: [113, 22],
+            longitude: 113,
+            latitude: 21,
+            projection: 4326
+        });
+        //创建风场
+        wl = tsMap.addWindyLayer();
+        //添加数据
+
+        //起点风场
+        //wl.startWindy();
+    }
+
+    let wl;
+
+    function rmwindy() {
+        wl.removeLayer();
+    }
+
+    function addwind() {
+        wl.addLayer();
+    }
+
+    function stopwind() {
+        wl.stopWindy();
+    }
+
+    function startwind() {
+        wl.addFeature({
+            data: data3,
+            coordinates: [100, 15, 128, 30],
+
+        });
+        wl.startWindy();
+    }
+
+
+</script>
+<body onload="info()">
+<div id="map" style="height:50%"></div>
+<canvas id="canvasid" style="background-color: #4A74A8"></canvas>
+<div id="button-div">
+    <button onclick="rmwindy()">移除风场</button>
+    <button onclick="addwind()">添加风场</button>
+    <button onclick="stopwind()">停止风场</button>
+    <button onclick="startwind()">启动风场</button>
+</div>
+
+</body>
+</html>

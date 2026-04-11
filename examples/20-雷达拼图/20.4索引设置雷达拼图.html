@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="../../dist/js/tsmap.js"></script>
+</head>
+<script>
+    var tsMap = null;
+    var il = null;
+
+
+    function init() {
+        tsMap = new TsMap();
+        il = tsMap.addImageLayer();
+        tsMap.setBaseMap("vec_c");
+        //tsMap.setBaseMap("cva_w");
+
+    }
+
+    var i = 0;
+
+    function centerFun() {
+        var imgay = [
+            {
+                url: 'img/CAPPI_440000_20201228105400.png',
+            }, {
+                url: 'img/CAPPI_440000_20201228110000.png',
+            }, {
+                url: 'img/CAPPI_440000_20201228110600.png',
+            },
+            {
+                url: 'img/CAPPI_440000_20201228111800.png',
+            }, {
+                url: 'img/CAPPI_440000_20201228111200.png',
+            }, {
+                url: 'img/CAPPI_440000_20201228112400.png',
+
+            }
+        ];
+
+        var obj = {
+            coordinate: [108.053171, 18.347276, 118.979753, 26.685803],
+            image: ['img/CAPPI_440000_20201228105400.png',
+                'img/CAPPI_440000_20201228110000.png',
+                'img/CAPPI_440000_20201228110600.png',
+                'img/CAPPI_440000_20201228111800.png',
+                'img/CAPPI_440000_20201228111200.png',
+                'img/CAPPI_440000_20201228112400.png'
+            ]
+        }
+        il.addimage(obj);
+
+        setInterval(function () {
+            il.setIndex(i++);
+            if (i === 5)
+                i = 0;
+        }, 1000);
+    }
+
+    bo = false;
+
+    function showfun() {
+        if (bo) {
+            il.setVisible(bo);
+            bo = false;
+        } else {
+
+            il.setVisible(bo);
+            bo = true;
+        }
+
+    }
+
+    function removelayerfun() {
+        il.removeLayer();
+    }
+
+    function raddfun() {
+        il.addLayer();
+    }
+
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="centerFun()">修改图片</button>
+<button onclick="showfun()">显示隐藏</button>
+<button onclick="removelayerfun()">移除</button>
+<button onclick="raddfun()">重新添加</button>
+<div id="scale"></div>
+</body>
+</html>

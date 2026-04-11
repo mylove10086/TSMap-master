@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StyledLayerDescriptor version="1.0.0"
+                       xsi:schemaLocation="http://www.opengis.net/sld StyledLayerDescriptor.xsd"
+                       xmlns="http://www.opengis.net/sld"
+                       xmlns:ogc="http://www.opengis.net/ogc"
+                       xmlns:xlink="http://www.w3.org/1999/xlink"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <NamedLayer>
+        <Name>default_polygon</Name>
+        <UserStyle>
+            <Title>Default Polygon</Title>
+            <Abstract>A sample style that draws a polygon</Abstract>
+            <FeatureTypeStyle>
+                <Rule>
+                    <Name>rule1</Name>
+                    <Title>Gray Polygon with Black Outline</Title>
+                    <Abstract>A polygon with a gray fill and a 1 pixel black outline</Abstract>
+                    <MinScaleDenominator>0</MinScaleDenominator>
+                    <MaxScaleDenominator>100000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>level</ogc:PropertyName>
+                            <ogc:Literal>4</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <LineSymbolizer>
+                        <Stroke>
+                            <CssParameter name="stroke">#fdfd00</CssParameter>
+                        </Stroke>
+                    </LineSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule2</Name>
+                    <Title>Gray Polygon with Black Outline</Title>
+                    <Abstract>A polygon with a gray fill and a 1 pixel black outline</Abstract>
+                    <MinScaleDenominator>100000</MinScaleDenominator>
+                    <MaxScaleDenominator>500000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>level</ogc:PropertyName>
+                            <ogc:Literal>3</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <LineSymbolizer>
+                        <Stroke>
+                            <CssParameter name="stroke">#fae500</CssParameter>
+                        </Stroke>
+                    </LineSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule3</Name>
+                    <Title>Gray Polygon with Black Outline</Title>
+                    <Abstract>A polygon with a gray fill and a 1 pixel black outline</Abstract>
+                    <MinScaleDenominator>500000</MinScaleDenominator>
+                    <MaxScaleDenominator>1000000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>level</ogc:PropertyName>
+                            <ogc:Literal>2</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <LineSymbolizer>
+                        <Stroke>
+                            <CssParameter name="stroke">#f8ce00</CssParameter>
+                        </Stroke>
+                    </LineSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule3</Name>
+                    <Title>Gray Polygon with Black Outline</Title>
+                    <Abstract>A polygon with a gray fill and a 1 pixel black outline</Abstract>
+                    <MinScaleDenominator>1000000</MinScaleDenominator>
+                    <MaxScaleDenominator>5000000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>level</ogc:PropertyName>
+                            <ogc:Literal>1</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <LineSymbolizer>
+                        <Stroke>
+                            <CssParameter name="stroke">#f8ce00</CssParameter>
+                        </Stroke>
+                    </LineSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule3</Name>
+                    <Title>Gray Polygon with Black Outline</Title>
+                    <Abstract>A polygon with a gray fill and a 1 pixel black outline</Abstract>
+                    <MinScaleDenominator>5000000</MinScaleDenominator>
+                    <MaxScaleDenominator>3200000000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>level</ogc:PropertyName>
+                            <ogc:Literal>0</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <LineSymbolizer>
+                        <Stroke>
+                            <CssParameter name="stroke">#f8ce00</CssParameter>
+                        </Stroke>
+                    </LineSymbolizer>
+                </Rule>
+
+            </FeatureTypeStyle>
+        </UserStyle>
+    </NamedLayer>
+</StyledLayerDescriptor>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>9.8图像点聚合图层鼠标事件</title>
+  <script src="../../lib/openlayers/ol.js"></script>
+  <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+  <style>
+    .map {
+      width: 100%;
+      height: 500px;
+    }
+
+    a.skiplink {
+      position: absolute;
+      clip: rect(1px, 1px, 1px, 1px);
+      padding: 0;
+      border: 0;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+    }
+
+    a.skiplink:focus {
+      clip: auto;
+      height: auto;
+      width: auto;
+      background-color: #fff;
+      padding: 0.3em;
+    }
+
+    #map:focus {
+      outline: #4A74A8 solid 0.15em;
+    }
+  </style>
+  <script src="../../dist/js/tsmap.js"></script>
+  <script src="../../static/tsmap.config.js"></script>
+  <script src="video.js"></script>
+
+
+</head>
+<script>
+  let tsMap = null;
+  let cluster = null;
+  let sein;
+  let pop;
+  let clusterDraw;
+
+  function init() {
+    tsMap = new TsMap();
+
+    cluster = tsMap.addClusterLayer();
+    cluster.setDistance({distance: 50});//设置聚合半径
+    stylefun();
+    addYjydFun(data);
+    clusterDraw = tsMap.addDraw();
+
+    clusterDraw.setDrawEndCallback(function (e, f) {
+      if (cluster) {
+        cluster.spatialQueryFromPolygon({coordinate: f.coordinate[0]});
+      }
+    });
+
+  }
+
+
+  function addYjydFun(data) {
+    var l = data.length;
+    var features = [];
+    for (let i = 0; i < l; i++) {
+      let item = data[i];
+      let graphic1 = {
+        "geometry": {
+          "type": "Point",
+          "coordinates": [parseFloat(item.longitude), parseFloat(item.latitude)]
+        },
+        properties: item
+      };
+      graphic1.properties.type = "video";
+      features.push(graphic1);
+      //显示鼠标位置的点
+    }
+    cluster.addFeatures(features);
+
+
+  }
+
+  function stylefun() {
+    var object = {
+        url: 'expert.png',//图片url
+        fill: 'rgba(240,72,255,0.0)',//填充颜色
+        width: 5,//线宽
+        anchor: [0.5, 0.9],
+        radius: 50,//圆半径
+        scale: 0.8,
+        color: '#ff11bb'//线颜色
+     ,
+      text: {
+        color: '#ffffff',
+        offsetX: 0,
+        offsetY: 0,
+        scale: 3
+      }
+    };
+    cluster.setStyle(object);
+
+  }
+
+  /**
+   * 绘制图形空间查询条件
+   * @param type
+   * Circle//圆
+   * Box//矩形
+   * Polygon//多边形
+   * RadiusCircle//指定半径的圆
+   */
+  function spatialQuery(type) {
+    var object = {
+      coordinates: [113, 23],
+      radius: 50000
+    }
+    if (object && object.coordinates) {
+      /*let graphic = {
+        "geometry": {
+          "type": "RadiusCircle",
+          "coordinates": [113.4, 23],
+          radius: 20000//半径，默认是100
+        }
+      };*/
+      let radius = 500;
+      if (object.radius) {
+        radius = object.radius;
+      }
+      let graphic = {
+        "geometry": {
+          "type": "RadiusCircle",
+          "coordinates": object.coordinates,
+          radius: radius//半径，默认是100
+        }
+      };
+      clusterDraw.addFeature(graphic);
+    }
+  }
+
+  function clearfun() {
+    cluster.spatialQueryFromPolygon();
+
+    clusterDraw.clearFeature();
+
+  }
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px; "></div>
+<button onclick="stylefun()">样式</button>
+<button onclick="spatialQuery()">查询</button>
+<button onclick="clearfun()">清楚查询</button>
+
+
+</body>
+</html>

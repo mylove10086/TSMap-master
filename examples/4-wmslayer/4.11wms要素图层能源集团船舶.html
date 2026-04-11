@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="../../lib/jquery-3.5.0.js"></script>
+
+</head>
+<script>
+    let tsMap;
+    let wms;
+
+    function init() {
+        tsMap = new TsMap();//初始化地图
+        tsMap.setMapClickCallback(addinfo)
+
+        wms = tsMap.addWmsFeatureLayer({
+            url: "http://172.16.28.160:6080/geoserver/nyjt/wms",//服务地址
+            layer: "nyjt:t_crawl_ship_new",//图层命名空间和名称
+            maxlevel: 5,
+
+        });
+        wms.setClickCallback(queryFun);
+        let obj1 = {
+            url: 'hdg.png',//图片url
+            scale: 0.3,
+            rotationlabel: "hdg",//根据属性设置角度
+            fill: 'rgba(255,204,185,0.1)',//填充颜色
+            width: 5,//线宽
+            anchor: [0.0, 0.0],
+            radius: 10,//圆半径
+            color: '#ff11bb'//线颜色
+        };
+        var obj = [];
+        obj.push({
+            types: 'photovoltaic',
+            fill: 'rgba(238,98,33,0.7)',//填充颜色
+            width: 1,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: "wind_power",
+            fill: 'rgba(255,255,0,0.75)',//填充颜色
+            width: 1,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            fill: 'rgba(221,236,236,0.61)',//填充颜色
+            width: 1,//线宽
+            radius: 50,//点半径
+            color: '#ff11bb'//线颜色
+        });
+        var object = {
+            //types: 'stand_type_code',//根据属性显示不同的样式时属性名称
+            label: 'ship_short_name',//显示的文字属性
+            url: 'Point.png',//图片url
+            fill: 'rgba(255,255,0,0.75)',//填充颜色
+            width: 1,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb',//线颜色
+            text: {
+                color: '#ffffff',
+                scale: 0.5,
+                offsetX: 10,
+                offsetY: 10,
+            }
+        };
+        wms.setStyle(object);
+
+    }
+
+    function addinfo(e, attributes) {
+        console.log(attributes);
+
+    }
+
+    function queryFun(e, f, obj) {
+
+        console.log(e, f, obj);
+
+    }
+
+    function query1Fun(e, f, obj) {
+
+        wms.attributeQuery({
+            cql: "ship_type_id >=70  and ship_type_id <=79 "//货船
+
+        });
+        //cql: "ship_type_id >=20  and ship_type_id <=29 "//地效应船
+        //cql: "ship_type_id >=40  and ship_type_id <=49 "//高速船
+        //cql: "ship_type_id >=60  and ship_type_id <=69 "//客船
+        //cql: "ship_type_id >=70  and ship_type_id <=79 "//货船
+        //cql: "ship_type_id >=80  and ship_type_id <=89 "//油轮
+        //cql: "ship_type_id =100 "//集装箱
+        //cql: "ship_type_id >=90  and ship_type_id <=99 "//其他类型的船舶
+
+    }
+
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<label id="label1"></label>
+<button onclick="query1Fun()">qq</button>
+</body>
+</html>

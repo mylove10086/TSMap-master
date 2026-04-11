@@ -1,0 +1,6560 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "chinamap.1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.19944565,
+          45.4615177
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "克拉玛依市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.47497361,
+          44.26745879
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "沙湾县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.98446994,
+          44.42661532
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "奎屯市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.03301017,
+          44.26859432
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "石河子市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.5",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.50047081,
+          45.49132635
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "霍林郭勒市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          125.2364614,
+          41.23896971
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "桓仁满族自治县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.41995068,
+          41.72223248
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "清河门区",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.8",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.20841475,
+          39.77530591
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "嘉峪关市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.9",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.63831623,
+          36.27118374
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "莱芜市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.10",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          91.30565379,
+          33.91654622
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "格尔木市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.11",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.370855,
+          35.08945927
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "济源市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.12",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.96244404,
+          32.95709464
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "兴化市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.13",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.93931808,
+          32.71723051
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "天长市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.14",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.4924862,
+          31.64297122
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "崇明県",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.15",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.45796664,
+          31.58669161
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "神农架林区",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.16",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          122.45847036,
+          30.70941831
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "嵊泗县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.17",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.07994753,
+          30.63626539
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "天门市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.18",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          122.15180162,
+          30.27487299
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "岱山县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.19",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.72600007,
+          30.32228601
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "鄂州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.20",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.73275472,
+          30.32305581
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "潜江市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.21",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.3537162,
+          30.27725976
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "仙桃市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.22",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.86667406,
+          27.6199043
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "萍乡市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.23",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.93492905,
+          27.20429775
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "莲花县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.24",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.77456681,
+          25.50808686
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "平潭县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.25",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.57373431,
+          24.99013919
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "台北县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.26",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.68676801,
+          25.11335472
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "基隆市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.27",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.5118259,
+          25.05886108
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "台北市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.28",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.22902515,
+          24.87608251
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "桃园县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.29",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.6190847,
+          24.57180616
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "宜兰县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.30",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.11296366,
+          24.67648492
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "新竹县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.31",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.89973437,
+          24.47625232
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "苗栗县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.32",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.90628243,
+          24.2349846
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "台中县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.33",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.35851836,
+          23.77510301
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "莲花县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.34",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.39702173,
+          24.4436052
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "金门县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.35",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.95646414,
+          23.84966939
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "南投县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.36",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.65155869,
+          24.17376404
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "台中市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.37",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.47630781,
+          23.94060887
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "彰化县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.38",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.37312144,
+          23.6805945
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "云林县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.39",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.51909231,
+          23.4665806
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "嘉义县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.40",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.03703096,
+          22.90728798
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "台东县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.41",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.62173553,
+          23.03733517
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "凤山县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.42",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.39892133,
+          23.67096611
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "诏安县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.43",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.33064873,
+          23.17972348
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "台南县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.44",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.0599172,
+          23.44557294
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "南澳县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.45",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.16203364,
+          23.02399277
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "台南市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.46",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.66930296,
+          22.47964478
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "屏东县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.47",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.30828809,
+          22.64236133
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "高雄市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.48",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.88001737,
+          22.92947841
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "东莞市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.49",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.35369815,
+          22.5419396
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "中山市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.50",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.5088679,
+          22.29170348
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "珠海市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.51",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.20212489,
+          22.21700437
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "澳门",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.52",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.31072559,
+          21.70691561
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "北海市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.53",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.16915738,
+          21.49784132
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "北海市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.54",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.25317555,
+          28.15480981
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "玉环县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.55",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.12036343,
+          22.37687123
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "香港",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.56",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          122.12642327,
+          30.04606517
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "舟山市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.57",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.965642,
+          39.6804577
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "阿图什市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.58",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.23865944,
+          38.17019935
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "喀什市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.59",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          81.55923466,
+          40.95687661
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "阿瓦提县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.60",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.94039972,
+          37.08553887
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "和田市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.61",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          82.21246217,
+          32.82497976
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "噶尔县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.62",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.48349124,
+          29.49859545
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "日喀则市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.63",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.90068144,
+          32.9325265
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "那曲县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.64",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          94.27635113,
+          34.15761114
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "治多县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.65",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.44510562,
+          27.95373259
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "中甸县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.66",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.87206126,
+          26.95471371
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "怒江傈傈族自治州",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.67",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.04072681,
+          25.75069505
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "云龙县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.68",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.10397106,
+          24.55049867
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "潞西市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.69",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.02164552,
+          24.98100539
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "保山市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.70",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.68389704,
+          23.92178696
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "临沧县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.71",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.73149415,
+          23.20702823
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "思茅市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.72",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.95765458,
+          21.9413145
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "景洪市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.73",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          91.10756227,
+          30.03437172
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "拉萨市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.74",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          92.29967395,
+          28.30028256
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "泽当",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.75",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.26115443,
+          29.19597234
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "林芝县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.76",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          97.07369303,
+          30.75403833
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "昌都",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.77",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.52091582,
+          26.9486054
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "丽江纳西族自治县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.78",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.73572261,
+          26.82353798
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "攀枝花市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.79",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.08717424,
+          27.87902549
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "西昌市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.80",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.58746132,
+          25.35988965
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "楚雄市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.81",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.04304465,
+          23.45302553
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "个旧市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.82",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.72285431,
+          23.69145479
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "文山县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.83",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.28384109,
+          23.98452887
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "百色市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.84",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.32382246,
+          22.58952515
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "凭祥市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.85",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.98767816,
+          21.88569123
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "防城港市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.86",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          108.32608572,
+          22.90174219
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "南宁市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.87",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          108.74893175,
+          23.23396388
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "马山县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.88",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.01529384,
+          22.19777439
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "钦州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.89",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.16452153,
+          22.45160484
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "玉林市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.90",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.13897318,
+          21.11661581
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "湛江市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.91",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.42701924,
+          18.38962561
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "三亚市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.92",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.76332958,
+          19.23919994
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "海口市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.93",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.93120033,
+          22.02202707
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "茂名市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.94",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.76516592,
+          22.03961634
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "阳西县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.95",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.65005957,
+          22.30707791
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "江门市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.96",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.51361925,
+          23.37958941
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "广州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.97",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.86675984,
+          24.32070071
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "清远市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.98",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.18033885,
+          23.54982053
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "肇庆市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.99",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.98158336,
+          23.50058143
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "梧州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.100",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.33935172,
+          24.36900368
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "贺州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.101",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.4984691,
+          25.37332094
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "桂林市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.102",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.24327881,
+          24.42285925
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "柳州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.103",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.83518941,
+          24.65950304
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "河池市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.104",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          108.54851722,
+          26.50855257
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "凯里市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.105",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.70983238,
+          26.84763404
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "贵阳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.106",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.92941085,
+          26.01311458
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "安顺市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.107",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.48176436,
+          25.26710775
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "兴义市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.108",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.9505538,
+          25.71632495
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "曲靖市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.109",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.90004112,
+          26.14871689
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "六盘水市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.110",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.21904626,
+          27.06683008
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "毕节市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.111",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.02300276,
+          27.65422291
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "昭通市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.112",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.63242037,
+          28.56287864
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "宜宾市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.113",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.57343288,
+          29.20077423
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "乐山市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.114",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.69489655,
+          29.27707893
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "自贡市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.115",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.92116426,
+          29.63372351
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "内江市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.116",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.07843953,
+          28.16739709
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "遵义市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.117",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.64578082,
+          31.36563136
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "达川市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.118",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.48198987,
+          30.63279147
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "遂宁县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.119",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.66150808,
+          30.42284241
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "华蓥市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.120",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.66844854,
+          28.42869608
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "泸州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.121",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.97321444,
+          30.17204128
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "资阳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.122",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.67259677,
+          29.91513582
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "雅安市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.123",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.76603667,
+          29.92597584
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "仁寿县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.124",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.04355146,
+          30.90152366
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "康定县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.125",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.4013988,
+          34.10029438
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "玛沁县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.126",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.27161169,
+          35.88643326
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "共和县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.127",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.64026856,
+          35.01689284
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "同仁县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.128",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.78606815,
+          34.3244602
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "夏河县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.129",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.23656335,
+          33.59325711
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "成县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.130",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.73661886,
+          34.64953174
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "天水市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.131",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.46138509,
+          35.10901592
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "定西县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.132",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.28461051,
+          35.62923401
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "临夏市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.133",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.44992023,
+          36.82389383
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "西宁市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.134",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.34472971,
+          36.32141446
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "平安县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.135",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.23122208,
+          37.75956306
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "门源回族自治县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.136",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.04603489,
+          38.42205001
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "金昌市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.137",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.25505653,
+          40.45512718
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "酒泉市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.138",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.10763722,
+          37.27306236
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "乌兰县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.139",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          87.51803479,
+          39.4879411
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "库尔勒市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.140",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          93.51232852,
+          43.03597351
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "哈密市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.141",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          89.83725396,
+          42.36872987
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "叶鲁番市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.142",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          87.81710673,
+          43.50856983
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "乌鲁木齐市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.143",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.58070044,
+          44.31885855
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "玛纳斯县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.144",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.3910172,
+          46.87769455
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "阿勒泰市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.145",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          82.11476252,
+          44.71414404
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "博乐市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.146",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          82.04862586,
+          43.42366272
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "伊宁市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.147",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.43615486,
+          40.48478847
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "阿拉善左旗",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.148",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.06258456,
+          38.13114782
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "武威市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.149",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.67436908,
+          36.33050231
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "兰州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.150",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.19092966,
+          37.48995416
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "吴忠市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.151",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.15851072,
+          38.50446506
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "银川市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.152",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.50660717,
+          38.97104286
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "市辖区(石嘴山市)",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.153",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.87078211,
+          39.55504712
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "烏海市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.154",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          108.60712962,
+          39.40897809
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "东胜市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.155",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.55536217,
+          41.43313622
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "临河市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.156",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.2342073,
+          41.54983404
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "包头市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.157",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.46521325,
+          40.5969196
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "呼和浩特市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.158",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.42017777,
+          41.68822195
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "集宁市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.159",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.69478687,
+          39.89933357
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "大同市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.160",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.60499595,
+          39.617901
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "朔州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.161",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.37908709,
+          38.87364814
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "忻州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.162",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.52716238,
+          38.03268414
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "榆林市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.163",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.29558614,
+          36.4187637
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "延安市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.164",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.55789327,
+          36.16224567
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "西峰市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.165",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.00855416,
+          36.15515853
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "固原县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.166",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.33283647,
+          36.15272312
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "平凉市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.167",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.19240498,
+          34.37256206
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "宝鸡市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.168",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.11310137,
+          33.08053366
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "汉中市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.169",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.79307656,
+          32.25488405
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "广元市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.170",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.03081809,
+          32.01140833
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "巴中县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.171",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.21220575,
+          31.19162678
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "南充县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.172",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.71027815,
+          31.8528718
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "绵阳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.173",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.44470054,
+          31.12984551
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "德阳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.174",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.83854306,
+          30.70071057
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "成都市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.175",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.62009831,
+          32.39983027
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "马尔康县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.176",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          108.91157776,
+          32.7527134
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "安康市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.177",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.41300952,
+          32.44881392
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "十堰市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.178",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.91112145,
+          31.92559912
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "襄樊市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.179",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.11869412,
+          30.74402214
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "宜昌市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.180",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.52719544,
+          30.19506543
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "恩施市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.181",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.51541216,
+          29.38382079
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "大庸市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.182",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.71371163,
+          28.68983643
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "吉首市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.183",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          108.53624102,
+          27.96662811
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "铜仁市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.184",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.85666115,
+          30.0475814
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "重庆市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.185",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.06425772,
+          27.54671192
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "怀化市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.186",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.92277001,
+          28.556475
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "益阳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.187",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.59188799,
+          27.72535632
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "娄底市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.188",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.51584419,
+          29.2812861
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "常德市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.189",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.54612566,
+          29.99363409
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "沙市市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.190",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.58732411,
+          31.07645784
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "荆门市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.191",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.23596191,
+          29.03878817
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "岳阳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.192",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.11283193,
+          28.20282872
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "长沙市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.193",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.57730147,
+          27.71431667
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "湘潭市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.194",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.49342041,
+          27.10376482
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "株州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.195",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.54209094,
+          26.79233465
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "衡阳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.196",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.84822071,
+          26.9131949
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "邵阳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.197",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.70839685,
+          25.77384729
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "永州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.198",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.76578994,
+          24.81748729
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "韶关市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.199",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.48299615,
+          23.24623433
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "惠州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.200",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.9119193,
+          23.01640464
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "佛山市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.201",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.77961748,
+          22.81423678
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "云浮市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.202",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.12347214,
+          22.65977388
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "深圳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.203",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.50698222,
+          23.01962868
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "海丰县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.204",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.95403547,
+          24.04004783
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "河源市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.205",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.11398981,
+          23.33723129
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "揭阳县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.206",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.55707962,
+          23.3435892
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "汕头市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.207",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.76007125,
+          23.81161916
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "潮州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.208",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.07190154,
+          24.20846844
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "梅州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.209",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.43756071,
+          24.39306588
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "漳州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.210",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.11532751,
+          24.68962197
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "厦门市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.211",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.72151759,
+          25.30568892
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "龙岩市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.212",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.25805333,
+          25.22584171
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "泉州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.213",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.87274661,
+          25.46899958
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "莆田市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.214",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.15063658,
+          26.08000404
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "福州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.215",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.37999101,
+          26.31529178
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "三明市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.216",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.1182295,
+          27.34320655
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "南平市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.217",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.4177277,
+          27.50406823
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "临川市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.218",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.09434219,
+          28.21363458
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "鹰潭市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.219",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.81580001,
+          26.96191339
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "吉安市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.220",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.25185133,
+          25.70405619
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "赣州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.221",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.11377992,
+          25.81467358
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "郴州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.222",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.85620992,
+          27.81828644
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "新余市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.223",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.95220754,
+          28.28990249
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "宜春市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.224",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.02031514,
+          28.64681877
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "南昌市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.225",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.41244474,
+          29.31377553
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "九江市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.226",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.45071998,
+          28.77134543
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "上饶市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.227",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.26321745,
+          29.30134297
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "景德镇市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.228",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.04881716,
+          29.90705247
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "黄山市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.229",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.35893173,
+          30.28489769
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "贵池市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.230",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.88387831,
+          30.93989686
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "铜陵市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.231",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.57295463,
+          30.60131998
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "安庆市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.232",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.00398682,
+          29.93024489
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "黄石市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.233",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.16043748,
+          29.62285701
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "咸宁市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.234",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.32688913,
+          30.69344256
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "麻城市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.235",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.32393735,
+          30.62547066
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "武汉市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.236",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.40463321,
+          31.82745582
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "随州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.237",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.83810918,
+          32.0781525
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "信阳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.238",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1260553,
+          32.93127187
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "驻马店市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.239",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.89012644,
+          33.63879218
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "商州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.240",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          108.78841088,
+          34.09960558
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "西安市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.241",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.8341785,
+          34.94209131
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "渭南市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.242",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.02174149,
+          35.18989417
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "铜川市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.243",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          108.38191698,
+          34.79064119
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "咸阳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.244",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.0857036,
+          34.34943825
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "三门峡市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.245",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.05909734,
+          35.17721028
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "运城市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.246",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.00074426,
+          34.284292
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "洛阳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.247",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.99441381,
+          33.79591791
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "平顶山市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.248",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.89273885,
+          33.65518144
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "漯河市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.249",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.68952293,
+          34.07757579
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "许昌市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.250",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.45641611,
+          34.62044561
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "郑州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.251",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.09958256,
+          35.09311196
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "焦作市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.252",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.68207904,
+          35.60445438
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "晋城市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.253",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.89358874,
+          36.46902254
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "长治市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.254",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.34208957,
+          36.22205715
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "临汾市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.255",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.29510324,
+          37.94760742
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "太原市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.256",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.23645796,
+          37.66669356
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "离石县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.257",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.93833769,
+          37.31674109
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "榆次市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.258",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.51079561,
+          36.54532517
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "邯郸市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.259",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.34269752,
+          35.86868928
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "安阳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.260",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.29563155,
+          35.72895134
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "鹤壁市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.261",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.06178431,
+          35.25626725
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "新乡市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.262",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.52325992,
+          34.59822507
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "开封市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.263",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.8516748,
+          33.72949335
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "周口市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.264",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.67644953,
+          32.89716725
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "阜阳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.265",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.71573271,
+          32.76391405
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "淮南市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.266",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.30268046,
+          33.1028811
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "蚌埠市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.267",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.72488419,
+          33.73611735
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "淮北市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.268",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.18883191,
+          33.84232837
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "宿州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.269",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.153889,
+          33.43319425
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "亳州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.270",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.67716628,
+          34.28093945
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "商丘市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.271",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.66789094,
+          35.1426716
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "菏泽市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.272",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.26392141,
+          35.79826258
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "濮阳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.273",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.85700984,
+          36.44593903
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "聊城市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.274",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.79567041,
+          37.20458288
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "邢台市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.275",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.41863257,
+          38.12659395
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "石家庄市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.276",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.46654288,
+          38.0622129
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "阳泉市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.277",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.14808225,
+          39.00418914
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "保定市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.278",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.79621271,
+          37.75481269
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "衡水市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.279",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.63343474,
+          37.23787043
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "德州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.280",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.72359638,
+          38.25178499
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "沧州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.281",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.51284626,
+          39.09866605
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "廊坊市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.282",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.30502765,
+          39.28829824
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "天津市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.284",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.99095348,
+          39.8550122
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "香河县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.285",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.01236175,
+          40.85210732
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "张家口市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.286",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.30229616,
+          39.72957387
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "唐山市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.287",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.14694543,
+          40.06579357
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "秦皇岛市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.288",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.51768451,
+          41.31897378
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "承德市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.289",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.15546637,
+          40.59991283
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "葫芦岛市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.290",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.98461127,
+          41.48334492
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "朝阳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.291",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.84735281,
+          43.2099299
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "赤峰市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.292",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.59111223,
+          41.45312674
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "锦州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.293",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          122.4347033,
+          40.36908767
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "营口市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.294",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          124.38640935,
+          40.54619177
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "丹东市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.295",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          123.19786203,
+          41.16943678
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "辽阳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.296",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          122.00424445,
+          41.09192262
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "盘锦市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.297",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.93561398,
+          42.26799517
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "阜新市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.298",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          122.97884147,
+          40.7030512
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "鞍山市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.299",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          124.01049946,
+          41.18422827
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "本溪市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.300",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          123.11707531,
+          42.08865074
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "沈阳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.301",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          124.14000971,
+          42.6334516
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "铁岭市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.302",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          124.61753411,
+          41.80526166
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "扶顺市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.303",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.55958396,
+          43.79723296
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "通辽市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.304",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.46509196,
+          44.19073777
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "锡林浩特市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.305",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.31487914,
+          46.21198288
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "乌兰浩特市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.306",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          122.97009747,
+          45.3427408
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "白城市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.307",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          124.51820179,
+          47.66945011
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "齐齐哈尔市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.308",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          124.17978945,
+          52.29851525
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "塔河县",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.309",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.93698913,
+          49.22992314
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "黑河市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.310",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          124.66710974,
+          46.32411567
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "大庆市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.311",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.61175738,
+          46.86695381
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "绥化市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.312",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          124.42798988,
+          44.79860321
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "扶余市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.313",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          124.44390132,
+          43.56650769
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "四平市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.314",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          125.91246314,
+          41.9440345
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "通化市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.315",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          125.26727929,
+          42.79282777
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "辽源市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.316",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.7989918,
+          43.58545753
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "吉林市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.317",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          125.71651456,
+          44.38039278
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "长春市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.318",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.2474671,
+          42.05649553
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "浑江市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.319",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.92472377,
+          45.63058679
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "哈尔滨市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.320",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.75021151,
+          47.61835526
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "鹤岗市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.321",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.17312185,
+          47.78258976
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "伊春市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.322",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.96810375,
+          45.90754314
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "七台河市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.323",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.25251112,
+          45.62617447
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "鸡西市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.324",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.51597594,
+          46.66815305
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "双鸭山市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.325",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.19499556,
+          47.23996735
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "佳木斯市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.326",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.14477559,
+          49.63578691
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "海拉尔市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.327",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.86142723,
+          31.1181647
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "孝感市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.328",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.99552744,
+          23.32919151
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "贵港市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.329",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.40158635,
+          24.51321115
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "合山市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.330",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.24529179,
+          26.014151
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "都匀市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.331",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.46355328,
+          26.98383347
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "宁德市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.332",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.39544643,
+          27.88785852
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "温州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.333",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.06371593,
+          28.78529714
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "台州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.334",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.48842142,
+          28.1849142
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "丽水市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.335",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.6630422,
+          28.92666976
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "衢州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.336",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.94365272,
+          29.10259971
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "金华市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.337",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.61766693,
+          29.70290441
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "绍兴市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.338",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.44824636,
+          29.70498419
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "宁波市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.339",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.43122666,
+          29.88755209
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "杭州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.340",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.83885273,
+          30.68513404
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "宣州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.341",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.84652657,
+          30.74159366
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "湖州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.342",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.74987442,
+          30.65577255
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "嘉兴市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.344",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.61633666,
+          31.3489214
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "苏州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.345",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.7789119,
+          31.35621916
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "宜兴市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.346",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.29227836,
+          31.64521574
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "无锡市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.347",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.61545025,
+          31.62587445
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "常州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.348",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.59158745,
+          31.5313011
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "马鞍山市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.349",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.82826117,
+          31.92139891
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "南京市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.350",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.44655531,
+          32.00966267
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "镇江市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.351",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.32183735,
+          31.07122561
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "芜湖市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.352",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.767725,
+          31.45497623
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "巢湖市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.353",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.24001399,
+          31.99339453
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "合肥市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.354",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.29629607,
+          31.7613826
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "六安市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.355",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.95889081,
+          32.51223343
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "滁州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.356",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.09514534,
+          32.2982225
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "泰州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.357",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.97357905,
+          32.20339065
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "市辖区(南通市)",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.358",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.1439094,
+          33.52473752
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "盐城市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.359",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.97843693,
+          33.36548482
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "淮阴市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.360",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.49056573,
+          33.73151965
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "宿迁市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.361",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.49972157,
+          34.33870086
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "徐州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.362",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.72433393,
+          35.34636978
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "济宁市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.363",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.39286419,
+          34.90791034
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "枣庄市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.364",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.10098457,
+          34.52693991
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "连云港市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.365",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.26384946,
+          35.30237418
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "临沂市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.366",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.11191636,
+          35.56864752
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "日照市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.367",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.11887958,
+          36.4503788
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "青岛市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.368",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.95988582,
+          37.10737873
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "威海市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.369",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.77309048,
+          37.22849631
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "烟台市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.370",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.04530269,
+          36.51407654
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "潍坊市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.371",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.0303124,
+          36.60765543
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "淄博市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.372",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.02979281,
+          35.98547561
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "泰安市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.373",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.06105056,
+          36.71571519
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "济南市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.374",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.54525448,
+          37.57613017
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "东营市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.375",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.80798249,
+          37.4818358
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "滨州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.376",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.89118815,
+          25.39767178
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "昆明市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.377",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.21779101,
+          24.1518216
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "玉溪市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.378",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.6808056,
+          45.79401828
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "塔城市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.379",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.90291942,
+          38.90731519
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "张掖市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.380",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.27186878,
+          33.03330402
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "南阳市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.381",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.46588082,
+          32.73051856
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "扬州市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.382",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.08012702,
+          43.13780027
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "牡丹江市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.383",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.84278453,
+          44.59907205
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "牡丹江市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.384",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          122.19221321,
+          39.5912993
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "大连市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.385",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.56302655,
+          22.13865558
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "澳门",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.417",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.37958598,
+          31.07648053
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "上海市",
+        "level": "市",
+        "num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chinamap.2809",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.38512697,
+          40.1630429
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "NAME": "北京市",
+        "level": "市",
+        "num": 2
+      }
+    }
+  ],
+  "totalFeatures": 385,
+  "numberMatched": 385,
+  "numberReturned": 385,
+  "timeStamp": "2023-02-23T06:47:18.074Z",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::4326"
+    }
+  }
+}

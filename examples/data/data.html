@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lincaofb.js"></script>
+    <script src="caikuangquanzheng.js"></script>
+</head>
+<script>
+    function infofun() {
+        var data = [];
+        for (var i = 0; i < lincaofb.data.length; i++) {
+            var item = lincaofb.data[i];
+            var grap = {
+                geometry: {
+                    "type": "Polygon",
+                    coordinates: []
+                },"properties": {
+                    "gid": 1,
+                    "objectid": 1,
+                    "id": 5845
+                }
+            }
+            var json = JSON.parse(item.geom)
+           for(var j=0;j<json.coordinates[0][0].length;j++){
+               var jtem=json.coordinates[0][0][j];
+               grap.geometry.coordinates.push([jtem[0],jtem[1]])
+           }
+
+            data.push(grap);
+        }
+
+        console.log(data);
+    }
+    function caikuangquanzhengfun() {
+        var data = [];
+        for (var i = 0; i < data1.length; i++) {
+            var item = data1[i];
+            var grap = {
+                geometry: {
+                    "type": "Point",
+                    coordinates: [item.lng,item.lat]
+                }
+            }
+
+            data.push(grap);
+        }
+
+        console.log(data);
+    }
+</script>
+<body>
+<button onclick="infofun()">sdf</button>
+<button onclick="caikuangquanzhengfun()">caikuangquanzhengfun</button>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11.1以图标加载点坐标</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="../../lib/jquery-3.5.0.js"></script>
+    <script src="../data/weifacaikuang.js"></script>
+</head>
+<script>
+    let tsMap = null;
+    let gjson = null;
+    let gjson1 = null;
+
+    function init() {
+        tsMap = new TsMap({target: "cesiumContainer"});
+        var url = "http://localhost:7001/{quadkey}.jpeg";
+        // url = "http://172.16.27.183:8080/map/tiles/{quadkey}.jpeg";
+        //tsMap.setBaseMap("bingmap", {url: url});
+        gjson = tsMap.addGraphicLayer();
+        let obj = {
+            url: 'expert.png',//图片url
+            scale: 0.3,
+            fill: 'rgba(255,204,185,0.1)',//填充颜色
+            width: 5,//线宽
+            anchor: [0.5, 1.0],
+            radius: 10,//圆半径
+            color: '#ff11bb',//线颜色
+            text: {
+                color: '#eab513',
+                scale: 0.50,
+                offsetX: 0.0,
+                offsetY: -35,
+            }
+        };
+        gjson.setClusterStyle(obj);
+        gjson.setStyle(obj);
+    }
+
+    function addpoint() {
+        gjson.clear();
+        for (var i = 0; i < 50; i++) {
+            var lon = Math.random() * 2 + 113;
+            var lat = Math.random() * 2 + 23;
+            let graphic = {
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [lon, lat]
+                },
+                properties: {
+                    "type": "manid", gid: "" + i
+                }
+            };
+            gjson.addFeature(graphic);
+
+        }
+    }
+
+    var bol = true;
+
+    function clusterfun() {
+        if (bol) {
+
+            gjson.cluster(true);
+            let obj = {
+                url: 'expert.png',//图片url
+                scale: 0.3,
+                fill: 'rgba(255,204,185,0.1)',//填充颜色
+                width: 5,//线宽
+                anchor: [0.5, 1.0],
+                radius: 10,//圆半径
+                color: '#ff11bb',//线颜色
+                text: {
+                    color: '#eab513',
+                    scale: 0.50,
+                    offsetX: 0.0,
+                    offsetY: -35,
+                }
+            };
+            gjson.setClusterStyle(obj);
+            bol = false;
+
+        } else {
+            gjson.cluster(false);
+            bol = true;
+        }
+
+    }
+</script>
+<body onload="init()">
+<div id="cesiumContainer" style="height: 500px"></div>
+<button onclick="addpoint()">addpoint</button>
+<button onclick="clusterfun()">聚合</button>
+
+</body>
+</html>

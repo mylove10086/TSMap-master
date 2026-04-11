@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.4鹰眼限制地图级别</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let tsMap;
+
+    function init() {
+        tsMap = new TsMap();
+    }
+
+    function setZoomAndCenter() {
+        tsMap.getMap().setZoomAndCenter({
+            center: [113.469208, 23.103458],
+            zoom: 18
+        });
+    }
+
+    function addZoom() {
+        tsMap.getMap().addZoom({});
+    }
+
+    function addFullScreen() {
+        tsMap.getMap().addFullScreen({});
+    }
+
+    function addScaleLine() {
+        tsMap.getMap().addScaleLine({});
+    }
+
+    function addRotate() {
+        tsMap.getMap().addRotate({});
+    }
+
+    function addZoomToExtent() {
+        tsMap.getMap().addZoomToExtent({});
+    }
+
+    //true显示鹰眼，false隐藏鹰眼
+    function addOverviewMap() {
+        tsMap.getMap().addOverviewMap();
+    }
+
+    function removeOverviewMap() {
+        tsMap.getMap().removeOverviewMap();
+    }
+
+    //max:允许放大的最大级别，min:允许缩小的最小级别
+    function setZoomLimit() {
+        tsMap.getMap().setZoomLimit(13, 15);
+    }
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+
+<button onclick="setZoomAndCenter()">设置中心点</button>
+<button onclick="addZoom()">添加缩放</button>
+<button onclick="addFullScreen()">添加全屏</button>
+<button onclick="addScaleLine()">添加比例尺</button>
+<button onclick="addRotate()">添加旋转</button>
+<button onclick="addZoomToExtent()">添加定位</button>
+<button onclick="addOverviewMap()">添加鹰眼</button>
+<button onclick="removeOverviewMap()">移除鹰眼</button>
+<button onclick="setZoomLimit()">设置地图最大最小缩放级别</button>
+</body>
+</html>

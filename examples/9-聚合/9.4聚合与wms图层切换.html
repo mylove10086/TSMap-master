@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9.4聚合与wms图层切换</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+</head>
+<script>
+    let tsMap = null;
+    let wms = null;
+    let cluster = null;
+
+
+    function init() {
+        tsMap = new TsMap();
+        wms = tsMap.addWmsLayer({
+            url: 'http://172.16.28.148:6080/geoserver/mysql/wms',
+            layer: 'mysql:equip'
+        });
+
+    }
+
+    let bol = true;
+
+    function layersfun() {
+        if (bol) {
+            wms.removeLayer();
+            if (cluster) {
+                cluster.addLayer();
+            } else {
+                cluster = tsMap.addClusterLayer({
+                    url: "http://172.16.28.148:6080/geoserver/mysql/ows?service=WFS",
+                    layer: "equip",
+                    featurePrefix: "mysql",
+                    featureNS: 'http://www.mysql.net'
+                });
+            }
+            bol = false;
+
+        } else {
+            wms.addLayer();
+            cluster.removeLayer();
+            bol = true;
+        }
+
+    }
+
+
+</script>
+<body onload="init()">
+<div id="map" class="map" tabindex="0" style="height: 600px"></div>
+<button onclick="layersfun()">切换</button>
+
+
+</body>
+</html>

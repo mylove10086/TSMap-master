@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.1初始化地图</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="hangzhou-tracks.js"></script>
+
+</head>
+<script>
+    let tsMap = null
+    var oe;
+
+    function init() {
+        tsMap = new TsMap({
+            target: 'tsMap',
+            baseMapLayerType: "img_w"
+        });
+        oe = tsMap.addFlowLayer();
+        var style = {
+            fill: 'rgba(224,215,34,0.68)',//填充颜色
+            width: 3,//线宽
+            size: 20,
+            opacity: 0.5,
+            color: '#ab0fd7',//线颜色
+        };
+        // 要先设置样式再添加图形
+        oe.setStyle(style);
+
+    }
+
+
+    function ecmap() {
+        let graphic = {
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        112.83877986,
+                        23.53951545
+                    ],
+                    [
+                        112.79533445,
+                        23.5748072
+                    ],
+                    [
+                        112.75803845,
+                        23.59552559
+                    ],
+                    [
+                        112.74718618,
+                        23.6018045
+                    ],
+                    [
+                        112.72703798,
+                        23.6134563
+                    ]
+                ],
+                'color': "#ffffff",
+            }
+        };
+        oe.addFeature(graphic);
+
+    }
+
+    function addecmap() {
+        let graphic = {
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        113, 23
+                    ],
+                    [
+                        113.5, 23
+                    ],
+                    [
+                        113.5, 23.5
+                    ],
+                    [
+                        113, 23.5
+                    ],
+                    [
+                        113, 23
+                    ]
+                ],
+                color: '#dec549',//线颜色
+
+            }
+        };
+        oe.addFeature(graphic);
+
+    }
+    function color16(){//十六进制颜色随机
+        const r = Math.floor(Math.random()*256);
+        const g = Math.floor(Math.random()*256);
+        const b = Math.floor(Math.random()*256);
+        const color = `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`;
+        return color;
+    }
+
+    function addhangzhou() {
+        var cc = color16();
+        for (var i = 0; i < tracks.length; i++) {
+            var item = tracks[i]
+            let graphic = {
+                "geometry": {
+                    "type": "LineString",
+                    "coordinates": [],
+                    color: color16(),//线颜色
+
+                }
+            };
+            for (var j = 0; j < item.length; j++) {
+                var jtem = item[j];
+                graphic.geometry.coordinates.push(jtem.coord);
+            }
+            oe.addFeature(graphic);
+
+
+        }
+
+
+    }
+
+    function clearfun() {
+        oe.clear();
+    }
+
+    let bo = false;
+
+    function showfun(e) {
+        if (bo) {
+            oe.setVisible(bo);
+            bo = false;
+        } else {
+            oe.setVisible(bo);
+            bo = true;
+        }
+
+    }
+
+
+</script>
+
+<body onload="init()">
+<div id="tsMap" style="height: 500px"></div>
+<button onclick="ecmap()">添加交通图</button>
+<button onclick="addecmap()">添加新的线</button>
+<button onclick="addhangzhou()">路网</button>
+<button onclick="clearfun()">clearfun</button>
+<button onclick="showfun()">显示隐藏</button>
+</body>
+
+</html>

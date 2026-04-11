@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>19.1添加覆盖物</title>
+
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <script src="../../lib/jquery-3.5.0.js"></script>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let tsMap = null;
+    let oll = null;
+    let gjson = null;
+    let point = null;
+
+
+    function init() {
+        tsMap = new TsMap();
+
+        gjson = tsMap.addGraphicLayer();
+
+        point = tsMap.addPointAnimateLayer();
+        oll = tsMap.addOverlay();
+
+        tsMap.setMapClickCallback(mcfun);
+
+    }
+
+
+    let feature;
+
+    function mcfun(f, o) {
+        let ovl = oll.addOverlay({
+            anchor:[0.5, 0.5],//图片偏离点击位置的像素
+            width: 50,//图片宽度
+            height: 50,//图片高度
+            position: o.coordinate,//位置
+            //'bottom-left', 'bottom-center', 'bottom-right', 'center-left', 'center-center', 'center-right', 'top-left', 'top-center', and 'top-right'
+            positioning: 'center-center',
+            url: 'fire1.gif',
+            properties:{
+                type:"eltsfd"
+            }
+
+        });
+        //指定半径的圆
+        let graphic = {
+            "geometry": {
+                "type": "RadiusCircle",
+                "coordinates": o.coordinate,
+                radius: 50000//半径，默认是100
+            },
+            "properties": {
+                "gid": 1,
+                "objectid": 1,
+                "id": 5845
+            }
+        };
+        feature = gjson.addFeature(graphic);
+        let graphic2 = {
+            "geometry": {
+                "coordinates":  o.coordinate,
+                radius: 50000,//半径，默认是100
+                step: 1000//步数,这个越大，圆放大越慢
+            }
+        };
+        point.addFeature(graphic2);
+    }
+
+    let bol = false;
+
+    function showfun() {
+        if (bol) {
+            oll.setVisible(true);
+            //point.setVisible(true);
+            //gjson.setVisible(true);
+            bol = false;
+        } else {
+            oll.setVisible(false);
+            //point.setVisible(false);
+            //gjson.setVisible(false);
+            bol = true;
+        }
+    }
+
+    function removelayerfun() {
+        oll.removeLayer();
+        gjson.clear();
+    }
+
+    function clearfun() {
+        oll.clear();
+    }
+    function stylefun() {
+        var object = {
+            types: 'types',
+            label: 'types',
+            style: {
+                url: '../data/Point.png',//图片url
+                fill: 'rgba(240,72,255,0.0)',//填充颜色
+                width: 1,//线宽
+                radius: 50,//圆半径
+                color: '#ff11bb',//线颜色
+                lineDash:[10,10]
+            },
+            text: {
+                color: '#ffffff',
+                scale: 1
+            }
+        };
+
+        gjson.setStyle(object);
+        //动画层样式
+        var object1 = {
+            style: {
+                fill: 'rgba(240,72,255,0.5)',//填充颜色
+                width: 0,//线宽
+                color: 'rgba(240,72,255,0.5)',//线颜色
+                //lineDash:[10,10]
+            }
+        };
+        point.setStyle(object1);
+    }
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="showfun()">显示与隐藏</button>
+<button onclick="removelayerfun()">移除图层</button>
+<button onclick="clearfun()">清空覆盖物</button>
+<button onclick="stylefun()">设置样式</button>
+<div id="scale"></div>
+
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>16-轨迹回放</title>
+  <script src="../../lib/openlayers/ol.js"></script>
+  <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+  <style>
+    .map {
+      width: 100%;
+      height: 500px;
+    }
+
+    a.skiplink {
+      position: absolute;
+      clip: rect(1px, 1px, 1px, 1px);
+      padding: 0;
+      border: 0;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+    }
+
+    a.skiplink:focus {
+      clip: auto;
+      height: auto;
+      width: auto;
+      background-color: #fff;
+      padding: 0.3em;
+    }
+
+    #map:focus {
+      outline: #4A74A8 solid 0.15em;
+    }
+  </style>
+
+  <script src="../../dist/js/tsmap.js"></script>
+  <script src="../../static/tsmap.config.js"></script>
+  <script src="../data/route.js"></script>
+</head>
+<script>
+  let tsMap = null;
+  let tr;
+
+  function init() {
+    tsMap = new TsMap();
+    var url = "http://localhost:7080/image/{quadkey}.jpeg";
+    url = "http://172.16.27.183:8080/map/tiles/{quadkey}.jpeg";
+    //tsMap.setBaseMap("bingmap", {url: url});
+    //tsMap.setBaseMap("community");
+
+    tr = tsMap.addTrackLayer();
+    tr.trackSpeed = 5;
+
+  }
+
+  function addRoute() {
+
+    var obj1 = {
+      name: "",
+      id: "1234",//添加更新删除都是使用id
+      line: [
+        {
+          "latitude": 29.938176,
+          "longitude": 121.475502,
+          "time": 2,
+          "height": 0
+        },
+        {
+          "latitude": 29.939521,
+          "longitude": 121.472883,
+          "time": 1,
+          "height": 50
+        },
+        {
+          "latitude": 29.941733,
+          "longitude": 121.474464,
+          "time": 2,
+          "height": 49.900001525878906
+        },
+        {
+          "latitude": 29.943517,
+          "longitude": 121.475693,
+          "time": 4,
+          "height": 49.900001525878906
+        },
+        {
+          "latitude": 29.945691,
+          "longitude": 121.477347,
+          "time": 5,
+          "height": 50
+        },
+        {
+          "latitude": 29.94796194,
+          "longitude": 121.47902305,
+          "time": 1,
+          "height": 49.900001525878906
+        },
+        {
+          "latitude": 29.949585,
+          "longitude": 121.48021305,
+          "time": 2,
+          "height": 50
+        },
+        {
+          "latitude": 29.951218,
+          "longitude": 121.481322,
+          "time": 1,
+          "height": 50
+        },
+        {
+          "latitude": 29.95320305,
+          "longitude": 121.48285694,
+          "time": 1,
+          "height": 50
+        },
+        {
+          "latitude": 29.95518194,
+          "longitude": 121.48429805,
+          "time": 1,
+          "height": 49.900001525878906
+        },
+        {
+          "latitude": 29.95707805,
+          "longitude": 121.48569111,
+          "time": 2,
+          "height": 50
+        },
+        {
+          "latitude": 29.95913388,
+          "longitude": 121.4872,
+          "time": 1,
+          "height": 50
+        },
+        {
+          "latitude": 29.960531,
+          "longitude": 121.487247,
+          "time": 2,
+          "height": 51.099998474121094
+        },
+        {
+          "latitude": 29.961583,
+          "longitude": 121.486245,
+          "time": 1,
+          "height": 51.099998474121094
+        },
+        {
+          "latitude": 29.962844,
+          "longitude": 121.485495,
+          "time": 2,
+          "height": 51.099998474121094
+        },
+        {
+          "latitude": 29.963833,
+          "longitude": 121.483397,
+          "time": 1,
+          "height": 51.099998474121094
+        },
+        {
+          "latitude": 29.965055,
+          "longitude": 121.481388,
+          "time": 2,
+          "height": 51.099998474121094
+        },
+        {
+          "latitude": 29.966488,
+          "longitude": 121.478955,
+          "time": 1,
+          "height": 51.099998474121094
+        },
+        {
+          "latitude": 29.967168,
+          "longitude": 121.477383,
+          "time": 4,
+          "height": 51.099998474121094
+        },
+        {
+          "latitude": 29.968265,
+          "longitude": 121.47709,
+          "time": 5,
+          "height": 51.099998474121094
+        },
+        {
+          "latitude": 29.968744,
+          "longitude": 121.474991,
+          "time": 1,
+          "height": 51.099998474121094
+        },
+        {
+          "latitude": 29.969429,
+          "longitude": 121.471967,
+          "time": 1,
+          "height": 50
+        },
+        {
+          "latitude": 29.970029,
+          "longitude": 121.469132,
+          "time": 2,
+          "height": 50
+        },
+        {
+          "latitude": 29.97061,
+          "longitude": 121.466224,
+          "time": 1,
+          "height": 49.900001525878906
+        },
+        {
+          "latitude": 29.97118,
+          "longitude": 121.463476,
+          "time": 4,
+          "height": 50
+        },
+        {
+          "latitude": 29.971616,
+          "longitude": 121.460996,
+          "time": 1,
+          "height": 50
+        }
+      ],
+    };
+    tr.addRoute(obj1);
+    var obj2 = {
+      name: "",
+      id: "12345",//添加更新删除都是使用id
+      line: [
+        {
+          "latitude": 29.938176,
+          "longitude": 121.475502,
+          "time": 2,
+          "height": 0
+        },
+        {
+          "latitude": 29.939521,
+          "longitude": 121.472883,
+          "time": 1,
+          "height": 50
+        },
+        {
+          "latitude": 29.97061,
+          "longitude": 121.466224,
+          "time": 1,
+          "height": 49.900001525878906
+        },
+        {
+          "latitude": 29.97118,
+          "longitude": 121.463476,
+          "time": 4,
+          "height": 50
+        },
+        {
+          "latitude": 29.971616,
+          "longitude": 121.460996,
+          "time": 1,
+          "height": 50
+        }
+      ],
+    };
+    tr.addRoute(obj2);
+  }
+
+  function rstart() {
+    tr.start();
+  }
+
+  function rend() {
+    tr.stop();
+  }
+
+  function clearfs() {
+    tr.clear();
+  }
+
+  function visiblefun() {
+    tr.setVisible(!tr.getVisible());
+  }
+
+  function stylefun() {
+
+    let obj = {
+      size: 50,
+      fill: 'rgba(255,204,185,0.1)',//填充颜色
+      width: 10,//线宽
+      //distance: [0,15],//在那个层级下显示
+      anchor: [0.5, 0.5],
+      radius: 10,//圆半径
+      color: '#ff11bb',//线颜色
+      line: {
+        color: '#d3c8de',//线颜色
+        ocolor: "#de1e1e",//边界颜色
+        width: 10,//线宽
+      },
+      point: {
+        surl: "start.png",//起点图片
+        eurl: "end.png",//终点图片
+        size: 0.5,
+        anchor: [0.5, 0.5],
+      }, move: {
+        //car: "car.png",//小车
+        arrow: "atc.png",//箭头
+        size: 0.31,
+
+      }
+
+    };
+
+    tr.setStyle(obj);
+  }
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="addRoute()">添加线</button>
+<button onclick="rstart()">开始运动</button>
+<button onclick="rend()">停止运动</button>
+<button onclick="clearfs()">清除轨迹</button>
+<button onclick="visiblefun()">显示隐藏</button>
+<button onclick="stylefun()">设置样式</button>
+
+</body>
+</html>

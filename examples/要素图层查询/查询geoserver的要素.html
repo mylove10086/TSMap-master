@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../lib/leaflet/leaflet-src.js"></script>
+    <link rel="stylesheet" href="../../lib/leaflet/leaflet.css">
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let tsMap = null;
+    let query = null;
+    let drawTool = null;
+
+
+    function init() {
+        tsMap = new TsMap();
+        let wms = tsMap.addWmsLayer({
+            url: 'http://172.16.28.148:6080/geoserver/mysql/wms',
+            layer: 'mysql:equip'
+        });
+        drawTool = new TsDraw();
+
+        query = new TsFeatureLayer();
+        query.callbackFun(cbfun);//设置查询返回结果的函数
+    }
+
+    let feature;
+    let cbfun = function (e) {
+
+        console.log(e);
+        query.addFeature(e);//将结果显示在地图上，现在使用的是默认的样式，还没有写添加样式的
+    };
+
+    function qu1() {
+
+        query.url = "http://172.16.28.148:6080/geoserver/mysql/ows?service=WFS";
+        query.featureNS = "http://www.mysql.net";
+        query.featurePrefix = "featurePrefix";
+        query.featureTypes = ["equip"];
+
+        //上面部分可以在创建FeatureLayer对象时设置一次就可以了
+        query.filters = new ol.format.filter.like('name', '冲锋*');//属性过滤
+        //query.filters=new ol.format.filter.equalTo('name', '电筒');
+        query.createQuery();//开始查询
+    }
+
+    function qu2() {
+        query.url = "http://172.16.28.148:6080/geoserver/mysql/ows?service=WFS";
+        query.featureNS = "http://www.mysql.net";
+        query.featurePrefix = "featurePrefix";
+        query.featureTypes = ["equip"];
+
+        //空间过滤要先绘制图形
+        query.feature = feature;//空间过滤
+
+        query.createQuery();//开始查询
+    }
+
+    function qu3() {
+        query.url = "http://172.16.28.148:6080/geoserver/mysql/ows?service=WFS";
+        query.featureNS = "http://www.mysql.net";
+        query.featurePrefix = "featurePrefix";
+        query.featureTypes = ["equip"];
+
+        query.feature = feature;//空间过滤
+        query.filters = new ol.format.filter.like('name', '冲锋*');//属性过滤
+        //query.filters=new ol.format.filter.equalTo('name', '电筒');
+        query.createQuery();//开始查询
+    }
+
+
+    function drawFun(type) {
+        drawTool.clearFeature();
+        type = "RadiusCircle";
+
+        switch (type) {
+
+            case 'Polygon':
+                drawTool.drawGraphic("Polygon");
+                break;
+            case 'Box':
+                drawTool.drawGraphic("Box");
+                break;
+            case 'Circle':
+                drawTool.drawGraphic("Circle");
+                break;
+            case 'RadiusCircle':
+                drawTool.radius = 10000;//设置半径
+                drawTool.drawGraphic("RadiusCircle");
+                break;
+            case 'Square':
+                drawTool.drawGraphic("Square");
+                break;
+        }
+
+    }
+
+    function getfeature() {
+        let s = drawTool.getFeature();
+        feature = s[0];
+        //drawTool.clearFeature();
+        let type = feature.getGeometry().getType();
+        console.log(s.length);
+    }
+
+
+</script>
+<body onload="init()">
+<div id="map" class="map" tabindex="0"></div>
+<button onclick="qu1()">属性查询</button>
+<button onclick="qu2()">空间查询</button>
+<button onclick="qu3()">属性空间查询</button>
+<button onclick="drawFun()">绘图</button>
+<button onclick="getfeature('null')">获取绘制的图形后再进行空间查询</button>
+</body>
+</html>

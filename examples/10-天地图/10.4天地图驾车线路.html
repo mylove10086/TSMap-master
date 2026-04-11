@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天地图驾车线路</title>
+    <script type="text/javascript"
+            src="http://api.tianditu.gov.cn/api?v=4.0&tk=0c408b2742b51c99f79f0fe2d9b63aa8"></script>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+</head>
+<script>
+    let tsMap = null;
+
+    let route;
+
+    function init() {
+        tsMap = new TsMap();
+        route = tsMap.addRouteLayer();
+        route.setQueryCallback(cbfun);
+    }
+
+    function cbfun(e) {
+        console.log(e);
+    }
+
+    function dlinefun() {
+        //0 最少时间
+        //1 最短距离
+        //2 避开高速
+        //3 步行
+        //route.policy = 0;
+        route.searchDrivingRoute({start: [113.33297, 23.99932], end: [112.36181, 23.86875]});
+        route.searchDrivingRoute({start: [114.33297, 23.99932], end: [112.36181, 23.86875]});
+
+    }
+
+    function drawPoint() {
+        route.policy = 0;
+        route.drawKeyPoint();//绘制起点和终点
+    }
+
+    function clearfun() {
+        route.removeRoute();
+    }
+
+    function setsylefun() {
+        var style = {
+            fill: 'rgba(224,215,34,0.68)',//填充颜色
+            width: 1,//线宽
+            size: 3,// radius
+            color: '#ab0fd7',//线颜色
+            start:{
+                url: 'Point.png',//图片url
+                scale: 1.5,
+                fill: 'rgba(255,204,185,0.1)',//填充颜色
+                anchor: [0.0, 0.0],
+                radius: 10,//圆半径
+            },
+            end:{
+                url: 'Point.png',//图片url
+                scale: 1.5,
+                fill: 'rgba(255,204,185,0.1)',//填充颜色
+                anchor: [0.0, 0.0],
+                radius: 10,//圆半径
+            },
+        };
+        route.setStyle(style);
+    }
+
+
+
+    function visiblefun() {
+
+            route.setVisible(!route.getVisible());
+
+    }
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="dlinefun()">天地图驾车线路</button>
+<button onclick="drawPoint()">绘制起点和终点</button>
+<button onclick="clearfun()">清除线路</button>
+<button onclick="visiblefun()">显示隐藏</button>
+<button onclick="setsylefun()">设置样式</button>
+</body>
+</html>

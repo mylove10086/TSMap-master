@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+</head>
+<script>
+    var tsMap = null;
+
+    var gjson = null;
+    var gjson1 = null;
+
+    function init() {
+        tsMap = new TsMap({
+            target: 'map',
+            zoom: 15,
+            center: [113.26156301525319, 22.99112809551208]
+        });
+        //tsMap.setOnlineMap({type: "img_w"});
+        gjson = tsMap.addGeoJSONLayer();
+        tsMap.setMapClickCallback(callbackfun);
+
+    }
+
+    /**
+     * 返回当前绘制的图形
+     * @param e
+     */
+    function callbackfun(e, f) {
+        console.log(f);
+
+    }
+
+    function centerFun() {
+        gjson.setDataSource({url: 'data2.json'});
+        //gjson.setDataSource({url: 'citypolyline1.json'});
+        //gjson.setDataSource({url: 'jyd.json'});
+
+    }
+
+    function removeLaye() {
+        gjson.removeLayer();
+    }
+
+    function layers() {
+        var l = tsMap.tsMap.getLayers();
+        console.log(l);
+    }
+
+    function styleFun(feature) {
+
+    }
+
+    function setStylefun() {
+        /*{anchor:null,//图片锚点位置
+             url : null,//图片url
+             fill : null,//填充颜色
+             width : null,//线宽
+             radius: null,//圆半径
+             color : null,//线颜色
+             scale :1,//图片缩放比例
+             rotation : 0}//图片旋转角度，顺时针方向*/
+
+        var obj = [];
+        obj.push({
+            types: '南沙区',
+            fill: 'rgba(255,253,26,0.5)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: '番禺区',
+            fill: 'rgba(112,255,158,0.5)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#20ff63'//线颜色
+        });
+        obj.push({
+            types: '海珠区',
+            fill: 'rgba(149,255,63,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: '天河区',
+            fill: 'rgba(255,244,31,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: "越秀区",
+            fill: 'rgba(36,255,206,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: "荔湾区",
+            fill: 'rgba(178,210,255,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: '花都区',
+            fill: 'rgba(255,122,137,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: '增城区',
+            fill: 'rgba(255,135,41,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: '白云区',
+            fill: 'rgba(129,255,26,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: '黄埔区',
+            fill: 'rgba(255,222,55,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: '从化区',
+            fill: 'rgba(255,222,55,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            fill: 'rgba(240,72,255,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        var object = {
+            types: 'types',// 要素中的属性字段
+            label: 'types',// 要素中的属性字段
+            style: obj,
+            text: {
+                color: '#ffffff',
+                scale: 10,
+                overflow: true,//设置允许文本超出标签位置处多边形的宽度或所沿路径的长度。
+                resolution: 0.05//在多少分辨率下才显示标注
+            }
+        };
+        gjson.setStyle(object);
+    }
+
+    function setStylefun1() {
+
+        var obj = [];
+        obj.push({
+            types: '安置区A',
+            fill: 'rgba(255,253,26,0.5)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: '安置区B',
+            fill: 'rgba(112,255,158,0.5)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#20ff63'//线颜色
+        });
+        obj.push({
+            types: '安置区C',
+            fill: 'rgba(149,255,63,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: '安置区D',
+            fill: 'rgba(255,244,31,0.68)',//填充颜色
+            width: 5,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        var object = {
+            types: 'types',
+            label: 'types',
+            style: obj,
+            text: {
+                color: '#efa20a',
+                scale: 2,
+                offsetX: 10,
+                offsetY: -10,
+            }
+        };
+        gjson.setStyle(object);
+    }
+
+    function seshowun() {
+        gjson.removeLayer(false);
+        gjson.setVisible(false);
+
+    }
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="centerFun()">添加geojson</button>
+<button onclick="removeLaye()">移除图层</button>
+<button onclick="setStylefun()">设置样式</button>
+<button onclick="setStylefun1()">设置样式1</button>
+<button onclick="seshowun()">显示隐藏</button>
+<div id="scale"></div>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11.1以图标加载点坐标</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="../../lib/jquery-3.5.0.js"></script>
+    <script src="../data/weifacaikuang.js"></script>
+</head>
+<script>
+    let tsMap = null;
+    let gjson = null;
+    let gjson1 = null;
+    let gjson2 = null;
+
+    function init() {
+        tsMap = new TsMap({target: "cesiumContainer"});
+        gjson = tsMap.addGraphicLayer();
+        tsMap.goTo({
+            longitude: 113,//经度
+            latitude: 23,//纬度
+            zoom: 10,//缩放层级
+            duration: 3,//飞行到底时间,
+        });
+
+
+    }
+
+
+    function addpoint() {
+        let graphic = {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    114.001,
+                    23
+                ]
+            },
+            properties: {"name1": "manid", id: "adf"}
+        };
+        let obj = {
+            url: 'img/zy.png',//图片url
+            scale: 1.5,
+            fill: 'rgba(255,204,185,0.1)',//填充颜色
+            width: 5,//线宽
+            anchor: [0.0, 0.0],
+            radius: 10,//圆半径
+            color: '#ff11bb'//线颜色
+        };
+        var object = {
+            label: 'name1',// 要素中的属性字段
+            //url: 'img/zy.png',//图片url
+            scale: 0.5,
+            fill: 'rgba(255,204,185,0.1)',//填充颜色
+            width: 10,//线宽
+            anchor: [0.0, 0.0],
+            radius: 10,//圆半径
+            color: '#ff11bb',//线颜色
+            //distance: [10, 15],
+            text: {
+                color: '#9fee0d',
+                scale: 1.1,
+                overflow: true,//设置允许文本超出标签位置处多边形的宽度或所沿路径的长度。
+                resolution: 0.005,//在多少分辨率下才显示标注
+                offsetX: 0.0,
+                offsetY: 35,
+                background: "rgba(222,31,31,0.7)",//背景色
+                stroke: { //边框
+                    color: "#ffffff",
+                    width: 3
+                },
+                padding: [-5, 2, 1, 5]// 边距
+            }
+        };
+        gjson.setStyle(object);
+        gjson.addFeature(graphic);
+        let graphic1 = {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    114.001,
+                    23.001
+                ]
+            },
+            properties: {"name1": "manid", id: "adf"}
+        };
+        gjson.addFeature(graphic1);
+
+    }
+
+
+    function setZIndexfun() {
+
+
+        gjson.setZIndex(2);
+    }
+
+</script>
+<body onload="init()">
+<div id="cesiumContainer" style="height: 500px"></div>
+<button onclick="addpoint()">addpoint</button>
+<button onclick="setZIndexfun()">层级</button>
+
+</body>
+</html>

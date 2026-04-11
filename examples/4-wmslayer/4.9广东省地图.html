@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4.1初始化wms图层</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let tsMap;
+    let wmsLayer;
+
+    function init() {
+        tsMap = new TsMap();//初始化地图
+
+
+    }
+
+    function nmglayer() {
+        tsMap.addWmsLayer({
+            //url: "http://localhost:6080/geoserver/wms",//服务地址
+            url: "http://localhost:6080/geoserver/shpfile/wms",//服务地址
+            //layers: "tiger:poly_landmarks",//图层命名空间和名称
+            layer: "shpfile:gdsxzbj",//图层命名空间和名称
+        });
+    }
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="nmglayer()">nmglayer</button>
+</body>
+</html>

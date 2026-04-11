@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StyledLayerDescriptor version="1.0.0" xsi:schemaLocation="http://www.opengis.net/sld StyledLayerDescriptor.xsd"
+                       xmlns="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc"
+                       xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <NamedLayer>
+        <Name>Point as graphic</Name>
+        <UserStyle>
+            <Title>GeoServer SLD Cook Book: Point as graphic</Title>
+            <FeatureTypeStyle>
+                <!-- 5200000 -->
+                <Rule>
+                    <Name>光伏</Name>
+                    <MinScaleDenominator>0</MinScaleDenominator>
+                    <MaxScaleDenominator>5200000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>stand_type_code</ogc:PropertyName>
+                            <ogc:Literal>photovoltaic</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <PointSymbolizer>
+                        <Graphic>
+                            <Mark>
+                                <WellKnownName>circle</WellKnownName>
+                                <Fill>
+                                    <CssParameter name="fill">#25cbf4</CssParameter>
+                                    <CssParameter name="fill-opacity">1.0</CssParameter>
+                                </Fill>
+                            </Mark>
+                            <Size>12</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>风电</Name>
+                    <MinScaleDenominator>0</MinScaleDenominator>
+                    <MaxScaleDenominator>5200000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>stand_type_code</ogc:PropertyName>
+                            <ogc:Literal>wind_power</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <PointSymbolizer>
+                        <Graphic>
+                            <Mark>
+                                <WellKnownName>circle</WellKnownName>
+                                <Fill>
+                                    <CssParameter name="fill">#3df1c3</CssParameter>
+                                    <CssParameter name="fill-opacity">1.0</CssParameter>
+                                </Fill>
+                            </Mark>
+                            <Size>12</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>储能</Name>
+                    <MinScaleDenominator>0</MinScaleDenominator>
+                    <MaxScaleDenominator>5200000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>stand_type_code</ogc:PropertyName>
+                            <ogc:Literal>stored_energy</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <PointSymbolizer>
+                        <Graphic>
+                            <Mark>
+                                <WellKnownName>circle</WellKnownName>
+                                <Fill>
+                                    <CssParameter name="fill">#2af8a8</CssParameter>
+                                    <CssParameter name="fill-opacity">1.0</CssParameter>
+                                </Fill>
+                            </Mark>
+                            <Size>12</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>火电</Name>
+                    <MinScaleDenominator>0</MinScaleDenominator>
+                    <MaxScaleDenominator>5200000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>stand_type_code</ogc:PropertyName>
+                            <ogc:Literal>thermal_power</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <PointSymbolizer>
+                        <Graphic>
+                            <Mark>
+                                <WellKnownName>circle</WellKnownName>
+                                <Fill>
+                                    <CssParameter name="fill">#ed373a</CssParameter>
+                                    <CssParameter name="fill-opacity">1.0</CssParameter>
+                                </Fill>
+                            </Mark>
+                            <Size>12</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>水电</Name>
+                    <MinScaleDenominator>0</MinScaleDenominator>
+                    <MaxScaleDenominator>5200000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>stand_type_code</ogc:PropertyName>
+                            <ogc:Literal>water_power</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <PointSymbolizer>
+                        <Graphic>
+                            <Mark>
+                                <WellKnownName>circle</WellKnownName>
+                                <Fill>
+                                    <CssParameter name="fill">#1d94ff</CssParameter>
+                                    <CssParameter name="fill-opacity">1.0</CssParameter>
+                                </Fill>
+                            </Mark>
+                            <Size>12</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>储能</Name>
+                    <MinScaleDenominator>0</MinScaleDenominator>
+                    <MaxScaleDenominator>5200000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>stand_type_code</ogc:PropertyName>
+                            <ogc:Literal>storedEnergy</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <PointSymbolizer>
+                        <Graphic>
+                            <Mark>
+                                <WellKnownName>circle</WellKnownName>
+                                <Fill>
+                                    <CssParameter name="fill">#337cff</CssParameter>
+                                    <CssParameter name="fill-opacity">1.0</CssParameter>
+                                </Fill>
+                            </Mark>
+                            <Size>12</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>气电厂</Name>
+                    <MinScaleDenominator>0</MinScaleDenominator>
+                    <MaxScaleDenominator>5200000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>stand_type_code</ogc:PropertyName>
+                            <ogc:Literal>storedEnergy</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <PointSymbolizer>
+                        <Graphic>
+                            <Mark>
+                                <WellKnownName>circle</WellKnownName>
+                                <Fill>
+                                    <CssParameter name="fill">#ff7318</CssParameter>
+                                    <CssParameter name="fill-opacity">1.0</CssParameter>
+                                </Fill>
+                            </Mark>
+                            <Size>12</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>生物质电厂</Name>
+                    <MinScaleDenominator>0</MinScaleDenominator>
+                    <MaxScaleDenominator>5200000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>stand_type_code</ogc:PropertyName>
+                            <ogc:Literal>storedEnergy</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <PointSymbolizer>
+                        <Graphic>
+                            <Mark>
+                                <WellKnownName>circle</WellKnownName>
+                                <Fill>
+                                    <CssParameter name="fill">#757bf8</CssParameter>
+                                    <CssParameter name="fill-opacity">1.0</CssParameter>
+                                </Fill>
+                            </Mark>
+                            <Size>12</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+                </Rule>
+                <!-- 4000000 -->
+                <Rule>
+                    <Name>光伏</Name>
+                    <MinScaleDenominator>5200000</MinScaleDenominator>
+                    <MaxScaleDenominator>5200000000000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>stand_type_code</ogc:PropertyName>
+                            <ogc:Literal>photovoltaic</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <PointSymbolizer>
+                        <Graphic>
+                            <Mark>
+                                <WellKnownName>circle</WellKnownName>
+                                <Fill>
+                                    <CssParameter name="fill">#25cbf4</CssParameter>
+                                    <CssParameter name="fill-opacity">1.0</CssParameter>
+                                </Fill>
+                            </Mark>
+                            <Size>9</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>风电</Name>
+                    <MinScaleDenominator>5200000</MinScaleDenominator>
+                    <MaxScaleDenominator>5200000000000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>stand_type_code</ogc:PropertyName>
+                            <ogc:Literal>wind_power</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <PointSymbolizer>
+                        <Graphic>
+                            <Mark>
+                                <WellKnownName>circle</WellKnownName>
+                                <Fill>
+                                    <CssParameter name="fill">#3df1c3</CssParameter>
+                                    <CssParameter name="fill-opacity">1.0</CssParameter>
+                                </Fill>
+                            </Mark>
+                            <Size>9</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>储能</Name>
+                    <MinScaleDenominator>5200000</MinScaleDenominator>
+                    <MaxScaleDenominator>5200000000000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>stand_type_code</ogc:PropertyName>
+                            <ogc:Literal>stored_energy</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <PointSymbolizer>
+                        <Graphic>
+                            <Mark>
+                                <WellKnownName>circle</WellKnownName>
+                                <Fill>
+                                    <CssParameter name="fill">#2af8a8</CssParameter>
+                                    <CssParameter name="fill-opacity">1.0</CssParameter>
+                                </Fill>
+                            </Mark>
+                            <Size>9</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>火电</Name>
+                    <MinScaleDenominator>5200000</MinScaleDenominator>
+                    <MaxScaleDenominator>5200000000000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>stand_type_code</ogc:PropertyName>
+                            <ogc:Literal>thermal_power</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <PointSymbolizer>
+                        <Graphic>
+                            <Mark>
+                                <WellKnownName>circle</WellKnownName>
+                                <Fill>
+                                    <CssParameter name="fill">#ed373a</CssParameter>
+                                    <CssParameter name="fill-opacity">1.0</CssParameter>
+                                </Fill>
+                            </Mark>
+                            <Size>9</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>水电</Name>
+                    <MinScaleDenominator>5200000</MinScaleDenominator>
+                    <MaxScaleDenominator>5200000000000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>stand_type_code</ogc:PropertyName>
+                            <ogc:Literal>water_power</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <PointSymbolizer>
+                        <Graphic>
+                            <Mark>
+                                <WellKnownName>circle</WellKnownName>
+                                <Fill>
+                                    <CssParameter name="fill">#1d94ff</CssParameter>
+                                    <CssParameter name="fill-opacity">1.0</CssParameter>
+                                </Fill>
+                            </Mark>
+                            <Size>9</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>储能</Name>
+                    <MinScaleDenominator>0</MinScaleDenominator>
+                    <MaxScaleDenominator>5200000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>stand_type_code</ogc:PropertyName>
+                            <ogc:Literal>storedEnergy</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <PointSymbolizer>
+                        <Graphic>
+                            <Mark>
+                                <WellKnownName>circle</WellKnownName>
+                                <Fill>
+                                    <CssParameter name="fill">#337cff</CssParameter>
+                                    <CssParameter name="fill-opacity">1.0</CssParameter>
+                                </Fill>
+                            </Mark>
+                            <Size>9</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>气电厂</Name>
+                    <MinScaleDenominator>0</MinScaleDenominator>
+                    <MaxScaleDenominator>5200000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>stand_type_code</ogc:PropertyName>
+                            <ogc:Literal>storedEnergy</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <PointSymbolizer>
+                        <Graphic>
+                            <Mark>
+                                <WellKnownName>circle</WellKnownName>
+                                <Fill>
+                                    <CssParameter name="fill">#ff7318</CssParameter>
+                                    <CssParameter name="fill-opacity">1.0</CssParameter>
+                                </Fill>
+                            </Mark>
+                            <Size>12</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>生物质电厂</Name>
+                    <MinScaleDenominator>0</MinScaleDenominator>
+                    <MaxScaleDenominator>5200000</MaxScaleDenominator>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>stand_type_code</ogc:PropertyName>
+                            <ogc:Literal>storedEnergy</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <PointSymbolizer>
+                        <Graphic>
+                            <Mark>
+                                <WellKnownName>circle</WellKnownName>
+                                <Fill>
+                                    <CssParameter name="fill">#757bf8</CssParameter>
+                                    <CssParameter name="fill-opacity">1.0</CssParameter>
+                                </Fill>
+                            </Mark>
+                            <Size>12</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+                </Rule>
+            </FeatureTypeStyle>
+        </UserStyle>
+    </NamedLayer>
+</StyledLayerDescriptor>

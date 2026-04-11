@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.1初始化地图</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    var tc;
+    var pointBillboarl;
+
+    function inits() {
+        tsMap = new TsMap({
+            target: 'tsMap',
+            baseMapLayerType: "img_w"
+        });
+        tsMap.setBaseMap("autonavi");
+
+        pointBillboarl = tsMap.addPointBillboardLayer();
+        pointBillboarl.height = 50000;// 设置地图高度大于多少不显示div
+    }
+
+    function addPoint() {
+        //填充内容
+        var inner = "<table width='100%' style='margin-top:10px;'>" +
+            "<tr><td align='right' style='width: 120px'>发现时间：</td>" +
+            "<td>" + 123 + "</td></tr>" +
+            "<tr><td align='right'>类别：</td>" +
+            "<td>" + 123 + "</td></tr>" +
+            "<tr><td colspan='2' align='center'><button class='checkPicture' id='qxBtn'>查看缺陷照片</button></td></tr>" +
+            "</table>";
+        let graphic1 = {
+            "geometry": {
+                "coordinates": [
+                    113.2111617998486,
+                    23.22535981823852
+                ]
+            },
+            properties: {
+                id: "123",
+                //div: inner,// 优先使用自定义的div，
+                content: inner,// 使用默认的样式
+            }
+        };
+        pointBillboarl.addFeature(graphic1);
+
+        var text = "<div id=\"text\"  style=\"top: 500px;left: 100px;\">\n" +
+            "    <div >\n" +
+            "        <div >\n" +
+            "            <div>sdfsfda</div>\n" +
+            "            <div>sdfsfda</div>\n" +
+            "        </div>\n" +
+            "        <div ></div>\n" +
+            "    </div>\n" +
+            "</div>";
+        let graphic = {
+            "geometry": {
+                "coordinates": [
+                    113.03,
+                    22.03
+                ]
+            },
+            properties: {
+                div: text,
+            }
+        };
+        pointBillboarl.addFeature(graphic);
+        let graphic2 = {
+            "geometry": {
+                "coordinates": [
+                    114.87,
+                    22.58
+                ]
+            },
+            properties: {
+                //div: inner,
+                content: inner,// 使用默认的样式
+            }
+        };
+        pointBillboarl.addFeature(graphic2);
+        let graphic3 = {
+            "geometry": {
+                "coordinates": [
+                    113.56,
+                    22.28
+                ]
+            },
+            properties: {
+                //div: inner,
+                content: inner,// 使用默认的样式
+            }
+        };
+        pointBillboarl.addFeature(graphic3);
+        let graphic4 = {
+            "geometry": {
+                "coordinates": [
+                    112.44, 22.19
+                ]
+            },
+            properties: {
+                //div: inner,
+                content: inner,// 使用默认的样式
+            }
+        };
+        pointBillboarl.addFeature(graphic4);
+    }
+    function removeFeature() {
+        pointBillboarl.removeFeature("123");
+    }
+
+    function removeAll() {
+        pointBillboarl.clear();
+    }
+
+    function setheight() {
+        var height = document.getElementById('input').value;
+        pointBillboarl.height = parseFloat(height);// 设置地图高度大于多少不显示div
+
+    }
+
+</script>
+<body onload="inits()">
+<div id="tsMap" style="height: 500px"></div>
+
+<button onclick="addPoint()">添加点</button>
+<button onclick="removeFeature()">移除点</button>
+<button onclick="removeAll()">移除所有</button>
+<input id="input" value="100000">
+<button onclick="setheight()">设置超过多高不显示div</button>
+</body>
+</html>

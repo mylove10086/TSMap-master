@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="水清详细信息.js"></script>
+    <script src="实时雨情618.js"></script>
+    <script src="ssqy7.7.js"></script>
+    <script src="sssq7.7.js"></script>
+</head>
+<script>
+    function sssyuqingfun() {
+        var array = [];
+        for (var i = 0; i < json77.length; i++) {
+            var item = json77[i];
+            if (item.X && item.Y) {
+                var x = parseFloat(item.X);
+                var y = parseFloat(item.Y);
+                array.push({
+                    lon: x,
+                    lat: y,
+                    stlc:item.STLC,
+                    val:item.VAL,
+                    stcd:item.STCD,
+                    stnm:item.STNM,
+                    groupname:item.GROUPNAME
+                });
+            }
+
+        }
+        console.log(array.length);
+        console.log(array);
+
+    }
+
+    function sssqingfun() {
+        var array = [];
+        for (var i = 0; i < sssy77.length; i++) {
+            var item = sssy77[i];
+            if (item.X && item.Y) {
+                var x = parseFloat(item.X);
+                var y = parseFloat(item.Y);
+                array.push({
+                    lon: x,
+                    lat: y,
+                    stlc:item.STLC,
+                    val:item.VAL,
+                    valtxt:item.VALTXT,
+                    wptn:item.WPTN,
+                    wrz:item.WRZ,
+                    stcd:item.STCD,
+                    stnm:item.STNM,
+                    groupname:item.GROUPNAME,
+                    bsnm:item.BSNM,
+                    rsvrtp:item.RSVRTP,
+                    grz:item.GRZ,
+                    tm:item.TM
+
+                });
+            }
+
+        }
+        console.log(array.length);
+        console.log(array);
+    }
+</script>
+<body>
+<button onclick="sssyuqingfun()">实时雨情</button>
+<button onclick="sssqingfun()">实时水情</button>
+</body>
+</html>

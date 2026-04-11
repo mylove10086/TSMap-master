@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11.6设置图形样式</title>
+
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+</head>
+<script>
+    let tsMap = null;
+
+    let gjson = null;
+    let point = null;
+
+    function init() {
+        tsMap = new TsMap();
+        gjson = tsMap.addGraphicLayer();
+        point = tsMap.addPointAnimateLayer();
+
+        centerFun();
+    }
+
+    let feature;
+
+    function centerFun() {
+        //圆
+        let graphic1 = {
+            "geometry": {
+                "type": "RadiusCircle",
+                "coordinates": [
+                    113.25966982,
+                    23.13177722
+                ],
+                radius: 10000
+            },
+            "properties": {
+                "gid": 1,
+                "objectid": 1,
+                "id": 5845
+            }
+        };
+        gjson.addFeature(graphic1);
+        let graphic3 = {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    113.25966982,
+                    23.13177722
+                ]
+            }
+        };
+        gjson.addFeature(graphic3);
+        let graphic2 = {
+            "geometry": {
+                "coordinates": [
+                    113.25966982,
+                    23.13177722
+                ],
+                radius: 10000,//半径，默认是100
+                step: 200//步数
+            }
+        };
+         point.addFeature(graphic2);
+
+    }
+
+    function setStylefun() {
+        /*{anchor:null,//图片锚点位置
+       url : null,//图片url
+       fill : null,//填充颜色
+       width : null,//线宽
+       radius: null,//圆半径
+       color : null,//线颜色
+       scale :1,//图片缩放比例
+       rotation : 0}//图片旋转角度，顺时针方向*/
+
+
+        var object = {
+            types: 'types',
+            label: 'types',
+            style: {
+                url: '../data/Point.png',//图片url
+                fill: 'rgba(240,72,255,0.0)',//填充颜色
+                width: 5,//线宽
+                radius: 50,//圆半径
+                color: '#ff11bb'//线颜色
+            },
+            text: {
+                color: '#ffffff',
+                scale: 1
+            }
+        };
+        gjson.setStyle(object);
+
+    }
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="setStylefun()">设置样式</button>
+
+</body>
+</html>

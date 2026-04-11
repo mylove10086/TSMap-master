@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>14.1随机点热力图</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+</head>
+<script>
+    let tsMap = null;
+    let wfs = null;
+    let drawTool = null;
+    var cluster;
+
+    function init() {
+        tsMap = new TsMap();
+        //tsMap.setBaseMap("vec_c");
+        gjson1 = tsMap.addGeoJSONLayer();
+        gjson1.setDataSource({url: '../data/citypolyline.json'});// 广东省边界图
+
+        heatmap = tsMap.addHeatMapLayer({
+            url: "http://172.16.28.148:6080/geoserver/mysql/ows?service=WFS",
+            layer: "heatmap",
+            featurePrefix: "mysql",
+            featureNS: 'http://www.mysql.net'
+        });
+        heatmap.queryCallBack = queryCallBack;// 查询结束后的回调
+
+        wfs = tsMap.addWfsLayer({
+            url: "http://172.16.28.148:6080/geoserver/mysql/ows?service=WFS",
+            layer: "heatmap",
+            featurePrefix: "mysql",
+            featureNS: 'http://www.mysql.net'
+        });
+
+        var object = {
+            style: {
+                url: 'img/gd.png',//图片url
+                fill: 'rgba(240,72,255,0.5)',//填充颜色
+                width: 5,//线宽
+                anchor: [0.5, 0.9],
+                radius: 50,//圆半径
+                scale: 0.5,
+                color: '#84fa45'//线颜色
+            }
+        };
+        wfs.setStyle(object);
+
+        wfs.queryCallBack = queryCallBack;
+
+        wfs.setVisible(false);
+        cluster = tsMap.addClusterLayer({
+            url: "http://172.16.28.148:6080/geoserver/mysql/ows?service=WFS",
+            layer: "heatmap",
+            featurePrefix: "mysql",
+            featureNS: 'http://www.mysql.net'
+        });
+        cluster.queryCallBack = queryCallBack;
+
+        cluster.setVisible(false);
+        drawTool = tsMap.addDraw();
+        drawTool.setDrawEndCallback(funs);
+
+    }
+
+    function funs(e, f) {
+        if (f) {
+            // {coordinate:[[经度,纬度],[经度,纬度],[经度,纬度]]}，长度大于等于3
+            //wfs查询
+            wfs.spatialQueryFromPolygon({coordinate: f.coordinate[0]});//传入经纬度坐标查询图层
+            if (cluster) {
+                // 聚合查询
+                cluster.spatialQueryFromPolygon({coordinate: f.coordinate[0]});
+            }
+            if (heatmap) {
+                // 聚合查询
+                heatmap.spatialQueryFromPolygon({coordinate: f.coordinate[0]});
+            }
+        }
+    }
+
+    var objs = null;
+
+    function queryCallBack(obj) {
+        objs = obj;
+    }
+
+    function selectFun() {
+        var doc = document.getElementById('label');
+        var doc1 = document.getElementById('label1');
+        if (objs && objs.features) {
+            var count=0;
+            for (var i = 0; i < objs.features.length; i++) {
+                var item=objs.features[i];
+                count+=item.properties.ren;
+            }
+
+
+            doc.innerText = "查询到的个数" + objs.features.length;
+            doc1.innerText = "总人数：" + count;
+
+        }
+    }
+
+
+    /**
+     * 绘制图形空间查询条件
+     * @param type
+     * Circle//圆
+     * Box//矩形
+     * Polygon//多边形
+     * RadiusCircle//指定半径的圆
+     */
+    function spatialQuery(type) {
+        switch (type) {
+            case 'Circle':
+                drawTool.drawGraphic("Circle");
+                break;
+            case 'Box':
+                drawTool.drawGraphic("Box");
+                break;
+            case 'Polygon':
+                drawTool.drawGraphic("Polygon");
+                break;
+            case 'RadiusCircle':
+                drawTool.radius = 10000;
+                drawTool.drawGraphic("RadiusCircle");
+                break;
+        }
+    }
+
+    function clearFilter() {
+        wfs.spatialQuery();
+        if (cluster) {
+            // 聚合查询
+            cluster.spatialQuery();
+        }
+        if (heatmap) {
+            // 聚合查询
+            heatmap.spatialQuery();
+        }
+        drawTool.clearFeature();
+
+    }
+
+
+    function UpdateR() {
+        wfs.radius = 100000;
+        wfs.updateRadius()
+    }
+
+    function shestyleFun() {
+
+        var object = {
+            style: {
+                fill: 'rgba(240,72,255,0.68)',//填充颜色
+                width: 5,//线宽
+                radius: 50,//圆半径
+                color: '#ff11bb'//线颜色
+            }
+        };
+        wfs.setStyle(object);
+    }
+
+    function layersfun(type) {
+        switch (type) {
+            case 'heatmap':
+                heatmap.setVisible(true);
+                cluster.setVisible(false);
+                wfs.setVisible(false);
+                break;
+            case 'wfs':
+                heatmap.setVisible(false);
+                cluster.setVisible(false);
+                wfs.setVisible(true);
+                break;
+            case 'cluster':
+                heatmap.setVisible(false);
+                cluster.setVisible(true);
+                wfs.setVisible(false);
+                break;
+            case 'all':
+                heatmap.setVisible(false);
+                cluster.setVisible(false);
+                wfs.setVisible(false);
+                break;
+
+        }
+    }
+</script>
+<body onload="init()">
+<div id="map" class="map" tabindex="0"></div>
+
+<button onclick="spatialQuery('Circle')">圆空间过滤</button>
+<button onclick="spatialQuery('Box')">矩形空间过滤</button>
+<button onclick="spatialQuery('Polygon')">多边形空间过滤</button>
+<button onclick="spatialQuery('RadiusCircle')">半径圆过滤</button>
+
+<button onclick="clearFilter()">清除过滤条件</button>
+<br/>
+<button onclick="layersfun('heatmap')">热力图</button>
+<button onclick="layersfun('wfs')">要素</button>
+<button onclick="layersfun('cluster')">聚合</button>
+<button onclick="layersfun('all')">全部隐藏</button>
+<br/>
+<button onclick="selectFun()">统计</button>
+<br/>
+<label id="label"></label>
+<label id="label1"></label>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10.1天地图地理编码</title>
+    <script type="text/javascript"
+            src="http://api.tianditu.gov.cn/api?v=4.0&tk=0c408b2742b51c99f79f0fe2d9b63aa8"></script>
+
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+</head>
+<script>
+    let tsMap = null;
+    let veo = null;
+    let Route;
+
+    function init() {
+        tsMap = new TsMap();
+        veo = tsMap.getMap().addGeocoder();
+        veo.setSearchCallBackFun(cbf);
+    }
+
+    function cbf(e) {
+        console.log(e);
+        if(e.type==='location'){
+            let addressComponent = e.address;
+            let html = "<font style='font-weight:700'>详细信息如下：</font><br/>";
+            html += "<font style='font-size:12px'>此点最近地点信息："+addressComponent.address+"</font><br/>";
+            html += "<font style='font-size:12px'>此点距离最近地点信息距离："+addressComponent.distance+"米</font><br/>";
+            html += "<font style='font-size:12px'>此点在最近地点信息方向："+addressComponent.position+"</font><br/>";
+            html += "<font style='font-size:12px'>此点所在国家或城市或区县："+addressComponent.city+"</font><br/>";
+            html += "<font style='font-size:12px'>距离此点最近poi点："+addressComponent.poi+"</font><br/>";
+            html += "<font style='font-size:12px'>距离此点最近的路："+addressComponent.road+"</font><br/>";
+            html += "<font style='font-size:12px'>此点距离此路的距离："+addressComponent.roadDistance+"米</font><br/>";
+            document.getElementById("detailedAddress").innerHTML = html;
+        }
+
+    }
+
+    function infon() {
+        veo.drawPoint();
+    }
+
+    function remove() {
+        veo.clearGeocoder();
+    }
+
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="infon()">逆地理编码(在地图中单击位置)</button>
+<button onclick="remove()">清除</button>
+
+<br>
+<div >
+    <p>本示例演示如何使用逆地理编码接口获得详细信息，用鼠标点击地图获得详细信息。</p>
+    <div id="addressMsg" style="font-size:14px"></div>
+    <br/>
+    <div id="detailedAddress" style="font-size:14px"></div>
+</div>
+
+
+</body>
+</html>

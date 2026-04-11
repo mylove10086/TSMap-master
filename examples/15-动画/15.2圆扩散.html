@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>15.2半径圆扩散动画</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="../../dist/js/tsmap.js"></script>
+</head>
+<script>
+    let tsMap = null;
+
+    let gjson = null;
+
+    function init() {
+        tsMap = new TsMap({zoom: 9});
+        tsMap.setBaseMap("community");
+
+        gjson = tsMap.addCircleFrameLayer();
+    }
+
+    let feature;
+
+    function addRadiusCircle() {
+        //指定半径的圆
+        let graphic = {
+            "geometry": {
+                "coordinates": [
+                    113.25966982,
+                    23.13177722
+                ],
+                radius: 500,//半径，默认是100
+            }, "properties": {
+                "gid": "1",
+                "name1": "manid"
+            }
+        };
+        let graphic1 = {
+            "geometry": {
+                "coordinates": [
+                    113.35966982,
+                    23.13177722
+                ],
+                radius: 5000,//半径，默认是100
+            }, "properties": {
+                "gid": "12",
+                "name1": "manid"
+            }
+        };
+        feature = gjson.addFeature(graphic);
+        gjson.addFeature(graphic1);
+
+
+    }
+
+    function setStylefun() {
+
+        //动画层样式
+        var object = {
+
+            fill: 'rgba(240,72,255,0.5)',//填充颜色
+            width: 5,//线宽
+            color: 'rgba(69,255,126,0.5)',//线颜色
+            lineDash: [10, 10]
+
+        };
+        gjson.setStyle(object);
+    }
+
+    function colorfun() {
+        gjson.setStyle({
+            label: 'name1',// 要素中的属性字段
+            fill: "rgba(241,50,50,0.77)",
+            url: "expert.png",
+            scale: 0.2,
+            width: 5,//线宽
+            anchor: [0.5, 0.5],
+            radius: 10,//圆半径
+            color: '#ff11bb',//线颜色
+            text: {
+                color: '#9fee0d',
+                scale: 1.1,
+                overflow: true,//设置允许文本超出标签位置处多边形的宽度或所沿路径的长度。
+                resolution: 0.05,//在多少分辨率下才显示标注
+                offsetX: 0.0,
+                offsetY: -35,
+                background: "rgba(222,31,31,0.7)",//背景色
+                stroke: { //边框
+                    color: "#ffffff",
+                    width: 3
+                },
+                padding: [-5, 2, 1, 5]// 边距
+            }
+        });
+    }
+
+    function showfun() {
+        gjson.setVisible(!gjson.getVisible());
+    }
+
+    function countfun() {
+        gjson.count(2);// 几个圆扩散
+    }
+
+    function speedfun() {
+        gjson.speed(10);// 与三维不同，数值越大越慢
+    }
+
+    function removefun() {
+        gjson.removeFeature("12");
+    }
+
+    function showidfun() {
+        gjson.showById("12");
+    }
+
+    function clearfun() {
+        gjson.clear();
+    }
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="addRadiusCircle()">添加半径圆</button>
+
+<button onclick="colorfun()">colorfun</button>
+<button onclick="countfun()">设置环数</button>
+<button onclick="speedfun()">设置速度</button>
+<button onclick="showfun()">showfun</button>
+<button onclick="removefun()">通过id移除</button>
+<button onclick="showidfun()">通过id显示隐藏</button>
+</body>
+<button onclick="clearfun()">清空所有图形</button>
+</body>
+</html>

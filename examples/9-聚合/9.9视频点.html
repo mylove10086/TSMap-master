@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9.8图像点聚合图层鼠标事件</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="video.js"></script>
+
+
+</head>
+<script>
+    let tsMap = null;
+    let cluster = null;
+    let sein;
+    let pop;
+    let pop1;
+
+    function init() {
+        tsMap = new TsMap();
+
+        cluster = tsMap.addClusterLayer();
+        cluster.onClusterCrop();
+        cluster.setDistance({distance: 50});//设置聚合半径
+        tsMap.setMapClickCallback(mapClickCallback);
+        tsMap.setCoordinateCallback(coordinateCallback);
+        //stylefun();
+        addYjydFun(data);
+        sein = tsMap.getSelectionIndicator();
+        //pop = tsMap.getPopups();
+
+        //pop1 = tsMap.getPopupsRight();
+
+    }
+
+    /**
+     * 创建鼠标移动时的回调函数
+     * @param e
+     */
+    function coordinateCallback(e) {
+            //应急专家
+            if (e.features && e.features.length > 0) {
+                if (e.features[0].values_.type === "video") {
+                    let coordinate = e.coordinate;
+                    pop.setPosition(coordinate, "", e.properties.features[0].values_.cname + e.properties.features[0].values_.cctv_code);
+                    //pop1.setPosition(coordinate, "", e.properties.features[0].values_.cname+e.properties.features[0].values_.cctv_code);
+                }
+            } else {
+                //pop.setPosition(undefined, "", "");
+                //pop1.setPosition(undefined, "", "");
+            }
+
+
+    }
+
+    function mapClickCallback(f, o) {
+
+        if (o.properties) {
+            //应急专家
+            let object = {};
+            if (o.properties.features && o.properties.features.length > 0) {
+                if (o.properties.features[0].values_.type === "video") {
+                    object.EXPERTTYPE = o.properties.EXPERTTYPE;
+                    object.EXPERTNAME = o.properties.EXPERTNAME;
+                    object.EXPERTAREA = o.properties.EXPERTAREA;
+                    object.INSERT_TIME = o.properties.INSERT_TIME;
+                    let coordinate = o.coordinate;
+                    sein.setPosition(coordinate);
+                }
+            } else {
+                sein.setPosition(undefined);
+            }
+
+        } else {
+            sein.setPosition(undefined);
+        }
+    }
+
+    function addYjydFun(data) {
+        var l = data.length;
+        var features = [];
+        for (let i = 0; i < 100; i++) {
+            let item = data[i];
+            let graphic1 = {
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [parseFloat(item.longitude), parseFloat(item.latitude)]
+                    },
+                    properties: item
+                }
+            ;
+            graphic1.properties.type = "video";
+            features.push(graphic1);
+            //显示鼠标位置的点
+        }
+        cluster.addFeatures(features);
+
+
+    }
+
+    function stylefun() {
+        var object = {
+            style: [{
+                url: 'expert.png',//图片url
+                //url: 'dome-on.png',//图片url
+                fill: 'rgba(240,72,255,0.0)',//填充颜色
+                width: 5,//线宽
+                anchor: [0.5, 0.9],
+                radius: 50,//圆半径
+                scale: 0.5,
+                color: '#ff11bb'//线颜色
+            }, {
+                url: 'dome-on.png',//图片url
+                //url: 'dome-on.png',//图片url
+                fill: 'rgba(240,72,255,0.0)',//填充颜色
+                width: 5,//线宽
+                anchor: [0.5, 0.9],
+                radius: 50,//圆半径
+                scale: 0.5,
+                color: '#ff11bb'//线颜色
+            }],
+            text: {
+                color: '#ffffff',
+                offsetX: 0,
+                offsetY: -1,
+                scale: 1,
+
+            }
+        };
+        cluster.setStyle(object);
+
+    }
+
+    /**
+     * 绘制图形空间查询条件
+     * @param type
+     * Circle//圆
+     * Box//矩形
+     * Polygon//多边形
+     * RadiusCircle//指定半径的圆
+     */
+    function spatialQuery(type) {
+        switch (type) {
+            case 'Polygon':
+                cluster.spatialQuery("Polygon");
+                break;
+            case 'Box':
+                cluster.spatialQuery("Box");
+                break;
+            case 'Circle':
+                cluster.spatialQuery("Circle");
+                break;
+            case 'RadiusCircle':
+                cluster.radius = 10000;//设置半径
+                cluster.spatialQuery("RadiusCircle");
+                break;
+
+        }
+    }
+
+    function clearfun() {
+        cluster.spatialQuery();
+    }
+
+    /**
+     * 清除绘制的图形
+     */
+    function clearDraw() {
+        cluster.clearDraw()
+    }
+
+    function stfun() {
+
+        //popup.window是弹出窗的底部div
+        pop.window.style.backgroundColor = 'rgba(38,67,119,0.8)';
+        //pop.window.style.left = '-150px';
+        pop.trace.style.borderTopColor = "rgba(38,67,119,0.8)";//修改底部箭头
+        pop.closer.style.display = "none";//修改底部箭头
+
+        //标题行div
+        //pop.title.style.backgroundColor='rgba(250,50,60,0.8)';
+        //关闭按钮a
+        //pop.closer.style.backgroundColor='rgba(250,71,240,0.8)';
+
+        //内容div
+        //pop.content.style.backgroundColor = 'rgba(72,250,248,0.8)';//修改内容背景
+        //pop.content.style.fontSize = "50px";//修改内容文字大小
+        pop.content.style.fontSize = "56px";
+
+        pop.content.style.color = "rgb(255,255,255)";//修改内容文字大小
+
+    }
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px; "></div>
+<button onclick="stylefun()">样式</button>
+
+<button onclick="spatialQuery('Polygon')">多边形</button>
+<button onclick="spatialQuery('Box')">巨形</button>
+<button onclick="spatialQuery('Circle')">圆</button>
+<button onclick="spatialQuery('RadiusCircle')">半径圆</button>
+<button onclick="clearfun('RadiusCircle')">清空选择</button>
+<button onclick="clearDraw('RadiusCircle')">清空绘制的图像</button>
+<button onclick="stfun('RadiusCircle')">样式</button>
+
+</body>
+</html>

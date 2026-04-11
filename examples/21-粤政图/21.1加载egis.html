@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>21.1加载粤政图</title>
+  <script src="../../lib/openlayers/ol.js"></script>
+  <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+  <style>
+    .map {
+      width: 100%;
+      height: 500px;
+    }
+
+    a.skiplink {
+      position: absolute;
+      clip: rect(1px, 1px, 1px, 1px);
+      padding: 0;
+      border: 0;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+    }
+
+    a.skiplink:focus {
+      clip: auto;
+      height: auto;
+      width: auto;
+      background-color: #fff;
+      padding: 0.3em;
+    }
+
+    #map:focus {
+      outline: #4A74A8 solid 0.15em;
+    }
+  </style>
+  <script src="../../dist/js/tsmap.js"></script>
+  <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+  let tsMap;
+  let egis;
+  let egis1;
+  let egis2;
+
+  function init() {
+    tsMap = new TsMap();//初始化地图
+
+    //egis矢量地图
+    //http://120.52.31.39/cloudapi/service/api/egis/base/v1/wmts?layer=cva&tilematrixset=c&Service=WMTS&Request=GetTile&Version=1.0.0&style=default&Format=tiles&TileMatrix=4&TileCol=9&TileRow=5
+
+    egis = tsMap.addEGisWmtsLayer({
+      //url: 'http://19.15.70.147:18091/maps-webapp/geography/egis',//服务地址
+      url: 'http://120.52.31.39/cloudapi/service/api/egis/base/v1/wmts',//服务地址
+      layer: 'vec_c'//图层命名空间和名称
+    });
+    //egis矢量标注
+    egis1 = tsMap.addEGisWmtsLayer({
+      url: 'http://19.15.70.147:18091/maps-webapp/geography/egis',//服务地址
+      layer: 'cva_c'//图层命名空间和名称
+    });
+
+  }
+
+  function imgfun() {
+    //egis矢量标注
+    egis2 = tsMap.addEGisWmtsLayer({
+      //url: 'http://19.15.70.147:18091/maps-webapp/geography/egis',//服务地址
+      url: 'http://210.76.76.169:8081/maps-webapp/geography/egis',//服务地址
+      layer: 'vec_c'//图层命名空间和名称
+    });
+  }
+
+  function removelayerfun() {
+    egis1.removeLayer();
+
+  }
+
+  function addlayer() {
+    egis1.addLayer();
+  }
+
+  function addRoute() {
+    egis2 = tsMap.addEGisWmtsLayer({
+      url: 'http://19.15.70.147:18091/maps-webapp/geography/egis',//服务地址
+      layer: 'img_vec_c'//图层命名空间和名称
+    });
+  }
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="imgfun()">影像地图</button>
+<button onclick="removelayerfun()">移除图层</button>
+<button onclick="addlayer()">重新添加</button>
+
+</body>
+</html>

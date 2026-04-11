@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>22.1粤政图实时路况</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let tsMap;
+    let egis;
+
+    function init() {
+        tsMap = new TsMap({target:"map"});//初始化地图
+
+        //egis矢量地图
+        egis = tsMap.addTrafficLayer({
+            url: 'http://19.15.70.147:18091/maps-webapp/geography/egis/wrts',//服务地址
+        });
+
+    }
+
+    var bol = false;
+
+    function showfun() {
+        if (bol) {
+            egis.setVisible(bol);
+            bol = false;
+        } else {
+            egis.setVisible(bol);
+            bol = true;
+        }
+
+    }
+
+    function f() {
+        //egis.removeLayer();//移除地图
+        //egis.addLayer();//重新添加地图
+    }
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="showfun()">显示隐藏</button>
+
+</body>
+</html>

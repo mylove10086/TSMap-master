@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11.1以图标加载点坐标</title>
+    <script src="../../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../../dist/js/tsmap.js"></script>
+    <script src="../../../static/tsmap.config.js"></script>
+    <script src="../../../lib/jquery-3.5.0.js"></script>
+    <script src="../../data/水域情/ssyuqing618.js"></script>
+    <script src="../../data/水域情/sssuiqing.js"></script>
+</head>
+<script>
+    let tsMap = null;
+    let gjson = null;
+    let gjson1 = null;
+
+    function init() {
+        tsMap = new TsMap({target: "cesiumContainer"});
+        gjson = tsMap.addGraphicLayer();
+        tsMap.goTo({
+            longitude: 113,//经度
+            latitude: 23,//纬度
+            zoom: 10,//缩放层级
+            duration: 3,//飞行到底时间,
+        });
+        gjson1 = tsMap.addGraphicLayer();
+        tsMap.setMapClickCallback(addinfo)
+
+
+    }
+
+    function addinfo(e, attributes) {
+        console.log(attributes.screen);
+
+    }
+
+    function addpoint() {
+        for (var i = 0; i < ssyuqing618.length; i++) {
+            var item = ssyuqing618[i];
+            let graphic = {
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        item.lon,
+                        item.lat
+                    ]
+                },
+                properties: item
+            };
+            gjson.addFeature(graphic);
+        }
+
+
+    }
+    function addshuiqing() {
+        for (var i = 0; i < sssuiqing.length; i++) {
+            var item = sssuiqing[i];
+            let graphic = {
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        item.lon,
+                        item.lat
+                    ]
+                },
+                properties: item
+            };
+            gjson.addFeature(graphic);
+        }
+
+
+    }
+
+
+</script>
+<body onload="init()">
+<div id="cesiumContainer" style="height: 500px"></div>
+<button onclick="addpoint()">618实时雨情</button>
+<button onclick="addshuiqing()">实时水情</button>
+
+</body>
+</html>

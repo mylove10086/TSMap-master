@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取鼠标移动时的经纬度比例尺和缩放级别</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let tsMap;
+
+    function init() {
+        if(TsMap){
+            console.log(TsMap);
+        }
+        tsMap = new TsMap({
+            center: [113.26417, 22.99139],
+            zoom: 15,
+        });
+        tsMap.setBaseMap("cia_w");
+        //设置回调函数
+        tsMap.setCoordinateCallback(coordinateCallback);
+
+        tsMap.setMapClickCallback(mapClickCallback);
+    }
+
+    /**
+     * 创建鼠标移动时的回调函数
+     * @param e
+     */
+    function coordinateCallback(e) {
+        document.getElementById('scale').innerHTML = "zoom:" + e.zoom + " Scale = 1 : " + e.scale + "   lon:" + e.coordinate[0] + " lat:" + e.coordinate[1];
+
+    }
+
+    function mapClickCallback(f, o) {
+        document.getElementById('scale').innerHTML = "[" + o.coordinate[0] + "," + o.coordinate[1] +"]";
+
+    }
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<div id="scale"></div>
+</body>
+</html>

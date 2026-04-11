@@ -1,0 +1,53 @@
+
+.hot-base {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+}
+
+.hot-spot {
+    user-select: none;
+    z-index: 999;
+    width: 70px;
+    height: 44px;
+    background-size: cover;
+    left: -22px;
+    bottom: 0px;
+    font-family: "PingFang-SC-Regular", "Helvetica Neue", "PingFang SC", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+.hot-spot, .hot-spot .hot-spot-board {
+    position: absolute;
+    background-repeat: no-repeat;
+
+    background-image: url("home_icon_18.png");
+}
+
+.hot-spot .hot-spot-board {
+    top: -250px;
+    transform: translateX(-30%);
+    width: 280px;
+    min-height: 122px;
+    padding: 1px 0;
+    /*background-position: 50%;*/
+    background-size: 100% 100%;
+    cursor: pointer;
+    background-image: url("home_icon_19.png");
+   /* background-image: url("home_icon_191.png");*/
+
+}
+
+.hot-spot .hot-spot-line-medium {
+    height: 140px;
+    top: -78px;
+}
+
+.hot-spot .hot-spot-line {
+    position: absolute;
+    top: -118px;
+    left: 35px;
+    width: 2px;
+    height: 140px;
+    background: linear-gradient(180deg, #38c9ff, transparent);
+}
+

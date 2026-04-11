@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12.1降雨预报</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="../data/raindata.js"></script><!--降雨数据-->
+</head>
+<script>
+    let tsMap = null;
+    let rain1 = null;
+
+
+    function init() {
+        tsMap = new TsMap();
+        rain1 = tsMap.addRainLayer();
+    }
+
+    function info() {
+        //数据看一下raindata.js吧
+        rain1.addRain(rain);
+    }
+
+    function removefun() {
+        rain1.clearFeature();
+    }
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="info()">添加降雨</button>
+<button onclick="removefun()">移除降雨</button>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11.1以图标加载点坐标</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="../../lib/jquery-3.5.0.js"></script>
+</head>
+<script>
+    let tsMap = null;
+    let gjson = null;
+    let gjson1 = null;
+
+    function init() {
+        tsMap = new TsMap({
+            zoom: 12,
+            longitude: 113,
+            latitude: 23,
+            projection: 4326
+        });
+
+        gjson = tsMap.addGraphicLayer();
+        gjson1 = tsMap.addGraphicLayer();
+        gjson.topLayer();
+        var object = {
+            url: 'img/Point.png',//图片url
+            fill: 'rgba(240,72,255,0.5)',//填充颜色
+            width: 5,//线宽
+            anchor: [0.5, 0.5],
+            radius: 50,//点的大小
+            scale: 1.0,
+            color: '#84fa45'//线颜色
+        };
+        gjson.setStyle(object);
+    }
+
+
+    let feature;
+
+    function centerFun() {
+        let graphic = {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    113,
+                    23
+                ]
+            }
+        };
+        let graphic1 = {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    113.,
+                    23.
+                ]
+            }, properties: {"name": "manid", gid: "adf"}
+
+        };
+        feature = gjson.addFeature(graphic);
+        feature = gjson1.addFeature(graphic1);
+
+    }
+
+
+    function clearfun() {
+        gjson.clear();
+    }
+
+    function setcoord() {
+        feature.getGeometry().setCoordinates([113, 23]);
+    }
+
+    function topfun() {
+        gjson.topLayer();
+    }
+
+    //多边形查询
+    function query(evt) {
+
+        var url = "http://api.tianditu.gov.cn/search?postStr={\"keyWord\":\"中山大学\",\"level\":\"11\",\"mapBound\":\"112.33467134413196,22.747035876354136,114.28906515941698,23.86987127809056\",\"queryType\":\"2\",\"count\":\"20\",\"start\":\"0\"}&type=query&tk=0c408b2742b51c99f79f0fe2d9b63aa8"
+        $.ajax({
+            type: 'GET',
+            url: url,
+            success: function (res) {
+                console.log(res);
+                for (var i = 0; i < res.pois.length; i++) {
+                    let item = res.pois[i]
+                    let ll = item.lonlat.split(" ");
+                    let graphic1 = {
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [
+                                parseFloat(ll[0]),
+                                parseFloat(ll[1])
+                            ]
+                        }
+                    };
+                    feature = gjson.addFeature(graphic1);
+                }
+            }
+        });
+    }
+    function removefun() {
+        gjson1.removeFeature("adf");
+    }
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="centerFun()">添加geojson</button>
+<button onclick="query()">query</button>
+<button onclick="removefun()">removefun</button>
+
+
+</body>
+</html>

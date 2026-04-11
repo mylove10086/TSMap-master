@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11.3显示面</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <script src="../../lib/ol-ext/ol-ext.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <link rel="stylesheet" href="../../lib/ol-ext/ol-ext.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="tt.js"></script>
+</head>
+<script>
+    let tsMap = null;
+
+    let gjson = null;
+
+    function init() {
+        tsMap = new TsMap();
+        //tsMap.setBaseMap("blue");
+
+        gjson = tsMap.addMaskFilterLayer();
+        gjson.setStyle({
+            color: 'rgba(217,32,124,0.0)',
+            shadowColor: 'rgba(65,193,168,0.9)',
+            shadowWidth: 10,
+            inner: false,
+            type: "mask"
+        })
+    }
+
+
+    function centerFun() {
+        let graphic = {
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [113.3415095827353, 23.06652615375514],
+                    [112.80592524998268, 23.044924046042862],
+                    [112.80592524998268, 23.044924046042862],
+                    [112.82581137297316, 23.057182615009594],
+                    [112.71103484575869, 23.050463103131534],
+                    [112.81055626492568, 22.99289323109516],
+                    [112.79829769595894, 23.01277935408564],
+
+                    [112.79829769595894, 23.01277935408564],
+                    [113.26521009227316, 22.75329666659479],
+                    [113.24383263017604, 22.92403651021894],
+                    [113.3415095827353, 23.06652615375514]
+                ]
+            }
+        };
+
+        gjson.addFeature(graphic);
+
+    }
+
+    function centerFun1() {
+        gjson.setStyle({
+            color: 'rgba(217,32,124,0.0)',
+            shadowColor: 'rgba(129,65,193,0.9)',
+            shadowWidth: 10,
+            inner: false,
+            type: "mask"
+        });
+        gjson.addFeature(sjx);
+
+    }
+
+    function centercrop() {
+        gjson.setStyle({
+            color: 'rgba(217,32,124,0.5)',
+            shadowColor: 'rgba(65,193,168,0.9)',
+            shadowWidth: 50,
+            inner: false,
+            //type:"mask"
+        });
+        gjson.addFeature(sjx);
+
+    }
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px;background-color: rgba(124,127,127,0.59)"></div>
+<button onclick="centerFun()">添加面数据</button>
+<button onclick="centerFun1()">math</button>
+<button onclick="centercrop()">crop</button>
+
+</body>
+</html>

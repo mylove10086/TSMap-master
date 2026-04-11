@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../../lib/openlayers/ol.js"></script>
+  <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+  <style>
+      .map {
+          width: 100%;
+          height: 500px;
+      }
+
+      a.skiplink {
+          position: absolute;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 0;
+          border: 0;
+          height: 1px;
+          width: 1px;
+          overflow: hidden;
+      }
+
+      a.skiplink:focus {
+          clip: auto;
+          height: auto;
+          width: auto;
+          background-color: #fff;
+          padding: 0.3em;
+      }
+
+      #map:focus {
+          outline: #4A74A8 solid 0.15em;
+      }
+  </style>
+  <script src="../../dist/js/tsmap.js"></script>
+  <script src="../../static/tsmap.config.js"></script>
+  <script src="天河区视频点位.js"></script>
+  <script src="天河区视频点位_街道.js"></script>
+
+
+</head>
+<script>
+  let tsMap = null;
+  let cluster = null;
+
+
+  function init() {
+    tsMap = new TsMap();
+
+    cluster = tsMap.addClusterAttrLayer();
+
+  }
+
+  function addYjydFun() {
+    var l = data1.length;
+    console.log(l)
+    var features = [];
+    for (let i = 0; i < l; i++) {
+      let item = data1[i];
+      let graphic1 = {
+          "geometry": {
+            "type": "Point",
+            "coordinates": [parseFloat(item.longitude), parseFloat(item.latitude)]
+          },
+          properties: item
+        }
+      ;
+      cluster.addFeature(graphic1);
+      //显示鼠标位置的点
+    }
+    cluster.refLevel();
+
+  }
+
+  function addYjydFun1() {
+    cluster.refLevel();
+
+  }
+
+
+  function stylefun() {
+
+
+    var level = [{
+      url: 'Point.png',//图片url
+      scale: 1,
+      fill: 'rgba(255,204,185,0.1)',//填充颜色
+      width: 10,//线宽
+      anchor: [0.0, 0.9],
+      radius: 10,//圆半径
+      distance: 10,//
+      color: '#ff11bb',//线颜色
+      attr: "",
+      label: 'area_name',// 要素中的属性字段
+    }, {
+      url: 'dome-on.png',//图片url
+      //url: 'dome-on.png',//图片url
+      fill: 'rgba(240,72,255,0.0)',//填充颜色
+      width: 5,//线宽
+      anchor: [0.5, 0.9],
+      radius: 50,//圆半径
+      scale: 0.5,
+      distance: 15,
+      color: '#ff11bb',//线颜色
+      lon: "area_longitude",
+      lat: "area_latitude",
+      attr: "area_code",//用于聚合的属性
+      //label: 'area_name',// 显示的属性名的字段
+    }];
+    let obj = {
+      label: 'device_name',// 要素中的属性字段
+      url: 'expert.png',//图片url
+      scale: 0.3,
+      fill: 'rgba(255,204,185,0.1)',//填充颜色
+      width: 5,//线宽
+      anchor: [0.0, 22.0],
+      radius: 10,//圆半径
+      color: '#ff11bb',//线颜色
+      level: level,
+      text: {
+        color: '#eab513',
+        scale: 1.0,
+        offsetX: 0.0,
+        offsetY: 10,
+      }
+    };
+    cluster.setStyle(obj);
+
+  }
+
+  function setVisiblefun() {
+    cluster.setVisible(false);
+
+  }
+
+  function setVisiblefun1() {
+    cluster.clear(true);
+
+  }
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="stylefun()">样式</button>
+<button onclick="addYjydFun()">point</button>
+<button onclick="addYjydFun1()">point1</button>
+<button onclick="setVisiblefun()">setVisible</button>
+<button onclick="setVisiblefun1()">setVisible</button>
+
+</body>
+</html>

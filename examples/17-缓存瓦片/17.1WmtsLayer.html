@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WmtsLayer矢量切片</title>
+  <script src="../../lib/openlayers/ol.js"></script>
+  <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+  <style>
+    .map {
+      width: 100%;
+      height: 500px;
+    }
+
+    a.skiplink {
+      position: absolute;
+      clip: rect(1px, 1px, 1px, 1px);
+      padding: 0;
+      border: 0;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+    }
+
+    a.skiplink:focus {
+      clip: auto;
+      height: auto;
+      width: auto;
+      background-color: #fff;
+      padding: 0.3em;
+    }
+
+    #map:focus {
+      outline: #4A74A8 solid 0.15em;
+    }
+  </style>
+  <script src="../../dist/js/tsmap.js"></script>
+  <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+  let tsMap = null;
+  let wmts = null;
+  let wmts1 = null;
+
+  function init() {
+    tsMap = new TsMap();
+    /*wmts = tsMap.addWmtsLayer({
+      //url: 'http://172.16.28.160:6080/geoserver/tyyj/gwc/service/wmts',
+      //layer: 'tyyj:gdslxlayer'
+      url: 'http://192.168.2.3:6080/geoserver/gwc/service/wmts',
+      layer: 'shapefiles:gdszhibei'
+    });*/
+
+
+
+  }
+  function addwmtslayer() {
+
+    wmts = tsMap.addWmtsLayer({
+      url: 'http://172.16.28.160:6080/geoserver/gwc/service/wmts',
+      layer: 'yizhirui:geotiff',
+
+    });
+  }
+</script>
+<body onload="init()">
+<div id="map" class="map" tabindex="0"></div>
+<button onclick="addwmtslayer()">wmts</button>
+</body>
+</html>

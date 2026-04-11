@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.1初始化wfs图层</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let tsMap;
+    let wfs;
+
+    function init() {
+        tsMap = new TsMap();//初始化地图
+
+        wfs = tsMap.addWfsLayer({
+            url: "http://172.16.28.160:6080/geoserver/tyyj/ows?service=WFS",//图层url
+
+            layer: "t_erm_device_geo",//图层名称
+            featurePrefix: "tyyj",//图层命名空间
+            featureNS: 'http://www.mysql.net'//图层空间标识符
+        });
+        var style = {
+            "url": "protect.png",
+            "fill": "rgba(240,72,255,0.5)",
+            "width": 5,
+            //"anchor": [0.5, -13.5],
+            "radius": 10,
+            "scale": 0.42,
+            "color": "#84fa45"
+        };
+        //wfs.setStyle(style);
+
+    }
+    function stylefun() {
+        var style = {
+            "url": "protect.png",
+            "fill": "rgba(240,72,255,0.5)",
+            "width": 5,
+            "anchor": [0.5, -13.5],
+            "radius": 10,
+            "scale": 0.42,
+            "color": "#84fa45"
+        };
+        wfs.setStyle(style);
+    }
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="stylefun()">stylefun</button>
+</body>
+</html>

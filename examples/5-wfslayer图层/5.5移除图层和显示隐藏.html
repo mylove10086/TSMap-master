@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.5移除图层和显示隐藏</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let map;
+    let wfs;
+    let wfs1;
+
+    function init() {
+        tsMap = new TsMap();//初始化地图
+        wfs = tsMap.addWfsLayer({
+            url: "http://172.16.28.148:6080/geoserver/mysql/ows?service=WFS",//图层url
+            layer: "equip",//图层名称
+            featurePrefix: "mysql",//图层命名空间
+            featureNS: 'http://www.mysql.net'//图层空间标识符
+        });
+
+    }
+    let bo = false;
+
+    function show(e) {
+        if (bo) {
+            wfs.setVisible(bo);
+            bo = false;
+        } else {
+            wfs.setVisible(bo);
+            bo = true;
+        }
+
+    }
+
+    function remove() {
+        wfs.removeLayer();
+    }
+
+    function addlayer() {
+        wfs.addLayer();
+    }
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="show()">显示隐藏</button>
+<button onclick="remove()">移除图层</button>
+<button onclick="addlayer()">重新添加</button>
+</body>
+</html>

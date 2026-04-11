@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8.1测量面积</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+</head>
+<script>
+    let tsMap = null;
+    let query = null;
+    let drawTool = null;
+
+
+    function init() {
+        let url = "http://mt2.google.cn/vt/lyrs=y&hl=zh-CN&gl=CN&src=app&x={x}&y={y}&z={z}&s=G";
+        //默认使用谷歌地图
+        tsMap = new TsMap({
+            url: url,
+            epsg: '4326'
+        });
+        drawTool = tsMap.addMeasure();
+
+        drawTool.setMouseCallback(callbackfun);//
+
+    }
+
+    function callbackfun(e) {
+        document.getElementById('label').innerText = e;
+    }
+
+    function drawFun(type) {
+        drawTool.clear();//清除上次绘制的图形
+        switch (type) {
+            case 'area':
+                drawTool.startMeasuring({type: "area"});
+                break;
+        }
+
+    }
+
+    function setStylefun() {
+        var object = {
+            style: {
+                fill: 'rgba(240,72,255,0.68)',//填充颜色
+                width: 15,//线宽
+                radius: 50,//圆半径
+                color: '#ff11bb'//线颜色
+            }
+        };
+        drawTool.setStyle(object);
+        var object1 = {
+            style: {
+                fill: 'rgba(240,72,255,0.0)',//填充颜色
+                width: 5,//线宽
+                radius: 20,
+                color: 'rgba(69,255,126,0.5)',//线颜色
+                lineDash:[10,10]
+            }
+        };
+        drawTool.setDrawStyle(object1);
+    }
+
+    function clearfun() {
+        drawTool.clear();
+    }
+
+
+</script>
+<body onload="init()">
+<div id="map" class="map" tabindex="0"></div>
+<label id="label"></label>
+<br/>
+<br/>
+<button onclick="drawFun('area')">面积</button>
+<button onclick="setStylefun()">设置样式</button>
+<button onclick="clearfun()">清空绘制的图形</button>
+</body>
+</html>

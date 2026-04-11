@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function singleclick1() {
+
+    }
+
+    function singleclick2() {
+
+    }
+
+    var fun = {};
+
+    var bol1 = true;
+
+    function fun1() {
+        if (bol1) {
+            fun[singleclick1] = singleclick1;
+            bol1 = false;
+        } else {
+            delete fun[singleclick1];
+            bol1 = true;
+        }
+
+    }
+
+    var obj = {};
+
+    function singleclick(fun) {
+        if (!obj[fun]) {
+            obj[fun] = fun;
+            bol1 = false;
+        } else {
+            delete obj[fun];
+        }
+        return fun;
+    }
+
+    var b = true;
+    var f;
+
+    function fun2() {
+        if (b) {
+            f = singleclick(singleclick1);
+            b = false;
+        } else {
+            f = singleclick(f);
+            b = true;
+        }
+
+    }
+
+
+</script>
+<body>
+<button onclick="fun1()">fun1</button>
+<button onclick="fun2()">fun2</button>
+</body>
+</html>

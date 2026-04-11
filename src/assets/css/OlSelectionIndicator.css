@@ -1,0 +1,23 @@
+.ol-selection-wrapper {
+    position: absolute;
+    top: -80px;
+    left: -80px;
+    width: 160px;
+    height: 160px;
+    pointer-events: none;
+   /* visibility: hidden;
+    opacity: 0;*/
+    transition: visibility 0s 0.2s, opacity 0.2s ease-in;
+}
+
+.ol-selection-wrapper-visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.2s ease-out;
+}
+
+.ol-selection-wrapper svg {
+    fill: #2e2;
+    stroke: #000;
+    stroke-width: 1.1px;
+}

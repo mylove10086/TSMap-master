@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.1初始化地图</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let tsMap = null
+
+    function init() {
+        tsMap = new TsMap({
+            target: 'tsMap',
+            baseMapLayerType: "img_w"
+        });
+        tsMap.setTarget();
+
+        //tsMap.getMap().setMaxZoom(18);
+    }
+
+    function info() {
+        document.getElementById('tsMap').style.display = 'block';
+        tsMap.setTarget("tsMap");
+    }
+</script>
+
+<body onload="init()">
+<div id="tsMap" style="height: 200px;display: none"></div>
+<button onclick="info()">asdf</button>
+</body>
+
+</html>

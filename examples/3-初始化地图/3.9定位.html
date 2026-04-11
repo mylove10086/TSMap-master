@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.1初始化地图</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+</head>
+<script>
+    let tsMap = null
+
+    function init() {
+        tsMap = new TsMap({
+            target: 'tsMap',
+            baseMapLayerType: "img_w"
+        });
+    }
+
+    function goTo() {
+        console.log(tsMap.getCenter());
+        var x = document.getElementById("x").value;
+        var y = document.getElementById("y").value;
+        var z = document.getElementById("z").value;
+        tsMap.goTo({
+            longitude: x,//经度
+            latitude: y,//纬度
+            zoom: z,//缩放层级
+            duration: 3,//飞行到底时间,
+
+            //scale:false
+        });
+    }
+    function flyTo() {
+        tsMap.flyTo({
+            "coordinates": [
+                [111.0, 23.0],
+                [110.72583007812499, 23.203247070312504],
+                [110.82470703124999, 22.631958007812504],
+                [111.53332519531249, 22.642944335937504],
+                [111.79699707031249, 22.917602539062504],
+                [111.56628417968749, 23.203247070312504]
+            ],
+            duration: 3
+        });
+    }
+</script>
+
+<body onload="init()">
+<div id="tsMap" style="height: 500px"></div>
+
+<label>經度</label>
+<input id="x" value="113">
+<label>緯度</label>
+
+<input id="y" value="23">
+<label>层级</label>
+
+<input id="z" value="1000">
+<button onclick="goTo()">定位</button>
+<button onclick="flyTo()">定位</button>
+</body>
+
+</html>

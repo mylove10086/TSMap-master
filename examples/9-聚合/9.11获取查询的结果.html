@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>9.8图像点聚合图层鼠标事件</title>
+  <script src="../../lib/openlayers/ol.js"></script>
+  <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+  <style>
+    .map {
+      width: 100%;
+      height: 500px;
+    }
+
+    a.skiplink {
+      position: absolute;
+      clip: rect(1px, 1px, 1px, 1px);
+      padding: 0;
+      border: 0;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+    }
+
+    a.skiplink:focus {
+      clip: auto;
+      height: auto;
+      width: auto;
+      background-color: #fff;
+      padding: 0.3em;
+    }
+
+    #map:focus {
+      outline: #4A74A8 solid 0.15em;
+    }
+  </style>
+  <script src="../../dist/js/tsmap.js"></script>
+  <script src="../../static/tsmap.config.js"></script>
+  <script src="yjzjxxxxcxfw.js"></script>
+
+
+</head>
+<script>
+  let tsMap = null;
+  let cluster = null;
+  let gjson;
+  let gjson1;
+  let pop;
+
+  function init() {
+    tsMap = new TsMap();
+    tsMap.getMap().setMapClickCallback(mapClickCallback);
+
+    cluster = tsMap.addGraphicClusterLayer();
+    cluster.setDistance({distance: 50});//设置聚合半径
+    gjson = tsMap.addGraphicLayer();
+    let obj = {
+      url: '../data/Point.png',//图片url
+      fill: 'rgba(255,204,185,0.1)',//填充颜色
+      width: 5,//线宽
+      anchor: [0.5, 0.5],
+      radius: 10,//圆半径
+      color: '#ff11bb'//线颜色
+    };
+    var object = {
+      types: 'types',//根据属性显示不同的样式时属性名称
+      label: 'types',//显示的文字属性
+      style: obj,//数组或者对象
+      text: {
+        color: '#ffffff',
+        scale: 5.5
+      }
+    };
+    gjson.setStyle(object);
+
+    stylefun();
+    addYjydFun(data.data);
+    let obj1 = {
+      url: '600.png',//图片url
+      fill: 'rgba(240,72,255,0.0)',//填充颜色
+      width: 5,//线宽
+      anchor: [0.5, 0.9],
+      radius: 50,//圆半径
+      scale: 0.5,
+      color: '#ff11bb'//线颜色
+    };
+    var object1 = {
+      types: 'types',//根据属性显示不同的样式时属性名称
+      style: obj1,//数组或者对象
+    };
+    gjson1 = tsMap.addGraphicLayer();
+    gjson1.setStyle(object1);
+
+
+  }
+
+  function mapClickCallback(f, o) {
+    gjson1.clear();
+    let graphic1 = {
+      "geometry": {
+        "type": "Point",
+        "coordinates": o.coordinate
+      }
+    };
+    gjson1.addFeature(graphic1);
+
+  }
+
+  function addYjydFun(data) {
+    var l = data.data.length;
+    var ll = [];
+    for (let i = 0; i < l; i++) {
+      let item = data.data[i];
+      let graphic1 = {
+        "geometry": {
+          "type": "Point",
+          "coordinates": [parseFloat(item.GISLON), parseFloat(item.GISLAT)]
+        },
+        properties: item
+      };
+      graphic1.properties.type = "yjzj";
+      ll.push(graphic1);
+      //显示鼠标位置的点
+      //cluster.addFeature(graphic1);//加载方式1
+    }
+    cluster.addFeatures(ll);//加载方式2
+  }
+
+  function stylefun() {
+    var object = {
+      style: [{
+        url: '../data/gd.png',//图片url
+        //url: '600.png',//图片url
+        fill: 'rgba(240,72,255,0.0)',//填充颜色
+        width: 5,//线宽
+        anchor: [0.5, 0.9],
+        radius: 50,//圆半径
+        scale: 0.5,
+        color: '#ff11bb'//线颜色
+      }, {
+        url: '../data/gd.png',//图片url
+        //url: '600.png',//图片url
+        fill: 'rgba(240,72,255,0.0)',//填充颜色
+        width: 5,//线宽
+        anchor: [0.5, 0.9],
+        radius: 50,//圆半径
+        scale: 0.5,
+        color: '#ff11bb'//线颜色
+      }]
+    };
+    cluster.setStyle(object);
+
+  }
+
+  /**
+   * 绘制图形空间查询条件
+   * @param type
+   * Circle//圆
+   * Box//矩形
+   * Polygon//多边形
+   * RadiusCircle//指定半径的圆
+   */
+  function spatialQuery(type) {
+    var points = [];
+    points.push([113, 23]);
+    points.push([114, 23]);
+    points.push([114, 24]);
+    points.push([113, 24]);
+    var obj = cluster.spatialQueryFromPolygon({coordinate: points});
+    //gjson.addFeatures(obj);
+    for (var i = 0; i < obj.length; i++) {
+      //gjson.addFeature(obj[i]);
+
+    }
+
+  }
+
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="stylefun()">样式</button>
+<button onclick="spatialQuery('Polygon')">多边形</button>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11.3显示面</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="../data/广东市县界.js"></script>
+    <script src="../data/weather.js"></script>
+</head>
+<script>
+    let tsMap = null;
+
+    let gjson = null;
+
+    function init() {
+        tsMap = new TsMap();
+        gjson = tsMap.addGraphicLayer();
+        let olmap = tsMap.map.map;
+        let fea = [];
+        olmap.on("singleclick", function (e) {
+            let pixel = olmap.getEventPixel(e.originalEvent);
+
+            olmap.forEachFeatureAtPixel(pixel, function (feature) {
+                console.log(feature);
+                fea.push(feature);
+                //return feature;
+            });
+
+            if (fea) {
+                fea[0].getGeometry().getType();
+                console.log(fea[0]);
+                var f = gjson.getFeatureById(fea[0].get("gid"));
+                gjson.removeFeature(fea[0]);
+                fea = [];
+            }
+
+        })
+        var obj = [];
+        obj.push({
+            types: '橙色',
+            fill: 'rgba(238,98,33,0.7)',//填充颜色
+            width: 1,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            types: "黄色",
+            fill: 'rgba(255,255,0,0.75)',//填充颜色
+            width: 1,//线宽
+            radius: 50,//圆半径
+            color: '#ff11bb'//线颜色
+        });
+        obj.push({
+            fill: 'rgba(221,236,236,0.61)',//填充颜色
+            width: 1,//线宽
+            radius: 50,//点半径
+            color: '#ff11bb'//线颜色
+        });
+        var object = {
+            types: 'type',//根据属性显示不同的样式时属性名称
+            //label: 'types',//显示的文字属性
+            style: obj,//数组或者对象
+            /* text: {
+                 color: '#ffffff',
+                 scale: 5.5,
+                 offsetX: 10,
+                 offsetY: -10,
+             }*/
+        };
+        gjson.setStyle(object);
+    }
+
+    let feature;
+
+    function centerFun() {
+        var weather = {};
+        for (var i = 0; i < data.length; i++) {
+            var item = data[i];
+            //var name = item.SUBAREANAME;
+            //name = name ? name : item.DISTRICT_NAME;
+            if (!weather[item.SUBAREANAME]) {
+                var time = new Date(Date.parse(item.PUBLISHDATE));
+
+                weather[item.SUBAREANAME] = {
+                    name: item.SUBAREANAME,
+                    time: time,
+                    type: item.WARNING_TYPE,
+                    severity: item.SEVERITY_CNNAME,
+                    category: item.CATEGORY_CNNAME,
+                };
+            } else {
+                var time = new Date(Date.parse(item.PUBLISHDATE));
+                if (weather[item.SUBAREANAME].time < time) {
+                    weather[item.SUBAREANAME] = {
+                        name: item.SUBAREANAME,
+                        time: time,
+                        type: item.WARNING_TYPE,
+                        severity: item.SEVERITY_CNNAME,
+                        category: item.CATEGORY_CNNAME,
+                    };
+                }
+            }
+
+        }
+        console.log(weather);
+        for (var i in weather) {
+            var item = weather[i];
+
+            var coor = gdsxj[item.name];
+            if (!coor) {
+                var name = item.name.substr(0, item.name.length - 1);
+                var name1 = name + "市";
+                coor = gdsxj[name1];
+                if (!coor) {
+                    name1 = name + "县";
+                    coor = gdsxj[name1];
+                }
+                if (!coor) {
+                    name1 = name + "区";
+                    coor = gdsxj[name1];
+                }
+            }
+            if (coor) {
+                let graphic = {
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": coor.geometry.coordinates
+                    },
+                    "properties": {
+                        "type": item.severity,
+                        name: item.name
+                    }
+                };
+                feature = gjson.addFeature(graphic);
+
+            }
+        }
+    }
+
+
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<button onclick="centerFun()">添加面数据</button>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+
+
+</head>
+<script>
+
+    let map;
+    let drawTool;
+
+    function info() {
+        tsMap = new TsMap();
+        drawTool = tsMap.addDraw();
+        drawTool.setDrawEndCallback(callbackfun);
+        var il = tsMap.addImageLayer();
+        var imgay = [
+            {
+                url: 'data150.png',
+                coordinate: [113.19477761093769,  23.225962017006424, 113.213948618247, 23.2426706311677943]
+            }]
+        il.setImageStatic(imgay[0]);
+        var il1 = tsMap.addImageLayer();
+
+        var imgay1 = [
+            {
+                url: 'data330.png',
+                coordinate: [113.18420702799999, 23.215070543699998, 113.226002941, 23.252035195500003]
+            }]
+        //il1.setImageStatic(imgay1[0]);
+
+    }
+
+    /**
+     * 返回当前绘制的图形
+     * @param e
+     */
+    function callbackfun(e, f) {
+
+        console.log(e)
+        console.log(f)
+
+    }
+
+    //{type:
+    // Point//绘制点
+    // Polygon//绘制多边形
+    // Circle//绘制圆
+    // RadiusCircle//绘制指定半径的圆圆
+    // LineString//绘制线
+    function drawFun(type) {
+        switch (type) {
+            case 'Point':
+                drawTool.drawGraphic("Point");
+                break;
+            case 'LineString':
+                drawTool.drawGraphic("LineString");
+                break;
+            case 'Polygon':
+                drawTool.drawGraphic("Polygon");
+                break;
+            case 'Box':
+                drawTool.drawGraphic("Box");
+                break;
+            case 'Circle':
+                drawTool.drawGraphic("Circle");
+                break;
+            case 'RadiusCircle':
+                drawTool.radius = 10000;//设置半径
+                drawTool.drawGraphic("RadiusCircle");
+                break;
+            case 'Square':
+                drawTool.drawGraphic("Square");
+                break;
+            default:
+                drawTool.drawGraphic(null);
+                break;
+        }
+
+    }
+
+    function getFeature() {
+        let f = drawTool.getFeature();
+        console.log(f);
+        document.getElementById('label1').innerHTML = "图形个数：" + f.length;
+    }
+</script>
+<body onload="info()">
+<div id="map" style="width: 100%;height: 500px;"></div>
+<label id="label1"></label>
+<button onclick="drawFun('Point')">画点</button>
+<button onclick="drawFun('LineString')">画线</button>
+<button onclick="drawFun('Polygon')">画多边形</button>
+<button onclick="drawFun('Box')">矩形</button>
+<button onclick="drawFun('Circle')">圆</button>
+<button onclick="drawFun('RadiusCircle')">半径圆</button>
+<button onclick="getFeature()">获取绘制的图形</button>
+</body>
+</html>

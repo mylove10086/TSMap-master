@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>台风</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../lib/moment.js"></script>
+
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="台风路径.js"></script>
+
+</head>
+<script>
+    var tsMap = null;
+    var fly;
+    var Fly1;
+
+    function init() {
+
+        tsMap = new TsMap({
+            zoom: 3,
+            longitude: 149.1,
+            latitude: 5.8,
+            projection: 4326
+        });
+        //tsMap.setBaseMap("blue");
+
+        fly = tsMap.addTyphoonLayer();
+        tsMap.setMapClickCallback(function () {
+
+        })
+        fly.setClickCallback(addinfo)
+        //fly.setMoveCallback(movrfun)
+
+
+    }
+
+    function movrfun(ee,f,o) {
+        console.log(ee);
+    }
+
+    function addinfo(e, attributes, obj) {
+        console.log(attributes);
+        console.log(obj);
+
+    }
+
+    function showInfo(bol) {
+        var tf = datas.points;
+        var polygon = [];
+
+        var obj1 = {
+            name: datas.name + datas.ident,
+            label: datas.name + datas.ident,// 显示的文字
+            id: "1234",//添加更新删除都是使用id
+            line: [],
+        };
+        for (var i = 0; i < tf.length; i++) {
+            var item = tf[i];
+            var lon = parseFloat(item.lng);
+            var lat = parseFloat(item.lat);
+            polygon.push([lon, lat]);
+
+            var obj = {
+                coordinates: [lon, lat],
+                properties: {
+                    label: item.time,// 显示的文字
+                    time: item.time,
+                    strong: item.strong,
+                    power: item.power,
+                    speed: item.speed,
+                    radius7: item.radius7,
+                    radius10: item.radius10,
+                    radius12: item.radius12,
+                    radius7_quad: item.radius7_quad,
+                    radius10_quad: item.radius10_quad,
+                    radius12_quad: item.radius12_quad
+                }
+            };
+            //预测线路
+            if (item.forecast && item.forecast.length > 0) {
+                var forecast = [];
+                for (var j = 0; j < item.forecast.length; j++) {
+                    var jtem = item.forecast[j];
+                    var object = {
+                        name: jtem.sets,
+                        label: jtem.sets,// 显示的文字
+                        line: []
+                    }
+                    for (var n = 0; n < jtem.points.length; n++) {
+                        var ntem = jtem.points[n];
+                        var label = moment(ntem.time).format('D日H时'); // 八月 14日 2023, 4:19:13 下午
+                        console.log(ntem.time, label)
+
+                        var point = {
+                            coordinates: [ntem.lng, ntem.lat],
+                            properties: {
+                                label: ntem.time,// 显示的文字
+                                time: ntem.time,
+                                strong: ntem.strong,
+                                power: ntem.power,
+                                speed: ntem.speed
+                            }
+                        };
+                        object.line.push(point);
+                    }
+                    forecast.push(object);
+                }
+                obj.properties.forecast = forecast;
+            }
+            obj1.line.push(obj);
+        }
+        console.log(obj1)
+        fly.addFeature(obj1);
+
+    }
+
+
+    var bol = true;
+
+    function showline() {
+        if (bol) {
+            fly.show({id: "1234", bl: false});
+            bol = false;
+        } else {
+            fly.show({id: "1234", bl: true});
+            bol = true;
+        }
+    }
+
+    function removew() {
+        fly.clear();
+    }
+
+    function removewfun() {
+        fly.removeFeature("1234");
+    }
+
+
+    function stylefun() {
+        let obj = {
+            scale: 0.6,
+            fill: 'rgba(255,204,185,0.1)',//填充颜色
+            width: 5,//线宽
+            anchor: [0.5, 0.5],
+            radius: 10,//圆半径
+            color: 'rgba(193,68,157,0.71)',//线颜色 台风影像范围的颜色
+            //label: "type",
+            buffer:true,//台风影像范围
+
+            text: {
+                color: '#050000',
+                scale: 0.6,
+                overflow: true,//设置允许文本超出标签位置处多边形的宽度或所沿路径的长度。
+                resolution: 0.005,//在多少分辨率下才显示标注
+                offsetX: 0,
+                offsetY: 30,
+                noffsetX: 0,
+                noffsetY: 1,
+                background: "rgba(243,245,242,0.7)",//背景色
+                stroke: { //边框
+                    color: "#ffffff",
+                    width: 1
+                },
+                padding: [1, -1, 1, 1],// 边距
+                distance: [0, 200000],
+            }
+        };
+        fly.setStyle(obj);
+
+
+    }
+
+    function getQuad() {
+        var radius7_quad = {
+            "ne": 200,
+            "se": 150,
+            "sw": 100,
+            "nw": 100
+        };
+        var dd = tsMap.getQuad([125.5, 23.9], radius7_quad);
+        console.log(dd);
+    }
+    function setfun() {
+        fly.setPassing({
+            id: "1234",
+            index: 5
+        });
+    }
+</script>
+<body onload="init()">
+<div id="map" style="height: 500px"></div>
+<div id="scale"></div>
+
+<button onclick="showInfo()">添加线</button>
+
+<button onclick="showline()">显示与隐藏</button>
+<button onclick="removew()">删除</button>
+<button onclick="removewfun()">removewfun</button>
+<button onclick="stylefun()">stylefun</button>
+<button onclick="getQuad()">getQuad</button>
+<button onclick="setfun()">设置风圈在那个位置</button>
+
+</body>
+</html>

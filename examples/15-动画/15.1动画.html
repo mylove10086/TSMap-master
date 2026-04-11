@@ -1,0 +1,66 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>china EPSG:4326 image/png</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
+
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
+
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
+    <script src="../../lib/arcgis/arc.js"></script>
+</head>
+<script type="text/javascript">
+    let map, animate;
+
+    function init() {
+        tsMap = new TsMap({
+            zoom: 12,
+            longitude: 113,
+            latitude: 23,
+            projection: 4326
+        });
+        animate = tsMap.addAnimateLayer();
+    }
+
+    function addloadfun() {
+        animate.startAnimate();
+    }
+
+    function stopAnimation() {
+        animate.stopAnimate();
+    }
+
+</script>
+<body onLoad="init()">
+<div id="map" style="height: 500px;"></div>
+<button onclick="addloadfun()">启动动画</button>
+<button onclick="stopAnimation()">停止动画</button>
+</body>
+</html>
