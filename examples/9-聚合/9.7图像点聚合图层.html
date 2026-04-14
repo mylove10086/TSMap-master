@@ -1,200 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <script src="../../lib/openlayers/ol.js"></script>
-  <link rel="stylesheet" href="../../lib/openlayers/ol.css">
-  <style>
-      .map {
-          width: 100%;
-          height: 500px;
-      }
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../lib/openlayers/ol.js"></script>
+    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 500px;
+        }
 
-      a.skiplink {
-          position: absolute;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 0;
-          border: 0;
-          height: 1px;
-          width: 1px;
-          overflow: hidden;
-      }
+        a.skiplink {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
 
-      a.skiplink:focus {
-          clip: auto;
-          height: auto;
-          width: auto;
-          background-color: #fff;
-          padding: 0.3em;
-      }
+        a.skiplink:focus {
+            clip: auto;
+            height: auto;
+            width: auto;
+            background-color: #fff;
+            padding: 0.3em;
+        }
 
-      #map:focus {
-          outline: #4A74A8 solid 0.15em;
-      }
-  </style>
-  <script src="../../dist/js/tsmap.js"></script>
-  <script src="../../static/tsmap.config.js"></script>
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+    <script src="../../dist/js/tsmap.js"></script>
+    <script src="../../static/tsmap.config.js"></script>
 
 
 </head>
 <script>
-  let tsMap = null;
-  let cluster = null;
+    let tsMap = null;
+    let cluster = null;
 
 
-  function init() {
-    tsMap = new TsMap();
-    var url = "http://localhost:7001/{quadkey}.jpeg";
-    // url = "http://172.16.27.183:8080/map/tiles/{quadkey}.jpeg";
-    //tsMap.setBaseMap("bingmap", {url: url});
-    tsMap.setMapClickCallback(mapClickCallback);
-    hight = tsMap.addHighlightedLayer()
+    function init() {
+        tsMap = new TsMap();
+        var url = "http://localhost:7001/{quadkey}.jpeg";
+        // url = "http://172.16.27.183:8080/map/tiles/{quadkey}.jpeg";
+        tsMap.setBaseMap("bingmap", {url: url});
+        tsMap.setMapClickCallback(mapClickCallback);
 
-    cluster = tsMap.addClusterLayer();
-    cluster.setDistance({distance: 50});//设置聚合半径
-    let obj = {
-      url: 'Point.png',//图片url
-      scale: 1.5,
-      fill: 'rgba(19,224,70,0.87)',//填充颜色
-      width: 5,//线宽
-      anchor: [0.50, 0.50],
-      radius: 10,//圆半径
-      color: '#e2b42c'//线颜色
-    };
-    hight.setStyle(obj);
-    cluster.setClickCallback(function (e, o,atr) {
-      addinfo(e, atr);
-    });//设置聚合半径
-
-  }
-  function addinfo(e, attributes) {
-
-    if (attributes.features.length > 0) {
-      // key = attributes.features[0].feature._id;
-      hight.addFeature(attributes.features[0].feature);
-
-    } else {
-      hight.addFeature();
-    }
-  }
-  function mapClickCallback(f, o) {
-
-
-    console.log(o)
-
-  }
-
-  function stylefun() {
-    //一个是单点的样式，一个是聚合的样式
-    var object = {
-      style: [{
-        url: '../data/gd.png',//图片url
-        fill: 'rgba(240,72,255,0.5)',//填充颜色
-        width: 5,//线宽
-        anchor: [0.5, 0.9],
-        radius: 50,//圆半径
-        scale: 0.5,
-        color: '#84fa45'//线颜色
-      }, {
-        url: '../data/gd.png',//图片url
-        fill: 'rgba(61,252,29,0.5)',//填充颜色
-        width: 5,//线宽
-        anchor: [0.5, 0.9],
-        radius: 50,//圆半径
-        scale: 0.5,
-        color: '#f14611'//线颜色
-      }]
-    };
-    let obj = {
-      url: 'expert.png',//图片url
-      scale: 0.3,
-      fill: 'rgba(255,204,185,0.1)',//填充颜色
-      width: 5,//线宽
-      anchor: [0.5, 1.0],
-      radius: 10,//圆半径
-      color: '#ff11bb',//线颜色
-      text: {
-        color: '#eab513',
-        scale: 1.50,
-        offsetX: 0.0,
-        offsetY: 35,
-      }
-    };
-    cluster.setStyle(obj);
-
-  }
-
-  function spatialQueryFromPolygon() {
-    var points = [];
-    points.push([113, 23]);
-    points.push([113.2, 23]);
-    points.push([113.2, 23.2]);
-    points.push([113, 23.2]);
-    cluster.spatialQueryFromPolygon({coordinate: points});
-  }
-
-  /**
-   * 绘制图形空间查询条件
-   * @param type
-   * Circle//圆
-   * Box//矩形
-   * Polygon//多边形
-   * RadiusCircle//指定半径的圆
-   */
-  function spatialQuery(type) {
-    switch (type) {
-      case 'Polygon':
-        cluster.spatialQuery("Polygon");
-        break;
-      case 'Box':
-        cluster.spatialQuery("Box");
-        break;
-      case 'Circle':
-        cluster.spatialQuery("Circle");
-        break;
-      case 'RadiusCircle':
-        cluster.radius = 10000;//设置半径
-        cluster.spatialQuery("RadiusCircle");
-        break;
-
-    }
-  }
-
-  function clearfun() {
-    cluster.spatialQuery();
-  }
-
-  /**
-   * 清除绘制的图形
-   */
-  function clearDraw() {
-    cluster.clearDraw();
-  }
-
-  function addpoint() {
-    var x = 111;
-    var y = 21;
-    for (var i = 0; i < 1000; i++) {
-      var num1 = Math.random() * 1;
-      var num2 = Math.random() * 1;
-      var weight = Math.random();
-      let graphic = {
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            x + num1,
-            y + num2
-          ]
+        cluster = tsMap.addClusterLayer();
+        cluster.setDistance({distance: 50});//设置聚合半径
+        var x = 111;
+        var y = 21;
+        for (var i = 0; i < 100000; i++) {
+            var num1 = Math.random() * 7;
+            var num2 = Math.random() * 5;
+            var weight = Math.random();
+            let graphic = {
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        x + num1,
+                        y + num2
+                    ]
+                }
+            };
+            //cluster.addFeature(graphic)
         }
-      };
-      cluster.addFeature(graphic)
     }
-  }
 
-  function setCluserfun() {
-    cluster.setCluser();
-  }
+    function mapClickCallback(f, o) {
+
+
+        console.log(o)
+
+    }
+
+    function stylefun() {
+        //一个是单点的样式，一个是聚合的样式
+        var object = {
+            style: [{
+                url: '../data/gd.png',//图片url
+                fill: 'rgba(240,72,255,0.5)',//填充颜色
+                width: 5,//线宽
+                anchor: [0.5, 0.9],
+                radius: 50,//圆半径
+                scale: 0.5,
+                color: '#84fa45'//线颜色
+            }, {
+                url: '../data/gd.png',//图片url
+                fill: 'rgba(61,252,29,0.5)',//填充颜色
+                width: 5,//线宽
+                anchor: [0.5, 0.9],
+                radius: 50,//圆半径
+                scale: 0.5,
+                color: '#f14611'//线颜色
+            }]
+        };
+        let obj = {
+            url: 'expert.png',//图片url
+            scale: 0.3,
+            fill: 'rgba(255,204,185,0.1)',//填充颜色
+            width: 5,//线宽
+            anchor: [0.5, 1.0],
+            radius: 10,//圆半径
+            color: '#ff11bb',//线颜色
+            text: {
+                color: '#eab513',
+                scale: 1.50,
+                offsetX: 0.0,
+                offsetY: 35,
+            }
+        };
+        cluster.setStyle(obj);
+
+    }
+
+    function spatialQueryFromPolygon() {
+        var points = [];
+        points.push([113, 23]);
+        points.push([113.2, 23]);
+        points.push([113.2, 23.2]);
+        points.push([113, 23.2]);
+        cluster.spatialQueryFromPolygon({coordinate: points});
+    }
+
+    /**
+     * 绘制图形空间查询条件
+     * @param type
+     * Circle//圆
+     * Box//矩形
+     * Polygon//多边形
+     * RadiusCircle//指定半径的圆
+     */
+    function spatialQuery(type) {
+        switch (type) {
+            case 'Polygon':
+                cluster.spatialQuery("Polygon");
+                break;
+            case 'Box':
+                cluster.spatialQuery("Box");
+                break;
+            case 'Circle':
+                cluster.spatialQuery("Circle");
+                break;
+            case 'RadiusCircle':
+                cluster.radius = 10000;//设置半径
+                cluster.spatialQuery("RadiusCircle");
+                break;
+
+        }
+    }
+
+    function clearfun() {
+        cluster.spatialQuery();
+    }
+
+    /**
+     * 清除绘制的图形
+     */
+    function clearDraw() {
+        cluster.clearDraw();
+    }
+
+    function addpoint() {
+        var x = 111;
+        var y = 21;
+        for (var i = 0; i < 1000; i++) {
+            var num1 = Math.random() * 7;
+            var num2 = Math.random() * 5;
+            var weight = Math.random();
+            let graphic = {
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        x + num1,
+                        y + num2
+                    ]
+                }
+            };
+            cluster.addFeature(graphic)
+        }
+    }
+
 
 </script>
 <body onload="init()">
@@ -208,7 +198,6 @@
 <button onclick="clearfun('RadiusCircle')">清空选择</button>
 <button onclick="clearDraw('RadiusCircle')">清空绘制的图像</button>
 <button onclick="addpoint('RadiusCircle')">addpoint</button>
-<button onclick="setCluserfun('RadiusCircle')">setCluser</button>
 
 
 </body>

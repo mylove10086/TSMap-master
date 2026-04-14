@@ -37,7 +37,8 @@ class TsMap {
         }
 
         this.map = createMap(this.options);
-        proj4.defs('EPSG:3395', '+proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs');
+        proj4.defs('EPSG:3395',
+            '+proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs');
         ol.proj.proj4.register(proj4);
     }
 
@@ -216,15 +217,6 @@ class TsMap {
 
     addClusterLayer(options) {
         return this.map.addClusterLayer(options);
-    }
-
-    /**
-     * 9.12属性聚合
-     * @param options
-     * @returns {ClusterLayer}
-     */
-    addClusterAttrLayer(options) {
-        return this.map.addClusterAttrLayer(options);
     }
 
     addHeatMapLayer(options) {

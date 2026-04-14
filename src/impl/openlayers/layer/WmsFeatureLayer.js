@@ -21,10 +21,7 @@ class WmsFeatureLayer {
         this.olmap = olmap;
         this.options = extend(this.getDefaultOptions(), options);
         this._maxLevel = options.maxlevel ? parseInt(options.maxlevel) : 13;
-        this.geom = "geom"
-        if (options && options.geom) {
-            this.geom = options.geom;
-        }
+
         this._show = true;
         //用于空间过滤绘制图形
         this.draw = null;
@@ -81,10 +78,7 @@ class WmsFeatureLayer {
                 let proj = projection.getCode();
 
                 if (that.cql || that.feature) {
-                    //var CQL_FILTER = "CQL_FILTER=" + that.cql + " and BBOX(geom," + extent.join(',') + ")";
-                    var CQL_FILTER =  that.cql + " and BBOX("+that.geom+"," + extent.join(',') + ")";
-                    CQL_FILTER ="CQL_FILTER=" + encodeURIComponent(CQL_FILTER);//转义字符
-
+                    var CQL_FILTER = "CQL_FILTER=" + that.cql + " and BBOX(geom," + extent.join(',') + ")";
                     let url = options.url + '/ows?service=WFS&version=1.0.0&request=GetFeature&typename=' + options.layer
                         + '&outputFormat=application/json&srsname=' + proj + '&' + CQL_FILTER;
                     let filter = null;
@@ -97,9 +91,9 @@ class WmsFeatureLayer {
                         }
                     }
 
-                    //console.log(url);
                     fetch(url, {
                         method: 'POST',
+
                     }).then(function (response) {
                         return response.json();
                     }).then(function (json) {

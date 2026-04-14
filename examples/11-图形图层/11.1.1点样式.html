@@ -1,413 +1,401 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>11.1以图标加载点坐标</title>
-    <script src="../../lib/openlayers/ol.js"></script>
-    <link rel="stylesheet" href="../../lib/openlayers/ol.css">
-    <style>
-        .map {
-            width: 100%;
-            height: 500px;
-        }
+  <meta charset="UTF-8">
+  <title>11.1以图标加载点坐标</title>
+  <script src="../../lib/openlayers/ol.js"></script>
+  <link rel="stylesheet" href="../../lib/openlayers/ol.css">
+  <style>
+    .map {
+      width: 100%;
+      height: 500px;
+    }
 
-        a.skiplink {
-            position: absolute;
-            clip: rect(1px, 1px, 1px, 1px);
-            padding: 0;
-            border: 0;
-            height: 1px;
-            width: 1px;
-            overflow: hidden;
-        }
+    a.skiplink {
+      position: absolute;
+      clip: rect(1px, 1px, 1px, 1px);
+      padding: 0;
+      border: 0;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+    }
 
-        a.skiplink:focus {
-            clip: auto;
-            height: auto;
-            width: auto;
-            background-color: #fff;
-            padding: 0.3em;
-        }
+    a.skiplink:focus {
+      clip: auto;
+      height: auto;
+      width: auto;
+      background-color: #fff;
+      padding: 0.3em;
+    }
 
-        #map:focus {
-            outline: #4A74A8 solid 0.15em;
-        }
-    </style>
-    <script src="../../dist/js/tsmap.js"></script>
-    <script src="../../static/tsmap.config.js"></script>
-    <script src="../../lib/jquery-3.5.0.js"></script>
-    <script src="../data/weifacaikuang.js"></script>
+    #map:focus {
+      outline: #4A74A8 solid 0.15em;
+    }
+  </style>
+  <script src="../../dist/js/tsmap.js"></script>
+  <script src="../../static/tsmap.config.js"></script>
+  <script src="../../lib/jquery-3.5.0.js"></script>
+  <script src="../data/weifacaikuang.js"></script>
 </head>
 <script>
-    let tsMap = null;
-    let gjson = null;
-    let gjson1 = null;
-    let gjson2 = null;
+  let tsMap = null;
+  let gjson = null;
+  let gjson1 = null;
+  let gjson2 = null;
 
-    function init() {
-        tsMap = new TsMap({target: "cesiumContainer"});
-        gjson = tsMap.addGraphicLayer();
-        tsMap.goTo({
-            longitude: 113,//经度
-            latitude: 23,//纬度
-            zoom: 10,//缩放层级
-            duration: 3,//飞行到底时间,
-        });
-        gjson1 = tsMap.addGraphicLayer();
-        gjson1.setClickCallback(addinfo)
-        //tsMap.setCoordinateCallback(addinfo1)
+  function init() {
+    tsMap = new TsMap({target: "cesiumContainer"});
+    gjson = tsMap.addGraphicLayer();
+    tsMap.goTo({
+      longitude: 113,//经度
+      latitude: 23,//纬度
+      zoom: 10,//缩放层级
+      duration: 3,//飞行到底时间,
+    });
+    gjson1 = tsMap.addGraphicLayer();
+    gjson1.setClickCallback(addinfo)
+    //tsMap.setCoordinateCallback(addinfo1)
 
 
+  }
+
+  function addinfo(e, attributes) {
+    console.log(attributes.screen);
+
+  }
+
+  function addinfo1(attributes) {
+    if (attributes.features.length > 0) {
+      console.log(attributes.features);
     }
 
-    function addinfo(e, attributes) {
-        console.log(attributes.screen);
 
-    }
+  }
 
-    function addinfo1(attributes) {
-        if (attributes.features.length > 0) {
-            console.log(attributes.features);
-        }
+  function addpoint() {
+    let graphic = {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.001,
+          23
+        ]
+      },
+      properties: {"name1": "manid", id: "adf"}
+    };
+    let obj = {
+      url: 'img/zy.png',//图片url
+      scale: 1.5,
+      fill: 'rgba(255,204,185,0.1)',//填充颜色
+      width: 5,//线宽
+      anchor: [0.0, 0.0],
+      radius: 10,//圆半径
+      color: '#ff11bb'//线颜色
+    };
+    var object = {
+      label: 'name1',// 要素中的属性字段
+      //url: 'img/zy.png',//图片url
+      scale: 5.5,
+      fill: 'rgba(255,204,185,0.1)',//填充颜色
+      width: 10,//线宽
+      anchor: [0.0, 0.0],
+      radius: 1,//圆半径
+      color: '#ff11bb',//线颜色
+      distance: [10, 15],//在10 15层级显示，其他级别隐藏
+      text: {
+        color: '#9fee0d',
+        scale: 1.1,
+        overflow: true,//设置允许文本超出标签位置处多边形的宽度或所沿路径的长度。
+        resolution: 0.05,//在多少分辨率下才显示标注
+        offsetX: 0.0,
+        offsetY: 35,
+        //background: "rgba(222,31,31,0.7)",//背景色
+        distance: [10, 15],
+        outlineColor: "#ffffff",
+        outlineWidth: 3,
+        /*stroke: { //边框
+          color: "#ffffff",
+          width: 3
+        },*/
+        //padding: [-5, 2, 1, 5]// 边距
+      }
+    };
+    gjson.setStyle(object);
+    feature = gjson.addFeature(graphic);
 
+    let graphicp = {
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            113.6426256,
+            23.08868824
+          ],
+          [
+            113.68104795,
+            23.11500322
+          ],
+          [
+            113.7228615,
+            23.12691663
+          ],
+          [
+            113.75973151,
+            23.1344023
+          ],
+          [
+            113.76829876,
+            23.13003823
+          ],
+          [
+            113.79747632,
+            23.10009743
+          ],
+          [
+            113.83833863,
+            23.09390469
+          ],
+          [
+            113.86974955,
+            23.09272924
+          ],
+          [
+            113.91239998,
+            23.09181171
+          ],
+          [
+            113.94783405,
+            23.09089756
+          ],
+          [
+            113.97666255,
+            23.0727656
+          ],
+          [
+            114.00957833,
+            23.06451944
+          ],
+          [
+            114.04743246,
+            23.08435009
+          ],
+          [
+            114.07428834,
+            23.06478255
+          ],
+          [
+            114.1060928,
+            23.05365421
+          ],
+          [
+            114.12805762,
+            23.0170508
+          ],
+          [
+            114.16238248,
+            22.99485304
+          ],
+          [
+            114.18842713,
+            23.01126619
+          ],
+          [
+            114.19967006,
+            22.97530316
+          ],
+          [
+            114.20269873,
+            22.93894641
+          ],
+          [
+            114.22369602,
+            22.90130559
+          ],
+          [
+            114.22922516,
+            22.86291418
+          ],
+          [
+            114.22718193,
+            22.83515454
+          ],
+          [
+            114.19720931,
+            22.795702
+          ],
+          [
+            114.17290514,
+            22.77257995
+          ],
+          [
+            114.18610548,
+            22.73882937
+          ],
+          [
+            114.19216286,
+            22.70972158
+          ],
+          [
+            114.1776672,
+            22.66911162
+          ],
+          [
+            114.14279149,
+            22.66557915
+          ],
+          [
+            114.13675541,
+            22.6979154
+          ],
+          [
+            114.11415566,
+            22.72460213
+          ],
+          [
+            114.08726357,
+            22.75544658
+          ],
+          [
+            114.05229384,
+            22.77233798
+          ],
+          [
+            114.02362232,
+            22.76640003
+          ],
+          [
+            113.99461935,
+            22.76725539
+          ],
+          [
+            113.96743598,
+            22.78670631
+          ],
+          [
+            113.95002666,
+            22.81147484
+          ],
+          [
+            113.94099499,
+            22.8452205
+          ],
+          [
+            113.90975359,
+            22.85743414
+          ],
+          [
+            113.87271239,
+            22.84195768
+          ],
+          [
+            113.83928407,
+            22.83913562
+          ],
+          [
+            113.81618542,
+            22.81294502
+          ],
+          [
+            113.78984637,
+            22.79083224
+          ],
+          [
+            113.76632021,
+            22.76595926
+          ],
+          [
+            113.7490793,
+            22.74422965
+          ],
+          [
+            113.7316615,
+            22.75555021
+          ],
+          [
+            113.70812979,
+            22.75628452
+          ],
+          [
+            113.69308514,
+            22.74658664
+          ],
+          [
+            113.67055127,
+            22.74820306
+          ],
+          [
+            113.65747271,
+            22.76800657
+          ],
+          [
+            113.64424391,
+            22.78319192
+          ],
+          [
+            113.61687068,
+            22.7867923
+          ],
+          [
+            113.60423454,
+            22.82042736
+          ],
+          [
+            113.59843432,
+            22.85292476
+          ],
+          [
+            113.57501509,
+            22.88779391
+          ],
+          [
+            113.55875424,
+            22.93166911
+          ],
+          [
+            113.55233086,
+            22.94570932
+          ],
+          [
+            113.54752083,
+            22.97908455
+          ],
+          [
+            113.53504157,
+            23.0191402
+          ],
+          [
+            113.51835988,
+            23.05100626
+          ],
+          [
+            113.49472422,
+            23.06176919
+          ],
+          [
+            113.49882393,
+            23.06187387
+          ],
+          [
+            113.6426256,
+            23.08868824
+          ]
+        ]
+      },
+      properties: {"name1": "manid", id: "adf"}
+    };
+    gjson1.addFeature(graphicp);
+  }
 
-    }
+  function addpoint1() {
+    gjson.addFeatures(data);
+  }
 
-    function addpoint() {
-        let graphic = {
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    114.001,
-                    23
-                ]
-            },
-            properties: {"name1": "manid", id: "adf"}
-        };
-        let obj = {
-            url: 'img/zy.png',//图片url
-            scale: 1.5,
-            fill: 'rgba(255,204,185,0.1)',//填充颜色
-            width: 5,//线宽
-            anchor: [0.0, 0.0],
-            radius: 10,//圆半径
-            color: '#ff11bb'//线颜色
-        };
-        var object = {
-            label: 'name1',// 要素中的属性字段
-            //url: 'img/zy.png',//图片url
-            scale: 5.5,
-            fill: 'rgba(255,204,185,0.1)',//填充颜色
-            width: 10,//线宽
-            anchor: [0.0, 0.0],
-            radius: 1,//圆半径
-            color: '#ff11bb',//线颜色
-            distance: [10, 15],//在10 15层级显示，其他级别隐藏
-            text: {
-                color: '#9fee0d',
-                scale: 1.1,
-                overflow: true,//设置允许文本超出标签位置处多边形的宽度或所沿路径的长度。
-                resolution: 0.05,//在多少分辨率下才显示标注
-                offsetX: 0.0,
-                offsetY: 35,
-                //background: "rgba(222,31,31,0.7)",//背景色
-                distance: [10, 15],
-                outlineColor: "#ffffff",
-                outlineWidth: 3,
-                /*stroke: { //边框
-                  color: "#ffffff",
-                  width: 3
-                },*/
-                //padding: [-5, 2, 1, 5]// 边距
-            }
-        };
-        gjson.setStyle(object);
-        graphic = {
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    113.34319116973877,
-                    23.132423036575318
-                ]
-            },
-            "properties": {
-                "text": 1000
-            }
-        }
-        feature = gjson.addFeature(graphic);
-
-        let graphicp = {
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        113.6426256,
-                        23.08868824
-                    ],
-                    [
-                        113.68104795,
-                        23.11500322
-                    ],
-                    [
-                        113.7228615,
-                        23.12691663
-                    ],
-                    [
-                        113.75973151,
-                        23.1344023
-                    ],
-                    [
-                        113.76829876,
-                        23.13003823
-                    ],
-                    [
-                        113.79747632,
-                        23.10009743
-                    ],
-                    [
-                        113.83833863,
-                        23.09390469
-                    ],
-                    [
-                        113.86974955,
-                        23.09272924
-                    ],
-                    [
-                        113.91239998,
-                        23.09181171
-                    ],
-                    [
-                        113.94783405,
-                        23.09089756
-                    ],
-                    [
-                        113.97666255,
-                        23.0727656
-                    ],
-                    [
-                        114.00957833,
-                        23.06451944
-                    ],
-                    [
-                        114.04743246,
-                        23.08435009
-                    ],
-                    [
-                        114.07428834,
-                        23.06478255
-                    ],
-                    [
-                        114.1060928,
-                        23.05365421
-                    ],
-                    [
-                        114.12805762,
-                        23.0170508
-                    ],
-                    [
-                        114.16238248,
-                        22.99485304
-                    ],
-                    [
-                        114.18842713,
-                        23.01126619
-                    ],
-                    [
-                        114.19967006,
-                        22.97530316
-                    ],
-                    [
-                        114.20269873,
-                        22.93894641
-                    ],
-                    [
-                        114.22369602,
-                        22.90130559
-                    ],
-                    [
-                        114.22922516,
-                        22.86291418
-                    ],
-                    [
-                        114.22718193,
-                        22.83515454
-                    ],
-                    [
-                        114.19720931,
-                        22.795702
-                    ],
-                    [
-                        114.17290514,
-                        22.77257995
-                    ],
-                    [
-                        114.18610548,
-                        22.73882937
-                    ],
-                    [
-                        114.19216286,
-                        22.70972158
-                    ],
-                    [
-                        114.1776672,
-                        22.66911162
-                    ],
-                    [
-                        114.14279149,
-                        22.66557915
-                    ],
-                    [
-                        114.13675541,
-                        22.6979154
-                    ],
-                    [
-                        114.11415566,
-                        22.72460213
-                    ],
-                    [
-                        114.08726357,
-                        22.75544658
-                    ],
-                    [
-                        114.05229384,
-                        22.77233798
-                    ],
-                    [
-                        114.02362232,
-                        22.76640003
-                    ],
-                    [
-                        113.99461935,
-                        22.76725539
-                    ],
-                    [
-                        113.96743598,
-                        22.78670631
-                    ],
-                    [
-                        113.95002666,
-                        22.81147484
-                    ],
-                    [
-                        113.94099499,
-                        22.8452205
-                    ],
-                    [
-                        113.90975359,
-                        22.85743414
-                    ],
-                    [
-                        113.87271239,
-                        22.84195768
-                    ],
-                    [
-                        113.83928407,
-                        22.83913562
-                    ],
-                    [
-                        113.81618542,
-                        22.81294502
-                    ],
-                    [
-                        113.78984637,
-                        22.79083224
-                    ],
-                    [
-                        113.76632021,
-                        22.76595926
-                    ],
-                    [
-                        113.7490793,
-                        22.74422965
-                    ],
-                    [
-                        113.7316615,
-                        22.75555021
-                    ],
-                    [
-                        113.70812979,
-                        22.75628452
-                    ],
-                    [
-                        113.69308514,
-                        22.74658664
-                    ],
-                    [
-                        113.67055127,
-                        22.74820306
-                    ],
-                    [
-                        113.65747271,
-                        22.76800657
-                    ],
-                    [
-                        113.64424391,
-                        22.78319192
-                    ],
-                    [
-                        113.61687068,
-                        22.7867923
-                    ],
-                    [
-                        113.60423454,
-                        22.82042736
-                    ],
-                    [
-                        113.59843432,
-                        22.85292476
-                    ],
-                    [
-                        113.57501509,
-                        22.88779391
-                    ],
-                    [
-                        113.55875424,
-                        22.93166911
-                    ],
-                    [
-                        113.55233086,
-                        22.94570932
-                    ],
-                    [
-                        113.54752083,
-                        22.97908455
-                    ],
-                    [
-                        113.53504157,
-                        23.0191402
-                    ],
-                    [
-                        113.51835988,
-                        23.05100626
-                    ],
-                    [
-                        113.49472422,
-                        23.06176919
-                    ],
-                    [
-                        113.49882393,
-                        23.06187387
-                    ],
-                    [
-                        113.6426256,
-                        23.08868824
-                    ]
-                ]
-            },
-            properties: {"name1": "manid", id: "adf"}
-        };
-        gjson1.addFeature(graphicp);
-    }
-
-    function addpoint1() {
-        gjson.addFeatures(data);
-    }
-
-    function setZIndexfun() {
+  function setZIndexfun() {
 
 
-        gjson.setZIndex(2);
-    }
+    gjson.setZIndex(2);
+  }
 
 </script>
 <body onload="init()">

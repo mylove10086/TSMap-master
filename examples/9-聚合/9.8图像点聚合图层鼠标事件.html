@@ -50,7 +50,7 @@
     cluster = tsMap.addClusterLayer();
     cluster.setDistance({distance: 50});//设置聚合半径
     tsMap.setMapClickCallback(mapClickCallback);
-    //tsMap.getMap().setCoordinateCallback(coordinateCallback);
+    tsMap.getMap().setCoordinateCallback(coordinateCallback);
     stylefun();
     addYjydFun(data.data);
     sein = tsMap.getSelectionIndicator();

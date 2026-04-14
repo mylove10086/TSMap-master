@@ -45,9 +45,8 @@
         tsMap = new TsMap();//初始化地图
 
         wfs = tsMap.addWfsLayer({
-            url: "http://localhost:6080/geoserver/shapefile/ows?service=WFS",//服务地址
-            layer: "meizhoulabel",//图层名称
-            geom:"the_geom",
+            url: "http://localhost:6080/geoserver/shpfile/ows?service=WFS",//图层url
+            layer: "chinamap",//图层名称
             featurePrefix: "shpfile",//图层命名空间
             featureNS: 'http://www.mysql.net'//图层空间标识符
         });
