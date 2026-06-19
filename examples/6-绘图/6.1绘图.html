@@ -83,268 +83,234 @@
 
 </head>
 <script>
-    let tsMap;
-    let drawTool;
+  let tsMap;
+  let drawTool;
 
-    function info() {
-        var dd = ol.verson
-        tsMap = new TsMap({
-            center: [113.26417, 22.99139],
-            zoom: 15
-        });
-        tsMap.setMapClickCallback(addinfo)
+  function info() {
+    var dd = ol.verson
+    tsMap = new TsMap({
+      center: [113.26417, 22.99139],
+      zoom: 15
+    });
+    tsMap.setMapClickCallback(addinfo)
 
-        drawTool = tsMap.addDraw({id: "draw"});
-        drawTool.setDrawEndCallback(funs);
-        let circle = {
-            "geometry": {
-                "type": "RadiusCircle",
-                "coordinates": [113, 23],
-                radius: 100//半径，默认是100
-            }
-        };
-        let coor = tsMap.getCircle(circle);// 获取圆坐标
+    drawTool = tsMap.addDraw({id: "draw"});
+    drawTool.setDrawEndCallback(funs);
+    let circle = {
+      "geometry": {
+        "type": "RadiusCircle",
+        "coordinates": [113, 23],
+        radius: 100//半径，默认是100
+      }
+    };
+    let coor = tsMap.getCircle(circle);// 获取圆坐标
+  }
+
+  function addinfo(e, attributes) {
+    //document.getElementById('scale').innerHTML = "   lon:" + attributes.coordinate[0] + " lat:" + attributes.coordinate[1]+"屏幕坐标"+attributes.screen;
+    console.log(attributes.screen);
+
+
+  }
+
+  function funs(e, f) {
+    console.log(e);
+    console.log(f);
+
+    tsMap.flyTo({
+      "coordinates": f.coordinate,
+      duration: 3
+    });
+  }
+
+  //{type:
+  // Point//绘制点
+  // Polygon//绘制多边形
+  // Circle//绘制圆
+  // RadiusCircle//绘制指定半径的圆圆
+  // LineString//绘制线
+  function drawFun2(type) {
+    switch (type) {
+      case 'Point':
+        drawTool.drawGraphic("Point");
+        break;
+      case 'LineString':
+        drawTool.drawGraphic("LineString");
+        break;
+      case 'Polygon':
+        drawTool.drawGraphic("Polygon");
+        break;
+      case 'Box':
+        drawTool.drawGraphic("Box");
+        break;
+      case 'Circle':
+        drawTool.drawGraphic("Circle");
+        break;
+      case 'RadiusCircle':
+        drawTool.radius = 10000;//设置半径
+        drawTool.drawGraphic("RadiusCircle");
+        break;
+      case 'Square':
+        drawTool.drawGraphic("Square");
+        break;
+      case 'FineArrow':
+        drawTool.drawGraphic('FineArrow');
+        break;
+      case 'AttackArrow':
+        drawTool.drawGraphic('AttackArrow');
+        break;
+      case 'PincerArrow':
+        drawTool.drawGraphic('PincerArrow');
+        break;
+      case 'CurveAlgorithm':
+        drawTool.drawGraphic('CurveAlgorithm');
+        break;  case 'Ellipse':
+        drawTool.drawGraphic('Ellipse');
+        break;
+      default:
+        drawTool.drawGraphic(null);
+        break;
     }
-
-    function addinfo(e, attributes) {
-        //document.getElementById('scale').innerHTML = "   lon:" + attributes.coordinate[0] + " lat:" + attributes.coordinate[1]+"屏幕坐标"+attributes.screen;
-        console.log(attributes.screen);
+  }
 
 
+  function getFeature() {
+    let f = drawTool.getFeature();
+    console.log(f);
+    document.getElementById('label1').innerHTML = "图形个数：" + f.length;
+  }
 
+  function clearfun() {
+    drawTool.clearFeature();
+    drawTool.removeFeature();
+  }
+
+  function shestyleFunRed() {
+
+    var object = {
+
+      fill: 'rgba(240,72,255,0.68)',//填充颜色
+      width: 5,//线宽
+      radius: 50,//圆半径
+      color: '#ff11bb'//线颜色
+
+    };
+    object = {
+
+      fill: 'rgba(240,72,255,0.0)',//填充颜色
+      width: 5,//线宽
+      color: 'rgba(253,1,9,0.76)',//线颜色
+      lineDash: [10, 10]
+
+    };
+    drawTool.setStyle(object);
+    var object1 = {
+
+      fill: 'rgba(240,72,255,0.0)',//填充颜色
+      width: 5,//线宽
+      radius: 5,
+      color: 'rgba(69,255,126,0.5)',//线颜色
+      lineDash: [10, 10]
+
+    };
+    drawTool.setDrawStyle(object1);
+  }
+
+  function shestyleFunYellow() {
+
+    var object = {
+      style: {
+        fill: 'rgba(240,72,255,0.68)',//填充颜色
+        width: 5,//线宽
+        radius: 50,//圆半径
+        color: '#ff11bb'//线颜色
+      }
+    };
+    object = {
+      style: {
+        fill: 'rgba(240,72,255,0.0)',//填充颜色
+        width: 5,//线宽
+        color: 'rgb(253,240,1)',//线颜色
+        lineDash: [10, 10]
+      }
+    };
+    drawTool.setStyle(object);
+    var object1 = {
+      style: {
+        fill: 'rgba(240,72,255,0.0)',//填充颜色
+        width: 5,//线宽
+        radius: 5,
+        color: 'rgba(69,255,126,0.5)',//线颜色
+        lineDash: [10, 10]
+      }
+    };
+    drawTool.setDrawStyle(object1);
+  }
+
+  function shestyleFunGreen() {
+
+    var object;
+    object = {
+      fill: 'rgba(240,72,255,0.0)',//填充颜色
+      width: 5,//线宽
+      color: 'rgb(18,229,4)',//线颜色
+      lineDash: [10, 10]
+
+    };
+    drawTool.setStyle(object);
+    var object1 = {
+
+      fill: 'rgba(240,72,255,0.0)',//填充颜色
+      width: 5,//线宽
+      radius: 5,
+      color: 'rgba(69,255,126,0.5)',//线颜色
+      lineDash: [10, 10]
+
+    };
+    drawTool.setDrawStyle(object1);
+  }
+
+  function radiusFun() {
+    var object = {
+
+      url: 'img/gd.png',//图片url
+      fill: 'rgba(240,72,255,0.5)',//填充颜色
+      width: 5,//线宽
+      anchor: [0.5, 0.9],
+      radius: 50,//圆半径
+      scale: 1.0,
+      color: '#84fa45'//线颜色
+
+    };
+    drawTool.setDrawStyle(object);
+    drawTool.setStyle(object);
+
+    let graphic = {
+      "geometry": {
+        "type": "RadiusCircle",
+        "coordinates": [113.4, 23],
+        radius: 20000//半径，默认是100
+      },
+      "properties": {
+        "gid": 1,
+        "objectid": 1,
+        "id": 5845
+      }
+    };
+    drawTool.addFeature(graphic);
+  }
+
+  let bl = false;
+
+  function showfun() {
+    if (bl) {
+      drawTool.setVisible(bl);
+      bl = false;
+    } else {
+      drawTool.setVisible(bl);
+      bl = true;
     }
-
-    function funs(e, f) {
-        console.log(e);
-        console.log(f);
-
-        tsMap.flyTo({
-            "coordinates": f.coordinate,
-            duration: 3
-        });
-    }
-
-    //{type:
-    // Point//绘制点
-    // Polygon//绘制多边形
-    // Circle//绘制圆
-    // RadiusCircle//绘制指定半径的圆圆
-    // LineString//绘制线
-    function drawFun2(type) {
-        switch (type) {
-            case 'Point':
-                drawTool.drawGraphic("Point");
-                break;
-            case 'LineString':
-                drawTool.drawGraphic("LineString");
-                break;
-            case 'Polygon':
-                drawTool.drawGraphic("Polygon");
-                break;
-            case 'Box':
-                drawTool.drawGraphic("Box");
-                break;
-            case 'Circle':
-                drawTool.drawGraphic("Circle");
-                break;
-            case 'RadiusCircle':
-                drawTool.radius = 10000;//设置半径
-                drawTool.drawGraphic("RadiusCircle");
-                break;
-            case 'Square':
-                drawTool.drawGraphic("Square");
-                break;
-            case 'FineArrow':
-                drawTool.drawGraphic('FineArrow');
-                break;
-            case 'AttackArrow':
-                drawTool.drawGraphic('AttackArrow');
-                break;
-            case 'PincerArrow':
-                drawTool.drawGraphic('PincerArrow');
-                break;
-            default:
-                drawTool.drawGraphic(null);
-                break;
-        }
-    }
-
-    function drawFun(type) {
-        switch (type) {
-            case 'Point':
-                drawTool.drawPoint();
-                break;
-            case 'LineString':
-                drawTool.drawLineString();
-                break;
-            case 'Polygon':
-                drawTool.drawPolygon();
-                break;
-            case 'Box':
-                drawTool.drawBox();
-                break;
-            case 'Circle':
-                drawTool.drawCircle();
-                break;
-            case 'RadiusCircle':
-                drawTool.radius = 10000;//设置半径
-                drawTool.drawRadiusCircle();
-                break;
-            case 'Square':
-                drawTool.drawSquare();
-                break;
-            case 'FineArrow':
-                drawTool.drawGraphic('FineArrow');
-                break;
-            case 'AttackArrow':
-                drawTool.drawGraphic('AttackArrow');
-                break;
-            case 'PincerArrow':
-                drawTool.drawGraphic('PincerArrow');
-                break;
-            default:
-                drawTool.drawGraphic(null);
-                break;
-        }
-    }
-
-    function getFeature() {
-        let f = drawTool.getFeature();
-        console.log(f);
-        document.getElementById('label1').innerHTML = "图形个数：" + f.length;
-    }
-
-    function clearfun() {
-        drawTool.clearFeature();
-        drawTool.removeFeature();
-    }
-
-    function shestyleFunRed() {
-
-        var object = {
-
-            fill: 'rgba(240,72,255,0.68)',//填充颜色
-            width: 5,//线宽
-            radius: 50,//圆半径
-            color: '#ff11bb'//线颜色
-
-        };
-        object = {
-
-            fill: 'rgba(240,72,255,0.0)',//填充颜色
-            width: 5,//线宽
-            color: 'rgba(253,1,9,0.76)',//线颜色
-            lineDash: [10, 10]
-
-        };
-        drawTool.setStyle(object);
-        var object1 = {
-
-            fill: 'rgba(240,72,255,0.0)',//填充颜色
-            width: 5,//线宽
-            radius: 5,
-            color: 'rgba(69,255,126,0.5)',//线颜色
-            lineDash: [10, 10]
-
-        };
-        drawTool.setDrawStyle(object1);
-    }
-
-    function shestyleFunYellow() {
-
-        var object = {
-            style: {
-                fill: 'rgba(240,72,255,0.68)',//填充颜色
-                width: 5,//线宽
-                radius: 50,//圆半径
-                color: '#ff11bb'//线颜色
-            }
-        };
-        object = {
-            style: {
-                fill: 'rgba(240,72,255,0.0)',//填充颜色
-                width: 5,//线宽
-                color: 'rgb(253,240,1)',//线颜色
-                lineDash: [10, 10]
-            }
-        };
-        drawTool.setStyle(object);
-        var object1 = {
-            style: {
-                fill: 'rgba(240,72,255,0.0)',//填充颜色
-                width: 5,//线宽
-                radius: 5,
-                color: 'rgba(69,255,126,0.5)',//线颜色
-                lineDash: [10, 10]
-            }
-        };
-        drawTool.setDrawStyle(object1);
-    }
-
-    function shestyleFunGreen() {
-
-        var object;
-        object = {
-            fill: 'rgba(240,72,255,0.0)',//填充颜色
-            width: 5,//线宽
-            color: 'rgb(18,229,4)',//线颜色
-            lineDash: [10, 10]
-
-        };
-        drawTool.setStyle(object);
-        var object1 = {
-
-            fill: 'rgba(240,72,255,0.0)',//填充颜色
-            width: 5,//线宽
-            radius: 5,
-            color: 'rgba(69,255,126,0.5)',//线颜色
-            lineDash: [10, 10]
-
-        };
-        drawTool.setDrawStyle(object1);
-    }
-
-    function radiusFun() {
-        var object = {
-
-            url: 'img/gd.png',//图片url
-            fill: 'rgba(240,72,255,0.5)',//填充颜色
-            width: 5,//线宽
-            anchor: [0.5, 0.9],
-            radius: 50,//圆半径
-            scale: 1.0,
-            color: '#84fa45'//线颜色
-
-        };
-        drawTool.setDrawStyle(object);
-        drawTool.setStyle(object);
-
-        let graphic = {
-            "geometry": {
-                "type": "RadiusCircle",
-                "coordinates": [113.4, 23],
-                radius: 20000//半径，默认是100
-            },
-            "properties": {
-                "gid": 1,
-                "objectid": 1,
-                "id": 5845
-            }
-        };
-        drawTool.addFeature(graphic);
-    }
-
-    let bl = false;
-
-    function showfun() {
-        if (bl) {
-            drawTool.setVisible(bl);
-            bl = false;
-        } else {
-            drawTool.setVisible(bl);
-            bl = true;
-        }
-    }
+  }
 </script>
 <body onload="info()">
 <div id="map" style="width: 100%;height: 700px;"></div>
@@ -360,6 +326,8 @@
 <button onclick="drawFun2('FineArrow')">单箭头</button>
 <button onclick="drawFun2('AttackArrow')">攻击箭头</button>
 <button onclick="drawFun2('PincerArrow')">钳击箭头</button>
+<button onclick="drawFun2('CurveAlgorithm')">自由曲线</button>
+<button onclick="drawFun2('Ellipse')">椭圆</button>
 
 <button onclick="getFeature()">获取绘制的图形</button>
 <button onclick="clearfun()">清除绘制的图形</button>

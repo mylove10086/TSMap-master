@@ -53,7 +53,9 @@ export const GraphicType = {
     SQUARE: 'Square',
     FINEARROW: 'FineArrow',// 单箭头
     ATTACKARROW: 'AttackArrow',//燕尾箭头
-    PINCERARROW: 'PincerArrow'//双箭头
+    PINCERARROW: 'PincerArrow',//双箭头
+    CurveAlgorithm: 'CurveAlgorithm',//双箭头
+    EllipseGeom: 'Ellipse'//双箭头
 };
 
 /**
