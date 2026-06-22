@@ -269,8 +269,11 @@ class Draw {
         break;
       case GraphicType.EllipseGeom:
         targetType = GraphicType.CIRCLE;
-        this.drawType = GraphicType.EllipseGeom;
-        geometryFunction = this.createPolygon;
+        geometryFunction = function (coordinates, opt_geometry, projection) {
+          _this.controlPoint = coordinates;
+            let geometry = Algorithm.getEllipseGeom(coordinates, opt_geometry, projection);
+          return geometry;
+        };
         break;
       default:
         targetType = GraphicType.POINT;
@@ -307,6 +310,7 @@ class Draw {
           case GraphicType.FINEARROW:
           case GraphicType.ATTACKARROW:
           case GraphicType.PINCERARROW:
+          case GraphicType.EllipseGeom:
             coordinate = coordinate[0];
             break;
         }
