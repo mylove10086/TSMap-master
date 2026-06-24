@@ -31,7 +31,7 @@
 *.out
 *.app
 node_modules
-*.dist
+/dist
 # 添加到 .gitignore 文件
 /node_modules
 
