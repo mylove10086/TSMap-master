@@ -30,8 +30,11 @@
 *.exe
 *.out
 *.app
-*.node_modules
+node_modules
 *.dist
+# 添加到 .gitignore 文件
+/node_modules
+
 
 
 
